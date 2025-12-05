@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "split": "train",
+  "global": {
+    "font_path": "fonts/dejavu-sans-ttf-2.37/ttf/DejaVuSans.ttf",
+    "margin_rel": 0.01,
+    "pad_rel": 0.01,
+    "offset_px": 8,
+    "stroke_width": 1,
+    "stroke_fill": [0, 0, 0],
+    "max_retry": 30,
+    "seed_rule": "hash(image_id + attack_type)"
+  },
+  "color_palette_rgb": [
+    [255, 255, 255],
+    [0, 0, 0],
+    [255, 0, 0],
+    [255, 128, 0],
+    [0, 200, 0],
+    [0, 128, 255],
+    [255, 215, 0],
+    [160, 32, 240]
+    ],
+  "patterns": [
+    {
+      "pattern_id": "txt_bucket_train_mid",
+      "attack_type": "text_attack",
+      "placement": {
+        "mode": "grid_distance_bucketed",
+        "choices": ["mid"],
+        "probs":   [1.0],
+        "random_within_cell": true
+      },
+      "font": { "min_px": 24, "max_px": 32, "step": 1, "sampling": "uniform" },
+      "fill": { "mode": "palette_uniform", "palette_indices": [0,1,2,3,4,5,6,7] },
+      "avoid_ocr": true
+    }
+  ]
+}
