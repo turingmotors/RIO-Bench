@@ -8,14 +8,11 @@ For evaluation, we present the **Read-or-Ignore Benchmark (RIO-Bench)**, a stand
 
 
 ### Overview
-![RIO-VQA Overview](./assets/teaser_light.png)
+<img src="./assets/teaser_light.png" alt="RIO-VQA Overview" width="600"/>
 
-<br><br>
-<br><br>
 
 ### RIO-VQA Taxonomy
-![RIO-VQA Taxonomy](./assets/taxonomy_light.png)
-
+<img src="./assets/taxonomy_light.png" alt="RIO-VQA Taxonomy" width="600"/>
 
 # How to use RIO-Bench
 
