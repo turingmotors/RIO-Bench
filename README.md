@@ -26,10 +26,13 @@ bash setup.sh
 bash ./scripts/eval_template.sh
 ```
 
-
 # RIO-RT (Read-or-Ignore Robust Training)
 ```bash
 bash ./scripts/train_unsloth_template.sh
+```
+For peft training, please create environment for peft, and run:
+```bash
+bash ./scripts/train_peft_template.sh
 ```
 
 # RIO-Bench Construction Reproduction / Customization

@@ -218,6 +218,7 @@ def main():
             processor.convert_tokens_to_ids = tokenizer.convert_tokens_to_ids
         if not hasattr(processor, "convert_ids_to_tokens") and hasattr(tokenizer, "convert_ids_to_tokens"):
             processor.convert_ids_to_tokens = tokenizer.convert_ids_to_tokens
+            
         assert model_args.loftq_config is None, "LoFTQ is not implemented yet."
 
         print("Configuring PEFT model...")
@@ -332,7 +333,7 @@ def main():
                     indices=indices_list.pop(0),
                 )
                 # disjoint case: original code used peft_ver=False
-                processed_ds = preprocess_one_dataset(ds_name, ds, model_args, peft_ver=False)
+                processed_ds = preprocess_one_dataset(ds_name, ds, model_args, peft_ver=True)
                 processed_datasets.append(processed_ds)
                 print(f"--- {ds_name}: {len(processed_ds)}")
             processed_train_dataset = list(chain.from_iterable(processed_datasets))
@@ -372,7 +373,6 @@ def main():
         train_dataset=processed_train_dataset,
         peft_config=peft_config,
         processing_class=processor,
-        tokenizer=tokenizer,
     )
     trainer.accelerator.print(f"{trainer.model}")
     if hasattr(trainer.model, "print_trainable_parameters"):
