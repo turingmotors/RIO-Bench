@@ -1,6 +1,7 @@
 data/
 outputs/
 unsloth_compiled_cache/
+wandb/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
