@@ -3,15 +3,13 @@ import os
 import glob
 from datasets import load_from_disk
 
-data_dir = "./data/RIO-Bench/hf_dataset"
-filtered_dir = "./data/RIO-Bench/hf_dataset_unique_img"
+DATA_DIR = "../data/RIO-Bench/hf_dataset"
+FILTERED_DATA_DIR = "../data/RIO-Bench/hf_dataset_unique_img"
 
 # --- text
 for split in ["train", "val"]:
     for t in ["txt_clean", "txt_attack"]:
-        dataset_dirs = glob.glob(os.path.join(data_dir, split, t, "*"))
-        # dataset_dirs = [d for d in dataset_dirs if "open_ended" in d and "_v3" in d]
-        dataset_dirs = [d for d in dataset_dirs if "old" not in d]
+        dataset_dirs = glob.glob(os.path.join(DATA_DIR, split, t, "*"))
         for _d in dataset_dirs:
             print(f"Processing {_d} ...")
             ds = load_from_disk(_d)
@@ -27,7 +25,7 @@ for split in ["train", "val"]:
                     print(f"    Processed {i} items, found {len(unique_img_ids)} unique images so far...")
             ds_unique = ds.select(unique_indices)
             print(f"  Unique size: {len(ds_unique)}")
-            out_dir = _d.replace(data_dir, filtered_dir)
+            out_dir = _d.replace(DATA_DIR, FILTERED_DATA_DIR)
             os.makedirs(out_dir, exist_ok=True)
             ds_unique.save_to_disk(out_dir)
             print(f"  Saved to {out_dir}")
@@ -37,8 +35,7 @@ print("Done.")
 # --- object
 for split in ["train", "val"]:
     for t in ["obj_clean", "obj_attack"]:
-        dataset_dirs = glob.glob(os.path.join(data_dir, split, t, "*"))
-        dataset_dirs = [d for d in dataset_dirs if "open_ended" in d and "_v3" in d]
+        dataset_dirs = glob.glob(os.path.join(DATA_DIR, split, t, "*"))
         for _d in dataset_dirs:
             print(f"Processing {_d} ...")
             ds = load_from_disk(_d)
@@ -54,7 +51,7 @@ for split in ["train", "val"]:
                     print(f"    Processed {i} items, found {len(unique_img_ids)} unique images so far...")
             ds_unique = ds.select(unique_indices)
             print(f"  Unique size: {len(ds_unique)}")
-            out_dir = _d.replace(data_dir, filtered_dir)
+            out_dir = _d.replace(DATA_DIR, FILTERED_DATA_DIR)
             os.makedirs(out_dir, exist_ok=True)
             ds_unique.save_to_disk(out_dir)
             print(f"  Saved to {out_dir}")
