@@ -92,10 +92,6 @@ echo "Target layers:${target_layers}"
 echo "Seed:         ${seed}"
 echo "==============================="
 
-# ===== Environment =====
-source ~/miniconda3/etc/profile.d/conda.sh
-conda activate unsloth_env
-
 # ===== Train (single run) =====
 python3 train_sft_unsloth.py \
     --model_name_or_path "${model}" \

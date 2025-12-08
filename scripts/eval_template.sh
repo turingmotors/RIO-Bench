@@ -3,12 +3,12 @@
 # huggingface-cli login --token $HF_TOKEN
 
 model_name_list=(
-    llava-hf/llava-1.5-7b-hf
+    # llava-hf/llava-1.5-7b-hf
     # llava-hf/llava-1.5-13b-hf
     # Qwen/Qwen3-VL-8B-Instruct
     # Qwen/Qwen2.5-VL-7B-Instruct
     # meta-llama/Llama-3.2-11B-Vision-Instruct
-    # HuggingFaceTB/SmolVLM-Instruct
+    HuggingFaceTB/SmolVLM-Instruct
 )
 
 # Typo tasks

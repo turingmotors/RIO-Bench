@@ -6,13 +6,14 @@ from typing import List, Union, Optional
 
 from transformers import HfArgumentParser, AutoModelForCausalLM, AutoTokenizer
 from datasets import load_dataset, load_from_disk
+from datasets import Dataset as HFDataset
 from trl import SFTConfig, SFTTrainer
 from peft import PeftModel, LoraConfig, TaskType, get_peft_model
 
 from PIL import Image as PILImage
 import json
 
-from utils import set_random_seed
+from utils import set_random_seed, Tee
 from preprocess_dataset import preprocess_dataset
 from preprocess_dataset_train import preprocess_dataset_train
 
@@ -184,6 +185,8 @@ def main():
 
         return {k: v for k, v in d.items() if is_json_serializable(v)}
 
+    from dataclasses import asdict
+
     def args_to_json(args, filename):
         d = asdict(args)
         d = filter_json_serializable(d)
@@ -205,6 +208,16 @@ def main():
         model, processor = load_model_and_processor(model_args.model_name_or_path)
         print(model)
 
+        tokenizer = processor.tokenizer
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
+            tokenizer.pad_token_id = tokenizer.eos_token_id
+        processor.pad_token = tokenizer.pad_token
+        processor.pad_token_id = tokenizer.pad_token_id
+        if not hasattr(processor, "convert_tokens_to_ids"):
+            processor.convert_tokens_to_ids = tokenizer.convert_tokens_to_ids
+        if not hasattr(processor, "convert_ids_to_tokens") and hasattr(tokenizer, "convert_ids_to_tokens"):
+            processor.convert_ids_to_tokens = tokenizer.convert_ids_to_tokens
         assert model_args.loftq_config is None, "LoFTQ is not implemented yet."
 
         print("Configuring PEFT model...")
@@ -359,6 +372,7 @@ def main():
         train_dataset=processed_train_dataset,
         peft_config=peft_config,
         processing_class=processor,
+        tokenizer=tokenizer,
     )
     trainer.accelerator.print(f"{trainer.model}")
     if hasattr(trainer.model, "print_trainable_parameters"):

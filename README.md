@@ -1,11 +1,11 @@
 # [RIO-Bench] Read or Ignore? A Unified Benchmark for Typographic-Attack Robustness and Text Recognition in Vision-Language Models
 
-- Real-world scenarios often require joint reasoning over both objects and text (e.g., recognizing pedestrians while reading traffic signs). 
+Real-world VLMs must decide when to read text and when to ignore it—e.g., reading traffic signs but not being fooled by text-based attacks on objects.
+To evaluate this ability, we introduce:
 
-- To address this, we introduce a novel task, **Read-or-Ignore VQA (RIO-VQA)**, which formalizes selective text use in visual question answering (VQA): models must decide, from context, when to read text and when to ignore it.
+- RIO-VQA: A task that formalizes selective text use under clean and typographic-attack scenarios.
 
-- For evaluation, we present the **Read-or-Ignore Benchmark (RIO-Bench)**, a standardized dataset and protocol that, for each real image, provides same-scene counterfactuals (read / ignore) by varying only the textual content and question type.
-
+- RIO-Bench: A benchmark providing same-scene counterfactuals (read / ignore variants) by modifying only textual content and question type.
 
 ### RIO-VQA: VLMs Must Adaptively Read or Ignore Texts
 <img src="./figures/teaser_light.png" alt="RIO-VQA Overview" width="600"/>
@@ -15,15 +15,24 @@
 <img src="./figures/taxonomy_light.png" alt="RIO-VQA Taxonomy" width="600"/>
 
 # Environment Setup
-
+```bash
+conda create -n riobench python=3.11 -y
+bash setup.sh
+```
+(Additional dependencies may be required depending on your model/environment.)
 
 # RIO-Bench Evaluation
+```bash
+bash ./scripts/eval_template.sh
+```
 
 
 # RIO-RT (Read-or-Ignore Robust Training)
-
+```bash
+bash ./scripts/train_unsloth_template.sh
+```
 
 # RIO-Bench Construction Reproduction / Customization
-Please see data_construction/README.md for detailed instructions on reproducing and customizing the RIO-Bench datasets.
+Details are provided in: ```data_construction/README.md```
 
 
