@@ -106,14 +106,14 @@ def evaluate_multiple_choice(
     responses: List[str],
     data: Dict[str, List[Any]],
     allow_text_match: bool = True,
-    gt_key: str = "correct_letter",   # 正解ラベルのキー
-    pred_key: Optional[str] = None,   # 予測ラベルのキー（通常はresponsesを使うので不要）
+    gt_key: str = "correct_letter",
+    pred_key: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     Evaluate multiple-choice VQA.
 
-    gt_key: 正解ラベルのキー（例: 'correct_letter', 'correct_idx', 'label' など）
-    pred_key: 予測ラベルのキー（responses以外から取得したい場合のみ指定）
+    gt_key: key of ground truth label (e.g., 'correct_letter', 'correct_idx', 'label', etc.)
+    pred_key: key of predicted label (usually not needed if using responses)
     """
     # 先頭で全キーの長さチェック
     N = len(responses)
@@ -140,7 +140,6 @@ def evaluate_multiple_choice(
 
         # Resolve answer index
         item = {k: (v[i] if isinstance(v, list) and len(v) == len(responses) else None) for k, v in data.items()}
-        # gt_keyで指定されたキーを優先
         answer_idx = None
         if isinstance(item[gt_key], int):
             answer_idx = item[gt_key]
@@ -208,13 +207,13 @@ if __name__ == "__main__":
         "correct_letter": ["A", "C", "A"]  # 正解ラベル
     }
 
-    # conversations: モデルへ投げたプロンプト/履歴（ログ用）
+    # conversations: model prompts/history (for logging)
     conversations = ["...prompt for #1...", "...prompt for #2...", "...prompt for #3..."]
 
-    # responses: モデル出力（自由文OK）
+    # responses: model outputs (free text allowed)
     responses = [
         "I think the answer is (A).",
-        "The correct choice is Koala.",  # テキスト一致でも判定可
+        "The correct choice is Koala.",  # Text match is also acceptable
         "A."   
     ]
 

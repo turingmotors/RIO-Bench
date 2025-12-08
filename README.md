@@ -14,7 +14,13 @@ For evaluation, we present the **Read-or-Ignore Benchmark (RIO-Bench)**, a stand
 ### RIO-VQA Taxonomy
 <img src="./figures/taxonomy_light.png" alt="RIO-VQA Taxonomy" width="600"/>
 
-# How to use RIO-Bench
+# RIO-Bench Evaluation
 
+
+# RIO-RT Training (Read-or-Ignore Robust Training)
+
+
+# RIO-Bench Construction Reproduction / Customization
+Please see data_construction/README.md for detailed instructions on reproducing and customizing the RIO-Bench datasets.
 
 
