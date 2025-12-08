@@ -2,53 +2,36 @@ import os
 os.environ["UNSLOTH_COMPILE_DISABLE"] = "1"
 
 import sys
-
-from unsloth import FastVisionModel
-from unsloth.trainer import UnslothVisionDataCollator
-
-import torch
-import unsloth_zoo.fused_losses.cross_entropy_loss as uf
-uf.unsloth_fused_ce_loss = torch.compiler.disable()(uf.unsloth_fused_ce_loss)
-print("Unsloth loaded successfully.")
-
-import os, torch._dynamo as dynamo
-os.environ["TORCH_LOGS"] = "+dynamo"
-os.environ["TORCHDYNAMO_VERBOSE"] = "1"
-# 逆に強制で eager に落とすなら:
-dynamo.config.suppress_errors = True
-
-from dataclasses import dataclass, field
+import datetime
+from dataclasses import dataclass, field, asdict
 from typing import List, Union, Optional
 
-from transformers import HfArgumentParser
-from datasets import load_dataset, load_from_disk
-from trl import SFTConfig, SFTTrainer
-from PIL import Image as PILImage
 import json
+import torch
+import torch._dynamo as dynamo
+from datasets import load_dataset, load_from_disk
+from PIL import Image as PILImage
+from transformers import HfArgumentParser
+from trl import SFTConfig, SFTTrainer
 
-from utils import set_random_seed
-from preprocess_dataset import preprocess_dataset
+from unsloth import FastVisionModel, is_bf16_supported
+from unsloth.trainer import UnslothVisionDataCollator
+
+from utils import set_random_seed, Tee
 from preprocess_dataset_train import preprocess_dataset_train
 
-import datetime
+os.environ["TORCH_LOGS"] = "+dynamo"
+os.environ["TORCHDYNAMO_VERBOSE"] = "1"
+dynamo.config.suppress_errors = True
 
-def setup_logger(output_dir):
+
+def setup_logger(output_dir: str) -> "IO[str]":
     os.makedirs(output_dir, exist_ok=True)
-    log_path = os.path.join(output_dir, f"{datetime.datetime.now():%Y%m%d_%H%M%S}_train.log")
+    log_path = os.path.join(
+        output_dir,
+        f"{datetime.datetime.now():%Y%m%d_%H%M%S}_train.log",
+    )
     log_file = open(log_path, "w", encoding="utf-8")
-    class Tee:
-        def __init__(self, *streams):
-            self._streams = streams
-        def write(self, data):
-            for s in self._streams:
-                s.write(data)
-                s.flush()
-            return len(data)
-        def flush(self):
-            for s in self._streams:
-                s.flush()
-        def isatty(self):
-            return getattr(self._streams[0], "isatty", lambda: False)()
 
     sys.stdout = Tee(sys.stdout, log_file)
     sys.stderr = Tee(sys.stderr, log_file)
@@ -60,7 +43,6 @@ class ModelArguments:
     model_name_or_path: str = field(default="llava-hf/llava-1.5-7b-hf", metadata={"help": "Path to pretrained model or model identifier."})
     trust_remote_code: bool = field(default=False, metadata={"help": "Trust remote code."})
     lora_enable: bool = field(default=True, metadata={"help": "Enable LoRA."})
-    # freeze_vision: bool = field(default=True, metadata={"help": "Freeze vision backbone."}) # Not used????
     # Trainable layers
     finetune_vision_layers: bool = field(default=False, metadata={"help": "Finetune vision layers."})
     finetune_language_layers: bool = field(default=True, metadata={"help": "Finetune language layers."})
@@ -79,9 +61,6 @@ class ModelArguments:
 
 @dataclass
 class DataArguments:
-    # dataset_name: str = field(default="datasets/ScienceQAimg_train", metadata={"help": "Name of the dataset to use."})
-    # dataset_name: str = field(default="datasets/ScienceQAimg_train", nargs="+", metadata={"help": "Name of the dataset to use."}) # List of datasets
-    # dataset_sample_num: int = field(default=None, nargs="+", metadata={"help": "Number of samples to use from each dataset. -1 means use all samples."})
     dataset_name: List[str] = field(
         default_factory=list,
         metadata={"help": "One or more datasets."}
@@ -111,7 +90,6 @@ class TrainingArguments(SFTConfig):
     # Deepspeed
     num_train_epochs: int = field(default=1, metadata={"help": "Number of training epochs."})
     dataset_num_proc: int = field(default=4, metadata={"help": "Number of processes to use for dataset processing."})
-    # dataloader_num_workers: int = field(default=32, metadata={"help": "Number of workers for data loading."})
     per_device_train_batch_size: int = field(default=4, metadata={"help": "Batch size per device during training."})
     gradient_accumulation_steps: int = field(default=4, metadata={"help": "Number of gradient accumulation steps."})
 
@@ -132,7 +110,7 @@ class TrainingArguments(SFTConfig):
     # Seed
     seed: int = field(default=42, metadata={"help": "Random seed."})
 
-    # Unslothのデモにあったやつ
+    # From Unsloth demo: keep dataset as-is and provide pre-tokenized inputs
     remove_unused_columns: bool = field(default=False, metadata={"help": "Remove unused columns in the dataset."})
     dataset_text_field: str = field(default="", metadata={"help": "Text field in the dataset."})
     dataset_kwargs: dict = field(default_factory=lambda: {"skip_prepare_dataset": True}, metadata={"help": "Additional arguments for the dataset."})
@@ -143,7 +121,6 @@ def main():
     print("[UNSLOTH] Starting SFT training...")
     parser = HfArgumentParser((ModelArguments, DataArguments, TrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
-    # training_args.output_dir = f"{training_args.output_dir}/{os.path.basename(data_args.dataset_name)}_{os.path.basename(model_args.model_name_or_path)}"
 
     # If already exists, skip
     if os.path.exists(os.path.join(training_args.output_dir, "tokenizer.model")) or os.path.exists(os.path.join(training_args.output_dir, "tokenizer.json")):
@@ -262,14 +239,19 @@ def main():
 
     # for debug
     model.config.use_cache = False
-    from unsloth import is_bf16_supported
     training_args.bf16 = is_bf16_supported()
     training_args.report_to = "none"
     training_args.save_strategy = "no"
     torch.autograd.set_detect_anomaly(True)
 
     # Load dataset
-    def load_dataset_with_check(dataset_name, max_train_samples, split="train", seed=training_args.seed, indices=None):
+    def load_dataset_with_check(
+        dataset_name: str,
+        max_train_samples: Optional[int],
+        split: str = "train",
+        seed: int = training_args.seed,
+        indices: Optional[List[int]] = None,
+    ):
         print(f"Loading dataset: {dataset_name}")
         if os.path.isdir(dataset_name):
             ds = load_from_disk(dataset_name)
@@ -284,17 +266,15 @@ def main():
                 print(f"Selecting {max_train_samples} random samples from the dataset... seed={seed}")
                 ds = ds.shuffle(seed=seed).select(range(max_train_samples))
 
-
-        # Qwenの場合は画像のサイズが一定値以上でないとエラーになるので、サイズをチェックする
+        # Special handling for Qwen: enforce minimum image size
         if "qwen" in model_args.model_name_or_path.lower():
             print("Qwen model detected, checking image sizes...")
             min_size = 28
 
             def is_large_enough(example):
-                if not isinstance(example["image"], PILImage.Image):
-                    img = PILImage.open(example["image"]).convert("RGB")
-                else:
-                    img = example["image"]
+                img = example["image"]
+                if not isinstance(img, PILImage.Image):
+                    img = PILImage.open(img).convert("RGB")
                 w, h = img.size
                 return w >= min_size and h >= min_size
 
@@ -304,7 +284,17 @@ def main():
         return ds
 
     # Preprocess dataset
-    # print(data_args.dataset_name, data_args.dataset_sample_num)
+    def preprocess_one_dataset(ds_name: str, ds, model_args):
+        split_name = ds_name.split("/")[-2]
+        subset_name = ds_name.split("/")[-1]
+        return preprocess_dataset_train(
+            ds,
+            split_name=split_name,
+            subset_name=subset_name,
+            model_name=model_args.model_name_or_path,
+            peft_ver=False,
+        )
+        
     if isinstance(data_args.dataset_name, list) and len(data_args.dataset_name) > 1:
         print("Multiple datasets detected, combining datasets...")
         if data_args.is_disjoint_comb:
@@ -327,9 +317,7 @@ def main():
             processed_datasets = []
             for ds_name, ds_num in zip(data_args.dataset_name, data_args.dataset_sample_num):
                 ds = load_dataset_with_check(ds_name, ds_num, split="train", indices=indices_list.pop(0))
-                split_name = ds_name.split("/")[-2]
-                subset_name = ds_name.split("/")[-1]
-                processed_ds = preprocess_dataset_train(ds, split_name=split_name, subset_name=subset_name, model_name=model_args.model_name_or_path, peft_ver=False)
+                processed_ds = preprocess_one_dataset(ds_name, ds, model_args)
                 processed_datasets.append(processed_ds)
                 print(f"--- {ds_name}: {len(processed_ds)}")
             # Combine datasets
@@ -341,9 +329,7 @@ def main():
             processed_datasets = []
             for ds_name, ds_num in zip(data_args.dataset_name, data_args.dataset_sample_num):
                 ds = load_dataset_with_check(ds_name, ds_num, split="train")
-                split_name = ds_name.split("/")[-2]
-                subset_name = ds_name.split("/")[-1]
-                processed_ds = preprocess_dataset_train(ds, split_name=split_name, subset_name=subset_name, model_name=model_args.model_name_or_path, peft_ver=False)
+                processed_ds = preprocess_one_dataset(ds_name, ds, model_args)
                 processed_datasets.append(processed_ds)
                 print(f"--- {ds_name}: {len(processed_ds)}")
             # Combine datasets
@@ -355,11 +341,8 @@ def main():
             data_args.dataset_name = data_args.dataset_name[0]
             data_args.dataset_sample_num = data_args.dataset_sample_num[0] if data_args.dataset_sample_num is not None else -1
         ds = load_dataset_with_check(data_args.dataset_name, data_args.dataset_sample_num, split="train")
-        # processed_train_dataset = preprocess_dataset(ds, dataset_id=data_args.dataset_name, model_name=model_args.model_name_or_path, text_only=False)
         ds_name = data_args.dataset_name
-        split_name = ds_name.split("/")[-2]
-        subset_name = ds_name.split("/")[-1]
-        processed_train_dataset = preprocess_dataset_train(ds, split_name=split_name, subset_name=subset_name, model_name=model_args.model_name_or_path, peft_ver=False)
+        processed_train_dataset = preprocess_one_dataset(ds_name, ds, model_args)
 
     # Training
     model.print_trainable_parameters()
@@ -376,31 +359,14 @@ def main():
 
     trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
 
-    # model.save_pretrained(training_args.output_dir)
-    # processor.save_pretrained(training_args.output_dir)
-    # print(f"Model and processor saved to {training_args.output_dir}")
-
-    # Save merged model
     new_dir = os.path.join(training_args.output_dir)
     if not os.path.exists(new_dir):
         os.makedirs(new_dir) 
     
-    # if "qwen3" in model_args.model_name_or_path.lower():
-    #     # For Qwen3, merge is buggy
-    #     model.save_pretrained(new_dir, processor)
-    #     processor.save_pretrained(new_dir)
-    #     print(f"Full model saved to {new_dir}")
-    # else:
-    #     model.save_pretrained_merged(new_dir, processor, save_method = "merged_16bit")
-    #     print(f"Merged model saved to {new_dir}")
-
-    # to save memory, only save the LoRA parameters
+    # Save only the fine-tuned (PEFT) adapter weights and processor
     model.save_pretrained(new_dir, processor)
     processor.save_pretrained(new_dir)
     print(f"LoRA saved to {new_dir}")
-
-
-
 
     log_file.close()
 

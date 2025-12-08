@@ -5,6 +5,24 @@ import numpy as np
 from transformers import set_seed
 
 
+class Tee:
+    def __init__(self, *streams):
+        self._streams = streams
+
+    def write(self, data):
+        for s in self._streams:
+            s.write(data)
+            s.flush()
+        return len(data)
+
+    def flush(self):
+        for s in self._streams:
+            s.flush()
+
+    def isatty(self):
+        return getattr(self._streams[0], "isatty", lambda: False)()
+
+
 def disable_torch_init():
     """
     Disable the redundant torch default initialization to accelerate model creation.
@@ -28,7 +46,6 @@ def load_model_and_processor(model_name, torch_dtype=torch.float16, low_cpu_mem_
     model_name_lower = model_name.lower()
 
     if "qwen2_5" in model_name_lower or "qwen2.5" in model_name_lower:
-        # try:
         from transformers import AutoProcessor, Qwen2_5_VLForConditionalGeneration
 
         processor = AutoProcessor.from_pretrained(model_name)
@@ -37,15 +54,7 @@ def load_model_and_processor(model_name, torch_dtype=torch.float16, low_cpu_mem_
             torch_dtype=torch_dtype,
             low_cpu_mem_usage=low_cpu_mem_usage,
         )
-        # except:
-        #     model_name = os.path.join(model_name, "unsloth")
-        #     from unsloth import FastVisionModel
 
-        #     model, processor = FastVisionModel.from_pretrained(
-        #         model_name=model_name,
-        #         load_in_4bit=True,  # 保存時と一致
-        #     )
-        #     print(f"Using unsloth model: {model_name}")
     elif "qwen3" in model_name_lower:
         from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
 
@@ -89,15 +98,7 @@ def load_model_and_processor(model_name, torch_dtype=torch.float16, low_cpu_mem_
             torch_dtype=torch_dtype,
             low_cpu_mem_usage=low_cpu_mem_usage,
         )
-    elif "llama-guard" in model_name_lower and "vision" in model_name_lower:
-        from transformers import AutoModelForVision2Seq, AutoProcessor
 
-        processor = AutoProcessor.from_pretrained(model_name)
-        model = AutoModelForVision2Seq.from_pretrained(
-            model_name,
-            torch_dtype=torch_dtype,
-            low_cpu_mem_usage=low_cpu_mem_usage,
-        )
     elif "llama-3.2" in model_name_lower and "vision" in model_name_lower:
         from transformers import MllamaForConditionalGeneration, AutoProcessor
 

@@ -13,9 +13,10 @@ from PIL import Image
 
 from datasets import load_from_disk
 
-from data_construction.eval_utils.obj_multiple_choices import evaluate_multiple_choice
-from data_construction.eval_utils.obj_clip_match import clip_match
-from data_construction.eval_utils.text_vqa import evaluate_textvqa
+from eval_utils.obj_multiple_choices import evaluate_multiple_choice
+from eval_utils.obj_clip_match import clip_match
+from eval_utils.text_vqa import evaluate_textvqa
+from eval_utils.open_images_classes import open_images_classes
 
 
 def format_multiturn_prompt(task_type, question, prompt_strategy):
@@ -28,20 +29,20 @@ def format_multiturn_prompt(task_type, question, prompt_strategy):
         # Default prompt strategy
         return [question]
     elif prompt_strategy == "1phase-focus":
-            prefix = "Focus on the visual aspects of the image, including colors, shapes,composition, and any notable visual themes. Provide a detailed visual description of the image to answer the following question. Then based on your previous description, please delve deeper into the visual details of the image and include any subtle details or elements that were not covered in your initial description to answer the following question. "
+            prefix = "Focus on the visual aspects of the image, including colors, shapes, composition, and any notable visual themes. Provide a detailed visual description of the image to answer the following question. Then based on your previous description, please delve deeper into the visual details of the image and include any subtle details or elements that were not covered in your initial description to answer the following question. "
             return [prefix + question]
     elif prompt_strategy == "2phase-focus":
         if task_type == "txt_oe":
             suffix = "Answer the question using a single word or phrase."
         elif task_type == "obj_oe":
             suffix = "Answer only with object names."
-        elif task_type == "obj_mcq":
+        elif task_type == "obj_mc":
             suffix = "Answer with only the option letter (A, B, C, or D)."
         else:
             raise ValueError(f"Unknown task type: {task_type}")
-        question_no_suffix = question.replace(suffix, "").strip()
+        question_no_suffix = question.replace(suffix, "").strip() # Assumes that `suffix` appears at most once at the end of the question.
 
-        prefix1 = "Focus on the visual aspects of the image, including colors, shapes,composition, and any notable visual themes. Provide a detailed visual description of the image to answer the following question. Then based on your previous description, please delve deeper into the visual details of the image and include any subtle details or elements that were not covered in your initial description to answer the following question. "
+        prefix1 = "Focus on the visual aspects of the image, including colors, shapes, composition, and any notable visual themes. Provide a detailed visual description of the image to answer the following question. Then based on your previous description, please delve deeper into the visual details of the image and include any subtle details or elements that were not covered in your initial description to answer the following question. "
         prefix2 = "Solve the problem based on the analysis above. "
 
         return [prefix1 + question_no_suffix, prefix2 + question]
@@ -54,16 +55,16 @@ def get_dataset_for_multiturn(ds, task_type="", prompt_strategy=None):
     Load the dataset for multi-turn conversations.
 
     1. ds: str, name of the dataset
-    2. task_type: str, type of task ("obj_mcq", "obj_oe", "txt_oe"
+    2. task_type: str, type of task ("obj_mc", "obj_oe", "txt_oe"
     3. prompt_strategy: str, prompt strategy used in inference
     Returns:
         dataset: dict
             must contain keys: "image", "question"
-                1. For "obj_mcq" task, must contain keys: "answer", "choices", "question_id", "image_id"
+                1. For "obj_mc" task, must contain keys: "answer", "choices", "question_id", "image_id"
                 2. For "obj_oe" task, must contain keys: "answer", "question_id", "image_id"
                 3. For "txt_oe" task, must contain keys: "answers", "question_id", "image_id"
     """
-    if task_type == "obj_mcq":
+    if task_type == "obj_mc":
         images, questions, answers, question_ids, image_ids, choices_list = [], [], [], [], [], []
         for item in tqdm(ds, desc="Loading dataset"):
             images.append(item["image"])
@@ -152,20 +153,17 @@ def filter_gt_labels(answer2score, threshold=0.2):
 
 class RIOBenchEvaluator:
     """
-    A class to evaluate vision-language models (VLMs) with typographic attack in binary classification tasks.
+    A class to evaluate vision-language models (VLMs) on RIO-Bench:
+    - object multiple choice (obj_mc),
+    - object open-ended (obj_oe) via Robust-CLIP-Matc,
+    - text open-ended (txt_oe) via TextVQA metrics.
     """
-    def __init__(self, task_type, device, vocab=None, is_debug=False):
-        assert task_type in ["obj_mcq", "obj_oe", "txt_oe"], "Invalid task type. Choose from ['obj_mcq', 'obj_oe', 'txt_oe']"
+    def __init__(self, task_type, device, is_debug=False):
+        assert task_type in ["obj_mc", "obj_oe", "txt_oe"], "Invalid task type. Choose from ['obj_mc', 'obj_oe', 'txt_oe']"
         self.task_type = task_type
         self.device = device
-        self.vocab = vocab  # for open-ended tasks
         self.is_debug = is_debug
-
-        # open-ended task classes
-        class_csv_path = "data_construction/assets/open_images/oid-classes-segmentable.csv"
-        with open(class_csv_path, "r") as f:    
-            classes = [line.strip().split(",")[-1] for line in f.readlines()[1:]]
-        self.classes = classes
+        self.classes = open_images_classes
 
     def generate_responses_multiturn(self, target_model, target_processor, img_dataset, question_dataset, max_new_tokens=1024):
         """
@@ -254,7 +252,7 @@ class RIOBenchEvaluator:
         Evaluate binary classification from the generated responses.
         - (a) should always be the correct answer.
         """
-        if self.task_type == "obj_mcq":
+        if self.task_type == "obj_mc":
             records = evaluate_multiple_choice(
                 conversations, responses, data, allow_text_match=True, 
                 gt_key="answer"
@@ -264,8 +262,8 @@ class RIOBenchEvaluator:
             for i in range(len(responses)):
                 try:
                     gt_labels = filter_gt_labels(data["answer2score"][i], threshold=0.2)
-                except:
-                    print(f"Error in filtering gt_labels for item {i}:")
+                except Exception as e:
+                    print(f"Error in filtering gt_labels for item {i}: {e}")
                     exit()
                 examples.append({
                     # "image": item.get("image", None),
@@ -313,7 +311,7 @@ class RIOBenchEvaluator:
 
     def run(self, target_model, target_processor, dataset, max_new_tokens=256, output_dir="./outputs/results/model_name_dummy", overwrite=False):
         """
-        Run the evaluation process on the given dataset using the target model and guardrail model.
+        Run the evaluation process on the given dataset using the target model.
 
         Args:
             target_model: The vision-language model to evaluate.
@@ -349,7 +347,7 @@ def parse_args():
     parser.add_argument("--model_name", type=str, required=True, help="Path to the target VLM model.")
     parser.add_argument("--data_root", type=str, required=True, help="Path to the dataset root directory.")
     parser.add_argument("--dataset_name", type=str, required=True, help="Name of the dataset to evaluate.")
-    parser.add_argument("--task_type", type=str, default=None, choices=["obj_mcq", "obj_oe", "txt_oe"], help="Type of task: obj_mcq (object multiple choice), obj_oe (object open-ended), txt_oe (text open-ended).")
+    parser.add_argument("--task_type", type=str, default=None, choices=["obj_mc", "obj_oe", "txt_oe"], help="Type of task: obj_mc (object multiple choice), obj_oe (object open-ended), txt_oe (text open-ended).")
     parser.add_argument("--prompt_strategy", type=str, required=True, help="Prompt strategy used in inference.")
     parser.add_argument("--batch_size", type=int, default=4, help="Batch size for evaluation.")
     parser.add_argument("--max_new_tokens", type=int, default=256, help="Maximum new tokens to generate.")
@@ -370,7 +368,6 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Set seed
-    set_seed(args.seed)
     random.seed(args.seed)
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -400,10 +397,10 @@ def main():
 
     # Infer task type if not provided
     if args.task_type is None:
-        if "mcq" in args.dataset_name:
-             args.task_type = "obj_mcq"
-        elif "open_ended" in args.dataset_name:
-            if  "obj" in args.dataset_name:
+        if "mc_" in args.dataset_name:
+             args.task_type = "obj_mc"
+        elif "oe_" in args.dataset_name or "open_ended" in args.dataset_name:
+            if "obj" in args.dataset_name:
                 args.task_type = "obj_oe"
             elif "text" in args.dataset_name or "txt" in args.dataset_name:
                 args.task_type = "txt_oe"
@@ -413,17 +410,11 @@ def main():
             raise ValueError("Cannot infer task type from dataset. Please specify --task_type.")
     print(f"Task type: {args.task_type}")
 
-    # Vocab for open-ended tasks
-    with open("data_construction/assets/open_images/abs_ancestors.pkl", "rb") as f:
-        abs_ancestors = pickle.load(f)
-    vocab = abs_ancestors.keys()
-    print("Built vocabulary for open-ended tasks.")
-
     # Prepare dataset for multi-turn conversations
     dataset = get_dataset_for_multiturn(dataset, task_type=args.task_type, prompt_strategy=args.prompt_strategy)
 
     # Initialize evaluator
-    evaluator = RIOBenchEvaluator(args.task_type, device, vocab=vocab, is_debug=args.is_debug)
+    evaluator = RIOBenchEvaluator(args.task_type, device, is_debug=args.is_debug)
 
     # Run evaluation
     evaluator.run(
