@@ -2,6 +2,10 @@ import os
 os.environ["UNSLOTH_COMPILE_DISABLE"] = "1"
 
 import sys
+
+from unsloth import FastVisionModel, is_bf16_supported
+from unsloth.trainer import UnslothVisionDataCollator
+
 import datetime
 from dataclasses import dataclass, field, asdict
 from typing import List, Union, Optional
@@ -13,9 +17,6 @@ from datasets import load_dataset, load_from_disk
 from PIL import Image as PILImage
 from transformers import HfArgumentParser
 from trl import SFTConfig, SFTTrainer
-
-from unsloth import FastVisionModel, is_bf16_supported
-from unsloth.trainer import UnslothVisionDataCollator
 
 from utils import set_random_seed, Tee
 from preprocess_dataset_train import preprocess_dataset_train
@@ -351,7 +352,6 @@ def main():
     FastVisionModel.for_training(model)
     trainer = SFTTrainer(
         model=model,
-        tokenizer=processor,
         data_collator=UnslothVisionDataCollator(model, processor),
         train_dataset=processed_train_dataset,
         args=training_args,
