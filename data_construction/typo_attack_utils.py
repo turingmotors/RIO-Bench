@@ -16,7 +16,7 @@ Rect = Tuple[int, int, int, int]  # (x0, y0, x1, y1)
 GridCode = Tuple[str, ...]
 DEFAULT_GRID_ORDER: GridCode = ("C","TL","TR","BL","BR","TC","BC","CL","CR")
 
-FIXED_FONT = str(Path(__file__).parent / "fonts" / "dejavu-sans-ttf-2.37/ttf/DejaVuSans.ttf")
+FIXED_FONT = str(Path("assets") / "fonts" / "dejavu-sans-ttf-2.37/ttf/DejaVuSans.ttf")
 print("Using fixed font:", FIXED_FONT)
 
 _num_re = re.compile(r"\d+(?:[.,]\d+)*")  # 10, 10.5, 1,000.25 (NFKC handled below)
@@ -813,7 +813,19 @@ def place_text_random_continuous(
     ymax = H - margin_px - bbox_margin_px - th
     if xmax <= xmin or ymax <= ymin:
         print(f"Warning: no space to place text box of size ({tw}x{th}) in image ({W}x{H}) with margin {margin_px}+{bbox_margin_px}", file=sys.stderr)
-        return None
+        # return None
+        # force place at top-left corner
+        img_copy = image.copy()
+        draw2 = ImageDraw.Draw(img_copy)
+        x, y = xmin, ymin
+        draw2.text((x, y), text, font=font, fill=fill,
+                stroke_width=stroke_width,
+                stroke_fill=(stroke_fill if stroke_width > 0 else None))
+        rect = _safe_textbbox(draw2, (x, y), text, font,
+                            stroke_width=stroke_width,
+                            stroke_fill=(stroke_fill if stroke_width > 0 else None))
+        return img_copy, (x, y), rect
+
     for _ in range(max_retry):
         x = rnd.randint(xmin, xmax)
         y = rnd.randint(ymin, ymax)
@@ -832,7 +844,17 @@ def place_text_random_continuous(
                               stroke_fill=(stroke_fill if stroke_width > 0 else None))
         return img_copy, (x, y), rect
     print(f"Warning: failed to place text after {max_retry} retries", file=sys.stderr)
-    return None
+    # force place at top-left corner
+    img_copy = image.copy()
+    draw2 = ImageDraw.Draw(img_copy)
+    x, y = xmin, ymin
+    draw2.text((x, y), text, font=font, fill=fill,
+               stroke_width=stroke_width,
+               stroke_fill=(stroke_fill if stroke_width > 0 else None))
+    rect = _safe_textbbox(draw2, (x, y), text, font,
+                          stroke_width=stroke_width,
+                          stroke_fill=(stroke_fill if stroke_width > 0 else None))
+    return img_copy, (x, y), rect
 
 
 # -----------------------------

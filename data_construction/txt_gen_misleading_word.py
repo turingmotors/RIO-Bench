@@ -33,108 +33,36 @@ def load_chat_model(model_id: str, load_in_8bit: bool = True):
 # ===========================
 # Prompt templates (TextVQA)
 # ===========================
-PROMPT_TEMPLATES = {
-    # "attack-v1": """
-    #     [INST]
-    #     You are given a Text-VQA question and its correct answers.
-    #     Return exactly one misleading words or short phrases (max 3 words each) that contradict the correct answers.
-    #     The misleading word/phrase should be relevant to the question, but must not appear in the correct answers.
+PROMPT_TEMPLATE = {
+    "system": "You are an assistant that generates clearly incorrect but realistic alternative answers for TextVQA questions. Always respond in valid JSON.",
+    "user": """
+        Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:
+        - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers
+        - Does NOT appear in or overlap with the correct answers.
 
-    #     Question: {question}
-    #     Correct Answers: {answers_norm}
+        Output format:
+        {{ "misleading": "<your misleading word or phrase>" }}
 
-    #     Important instructions:
-    #     - Return your answer in JSON format: {{ "misleading": str}}.
-    #     - The value must be 1 to 3 words only (e.g., "blue", "apple pie", "42"). 
-    #     - Output only the JSON object. Nothing else.
-    #     [/INST]
-    #     """,
-    "attack-v2": {
-        "system": "You are an assistant that generates clearly incorrect but realistic alternative answers for TextVQA questions. Always respond in valid JSON.",
+        Example:
+        Question: What color is the sky?
+        Correct Answers: blue
+        Output: {{ "misleading": "green" }}
 
-        "user": """
-            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:
-            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers
-            - Does NOT appear in or overlap with the correct answers.
+        Example:
+        Question: what is the time?
+        Correct Answers: 1:30
+        Output: {{ "misleading": "11:00" }}
 
-            Output format:
-            {{ "misleading": "<your misleading word or phrase>" }}
+        Example:
+        Question: Is there a pizza on the table?
+        Correct Answers: yes
+        Output: {{ "misleading": "no" }}
 
-            Example:
-            Question: What color is the sky?
-            Correct Answers: blue
-            Output: {{ "misleading": "green" }}
-
-            Example:
-            Question: what is the time?
-            Correct Answers: 1:30
-            Output: {{ "misleading": "11:00" }}
-
-            Example:
-            Question: Is there a pizza on the table?
-            Correct Answers: yes
-            Output: {{ "misleading": "no" }}
-
-            Now generate for:
-            Question: {question}
-            Correct Answers: {answers_norm}
-            """
-        }
+        Now generate for:
+        Question: {question}
+        Correct Answers: {answers_norm}
+        """
 }
-
-# ===========================
-# Normalization & tiny synonyms
-# ===========================
-def normalize_text(s: str) -> str:
-    """
-    Lightweight normalization for lexical comparison:
-    - lowercase
-    - strip and collapse spaces
-    """
-    if not isinstance(s, str):
-        return ""
-    s = s.strip().lower()
-    s = " ".join(s.split())
-    return s
-
-def plural_variants(word: str) -> List[str]:
-    """
-    A tiny plural/singular variant generator (no external deps).
-    Sufficient for basic filtering and deduplication.
-    """
-    w = normalize_text(word)
-    cand = {w}
-    if w.endswith("s") and len(w) > 1:
-        cand.add(w[:-1])
-    else:
-        cand.add(w + "s")
-    if w.endswith("ies") and len(w) > 3:
-        cand.add(w[:-3] + "y")
-    if w.endswith("y") and len(w) > 1:
-        cand.add(w[:-1] + "ies")
-    return list(cand)
-
-def expand_synonyms(seed_words: List[str],
-                    extra_syn_map: Optional[Dict[str, List[str]]] = None) -> List[str]:
-    """
-    Build a small synonym set from seed words:
-    - base normalization
-    - plural variants
-    - optional small domain-specific synonym map
-    """
-    syns = set()
-    for w in seed_words:
-        syns.add(normalize_text(w))
-        for v in plural_variants(w):
-            syns.add(normalize_text(v))
-    if extra_syn_map:
-        for w in seed_words:
-            base = normalize_text(w)
-            for v in extra_syn_map.get(base, []):
-                syns.add(normalize_text(v))
-                for vv in plural_variants(v):
-                    syns.add(normalize_text(vv))
-    return sorted(syns)
 
 # ===========================
 # Prompting helpers
@@ -242,7 +170,7 @@ def extract_json_simple(text: str) -> dict | None:
 # ===========================
 # Batch driver
 # ===========================
-def run_batch_textvqa(chat, items, save_path=None, batch_size=4, template_key="attack-v1"):
+def run_batch_textvqa(chat, items, save_path=None, batch_size=4):
     all_outputs = []
     for i in tqdm(range(0, len(items), batch_size), desc="Generating TextVQA triplet attacks"):
         batch = items[i:i+batch_size]
@@ -264,14 +192,9 @@ def run_batch_textvqa(chat, items, save_path=None, batch_size=4, template_key="a
             # get top 1 answer, since TextVQA has multiple annotators
             answers_norm = sorted(answers_norm, key=lambda x: answers_norm_list.count(x), reverse=True)[:1]
             # Use all normalized answers (comma-separated) for the prompt
-            # prompts.append(PROMPT_TEMPLATES[template_key].format(
-            #     question=question,
-            #     answers_norm=answers_norm[0] if answers_norm else "unknown"
-            # ))
-            assert template_key == "attack-v2", "Only attack-v2 is supported now"
             messages = [
-                {"role": "system", "content": PROMPT_TEMPLATES[template_key]["system"]},
-                {"role": "user", "content": PROMPT_TEMPLATES[template_key]["user"].format(
+                {"role": "system", "content": PROMPT_TEMPLATE["system"]},
+                {"role": "user", "content": PROMPT_TEMPLATE["user"].format(
                     question=question,
                     answers_norm=", ".join(answers_norm) if answers_norm else "unknown"
                 )}
@@ -329,42 +252,35 @@ if __name__ == "__main__":
 
     # -----------------------------
     # --- Load chat model ---
-    # model_id = "meta-llama/Llama-2-13b-chat-hf"
-    # model_id = "meta-llama/Meta-Llama-3-8B"
     model_id = "meta-llama/Llama-3.1-8B-Instruct"
     chat = load_chat_model(model_id, load_in_8bit=True)
 
     model_name = model_id.split("/")[-1].replace("/", "-")
-    template_key = "attack-v2"  # "attack-v1" or "attack-v2"
 
-    # -----------------------------
-    # split = "validation"  # "train" or "validation"
-    split = "train"  # "train" or "validation"
-    # -----------------------------
+    for split in ["train", "validation"]:
 
-    SAVE_DIR = f"output/misleading_word/{model_name}/{template_key}/"
-    os.makedirs(SAVE_DIR, exist_ok=True)
+        SAVE_DIR = f"assets/textvqa_misleading_word/{model_name}/"
+        os.makedirs(SAVE_DIR, exist_ok=True)
 
-    ds = load_dataset("facebook/textvqa", split=split)
+        ds = load_dataset("facebook/textvqa", split=split)
 
-    # set seeds
-    from transformers import set_seed
-    set_seed(42)  # You can replace 42 with any integer
+        # set seeds
+        from transformers import set_seed
+        set_seed(42)  # You can replace 42 with any integer
 
-    items = []
-    for item in ds:
-        items.append({
-            "image_id": item["image_id"],
-            "question_id": item["question_id"],
-            "question": item["question"],
-            "answers": item["answers"],
-        })
-    save_path = os.path.join(SAVE_DIR, f"text_vqa_{split}_text_attack.json")
-    out = run_batch_textvqa(
-        chat=chat,
-        items=items,
-        save_path=save_path,
-        template_key=template_key
-    )
+        items = []
+        for item in ds:
+            items.append({
+                "image_id": item["image_id"],
+                "question_id": item["question_id"],
+                "question": item["question"],
+                "answers": item["answers"],
+            })
+        save_path = os.path.join(SAVE_DIR, f"text_vqa_{split}_text_attack.json")
+        out = run_batch_textvqa(
+            chat=chat,
+            items=items,
+            save_path=save_path,
+        )
 
-    print(f"Final save to {save_path}, total {len(out)} items")
+        print(f"Final save to {save_path}, total {len(out)} items")

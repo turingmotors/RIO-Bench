@@ -8,7 +8,7 @@
     "offset_px": 8,
     "stroke_width": 1,
     "stroke_fill": [0, 0, 0],
-    "max_retry": 100,
+    "max_retry": 200,
     "seed_rule": "hash(image_id + pattern_id)"
   },
   "color_palette_rgb": [
