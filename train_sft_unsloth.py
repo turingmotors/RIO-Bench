@@ -352,6 +352,7 @@ def main():
     FastVisionModel.for_training(model)
     trainer = SFTTrainer(
         model=model,
+        tokenizer=processor,
         data_collator=UnslothVisionDataCollator(model, processor),
         train_dataset=processed_train_dataset,
         args=training_args,

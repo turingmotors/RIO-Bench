@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=eval_rio
+#SBATCH --job-name=Eval-RIO-Bench
 #SBATCH --time=2-00:00
 #SBATCH --partition=h100
 #SBATCH --nodes 1
@@ -7,18 +7,18 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --output=outputs/logs/%x-%j.out
 #SBATCH --error=outputs/logs/%x-%j.out
-#SBATCH --array=0
+#SBATCH --array=0-5
 
 HF_TOKEN="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"
 huggingface-cli login --token $HF_TOKEN
 
 model_name_list=(
     llava-hf/llava-1.5-7b-hf
-    # llava-hf/llava-1.5-13b-hf
-    # Qwen/Qwen3-VL-8B-Instruct
-    # Qwen/Qwen2.5-VL-7B-Instruct
-    # meta-llama/Llama-3.2-11B-Vision-Instruct
-    # HuggingFaceTB/SmolVLM-Instruct
+    llava-hf/llava-1.5-13b-hf
+    Qwen/Qwen3-VL-8B-Instruct
+    Qwen/Qwen2.5-VL-7B-Instruct
+    meta-llama/Llama-3.2-11B-Vision-Instruct
+    HuggingFaceTB/SmolVLM-Instruct
 )
 
 # Typo tasks
@@ -38,7 +38,7 @@ dataset_list=(
 )
 prompt_strategy_list=(
     "1phase-basic"
-    # "2phase-focus"
+    "2phase-focus"
 )
 
 
