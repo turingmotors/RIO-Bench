@@ -1,6 +1,5 @@
 # Read or Ignore? A Unified Benchmark for Typographic-Attack Robustness and Text Recognition in Vision-Language Models
 
----
 
 [![arXiv](https://img.shields.io/badge/arXiv-2401.12345-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2512.11899)
 [![Project](https://img.shields.io/badge/Project-Website-111111?style=flat-square)](https://turingmotors.github.io/rio-vqa/)
@@ -8,6 +7,7 @@
 
 
 Real-world VLMs must decide when to **read** text and when to **ignore** it, e.g., reading traffic signs but not being fooled by text-based attacks on objects.
+
 We propose a unified benchmark, **RIO-Bench**, to evaluate both typographic-attack robustness and text recognition in VLMs through a novel task called **RIO-VQA**.
 
 ### Problem Settings: VLMs Must Adaptively Read or Ignore Texts
@@ -39,7 +39,7 @@ bash ./scripts/train_peft_template.sh
 ```
 
 # RIO-Bench Construction Reproduction / Customization
-Details are provided in: ```data_construction/README.md```
+Details are provided in: ```data_construction/README.md```[./data_construction/README.md]
 
 # Cite
 ```
