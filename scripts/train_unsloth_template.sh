@@ -93,7 +93,7 @@ echo "Seed:         ${seed}"
 echo "==============================="
 
 # ===== Train (single run) =====
-python3 train_sft_unsloth.py \
+python3 -m src.train_sft_unsloth \
     --model_name_or_path "${model}" \
     --dataset_name "${dataset1}" "${dataset2}" "${dataset3}" \
     --dataset_sample_num ${ds_num1} ${ds_num2} ${ds_num3} \

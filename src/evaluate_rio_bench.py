@@ -13,10 +13,10 @@ from PIL import Image
 
 from datasets import load_from_disk
 
-from eval_utils.obj_multiple_choices import evaluate_multiple_choice
-from eval_utils.obj_clip_match import clip_match
-from eval_utils.text_vqa import evaluate_textvqa
-from eval_utils.open_images_classes import open_images_classes
+from src.eval_utils.obj_multiple_choices import evaluate_multiple_choice
+from src.eval_utils.obj_clip_match import clip_match
+from src.eval_utils.text_vqa import evaluate_textvqa
+from src.eval_utils.open_images_classes import open_images_classes
 
 
 def format_multiturn_prompt(task_type, question, prompt_strategy):

@@ -76,7 +76,7 @@ for i in "${!model_name_list[@]}"; do
 
             echo "Starting evaluating ${dataset} with ${prompt_strategy} at $(date)"
             
-            python3 evaluate_rio_bench.py \
+            python3 -m src.evaluate_rio_bench \
                 --model_name $model_name \
                 --data_root "$data_root" \
                 --dataset_name $dataset \
