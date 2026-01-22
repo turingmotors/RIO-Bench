@@ -9,6 +9,24 @@ def _normalize_short_answer(s: str) -> str:
     s = re.sub(r"\s+", " ", s)
     return s
 
+def _answer2score_to_dict(answer2score):
+    if isinstance(answer2score, dict):
+        return answer2score
+    if isinstance(answer2score, list):
+        out = {}
+        for item in answer2score:
+            if isinstance(item, dict):
+                ans = item.get("answer")
+                score = item.get("score")
+            elif isinstance(item, (list, tuple)) and len(item) == 2:
+                ans, score = item
+            else:
+                continue
+            if ans is not None:
+                out[ans] = score
+        return out
+    return {}
+
 def _pick_open_answer(example: Dict) -> str:
     """
     Pick a single supervision string from answers/answer2score.
@@ -18,9 +36,8 @@ def _pick_open_answer(example: Dict) -> str:
       3) first answers[0]
     """
     answers = example.get("answers", []) or []
-    a2s = example.get("answer2score", None)
-
-    if a2s and isinstance(a2s, dict):
+    a2s = _answer2score_to_dict(example.get("answer2score", None))
+    if a2s:
         # choose key with max score (ignore None)
         scored = [(k, v) for k, v in a2s.items() if isinstance(v, (int, float))]
         if scored:
@@ -109,7 +126,6 @@ def prepare_data_obj_open(example: Dict, model_name: str, peft_ver: bool = False
     eos = _llava_eos(model_name)
     image = example["image"]
     q = example["question"]
-    # y = _pick_open_answer(example)
     y = _combine_answers_with_commas(example.get("answers", [])) # Use all unique answers for training.
 
     turns = [

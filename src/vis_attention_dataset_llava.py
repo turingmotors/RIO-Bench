@@ -17,8 +17,7 @@ def compute_pure_attention(model, processor, image, text):
     device = model.device
     model.eval()
 
-    # Process image for the text
-    # inputs = processor(text=text, images=image, return_tensors="pt").to(device)
+    # Process image for the text.
     inputs, gen_kwargs = format_input(image, text, processor)
     pos = inputs["input_ids"][0].tolist().index(IMAGE_TOKEN_INDEX)
     with torch.no_grad():
@@ -44,8 +43,7 @@ def compute_gradient_attention(model, processor, image, text):
     device = model.device
     model.eval()
 
-    # Process image for the text
-    # inputs = processor(text=text, images=image, return_tensors="pt").to(device)
+    # Process image for the text.
     inputs, gen_kwargs = format_input(image, text, processor)
     pos = inputs["input_ids"][0].tolist().index(IMAGE_TOKEN_INDEX)
 
@@ -156,16 +154,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", type=str, default="llava-hf/llava-1.5-7b-hf")
     parser.add_argument("--normalize", action="store_true")
-    # parser.add_argument("--attn_type", type=str, default="pure")
     parser.add_argument("--general_text", type=str, default=None)
     parser.add_argument("--data-root", type=str, default=None)
     parser.add_argument("--datasets", type=str, nargs='+', default=[])
     args = parser.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
-
-    # model = LlavaForConditionalGeneration.from_pretrained(args.model, attn_implementation="eager").to(device)
-    # processor = AutoProcessor.from_pretrained(args.model, revision='a272c74') # Use the specific revision for LLaVA 1.5
 
     from transformers import AutoProcessor, LlavaForConditionalGeneration
 
@@ -205,8 +199,7 @@ def main():
             dataset_name = dataset_name.replace("/", "_")
 
             ###############################################
-            # Get output example
-            # question = "<image>\nUSER: " + question + "\nASSISTANT:"
+            # Get output example.
             inputs, gen_kwargs = format_input(image, question, processor)
             outputs = model.generate(**inputs, **gen_kwargs)
             generated_text = processor.batch_decode(outputs, skip_special_tokens=True)[0].strip()
@@ -215,8 +208,6 @@ def main():
 
             SAVE_DIR = f"vis/attention_maps/{image_name}/{dataset_name}/{args.model.replace('/', '_')}"
             os.makedirs(SAVE_DIR, exist_ok=True)
-            # visualize_attention(model, processor, image, question, args.normalize, args.attn_type, args.general_text, SAVE_DIR)
-            # for attn_type in ["pure", "relative", "gradient"]:
             for attn_type in ["relative"]:
                 visualize_attention(model, processor, image, question, args.normalize, attn_type, args.general_text, SAVE_DIR)
 
@@ -231,8 +222,6 @@ def main():
             with open(f"{SAVE_DIR}/model_io.json", "w") as f:
                 json.dump(out_dict, f, indent=4)
 
-            # if i == 10:
-            #     break
 
 
 if __name__ == "__main__":

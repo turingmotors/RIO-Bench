@@ -115,7 +115,7 @@ def evaluate_multiple_choice(
     gt_key: key of ground truth label (e.g., 'correct_letter', 'correct_idx', 'label', etc.)
     pred_key: key of predicted label (usually not needed if using responses)
     """
-    # 先頭で全キーの長さチェック
+    # Trim data fields to response length if needed.
     N = len(responses)
     for key in ["question_id", "image_id", "question", "choices", "answer", "correct_letter"]:
         if key in data and isinstance(data[key], list) and len(data[key]) != N:
@@ -151,8 +151,6 @@ def evaluate_multiple_choice(
             print(item)
             print(resp, chs)
             raise ValueError(f"Unsupported gt_key type: {type(item[gt_key])} for key '{gt_key}'")
-        # print(item, answer_idx, resp, chs)
-
         # Predict index from response
         pred_idx = None
         if nC > 0:
@@ -186,7 +184,7 @@ def evaluate_multiple_choice(
 
 
 if __name__ == "__main__":
-    # data の例
+    # Example data
     data = {
         "image": [
             "img1.jpg",
@@ -204,7 +202,7 @@ if __name__ == "__main__":
             ["Blue", "Green", "Red", "Yellow"]                        # A,B,C,D
 
         ],
-        "correct_letter": ["A", "C", "A"]  # 正解ラベル
+        "correct_letter": ["A", "C", "A"]  # ground-truth labels
     }
 
     # conversations: model prompts/history (for logging)

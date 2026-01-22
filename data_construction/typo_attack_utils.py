@@ -1190,27 +1190,21 @@ if __name__ == "__main__":
     # -----------------------
     # 1) Simple toggles
     # -----------------------
-    # MODE = "val_fixed"           # "val_fixed" | "val_random" | "train"
 
-    # config files 
+    # Config files
     CONFIG_DIR = "typo_attack_config"
     CFG_PATHS = {
         "obj": {
-            # "train": os.path.join(CONFIG_DIR, "obj_attack", "train_config.json"),
-            # "val_rc": os.path.join(CONFIG_DIR, "obj_attack", "val_config.json"),
         },
         "txt": {
             "val_far": os.path.join(CONFIG_DIR, "txt_attack", "val_config_far.json"),
             "val_mid": os.path.join(CONFIG_DIR, "txt_attack", "val_config_mid.json"),
             "val_near": os.path.join(CONFIG_DIR, "txt_attack", "val_config_near.json"),
-            # "train": os.path.join(CONFIG_DIR, "txt_attack", "train_far_config.json"),
-            # "train": os.path.join(CONFIG_DIR, "txt_attack", "train_mid_config.json"),
         }
     }
     
     for attack_type, modes in CFG_PATHS.items():
         for MODE, CFG_PATH in modes.items():
-            # MODE = "train"           # "val_fixed" | "val_random" | "train"
             ATTACK_TEXT = "ATTACK-WORD"  # attack token to place (for demo)
             SAVE_DIR = Path("examples")
             SAVE_DIR.mkdir(exist_ok=True)
@@ -1267,8 +1261,6 @@ if __name__ == "__main__":
                     out_img = res["image"]
                     meta = res["metadata"]
 
-                    # fname = f"{image_id}__{split}__{meta['pattern_id']}__seed{meta['seed']}.jpg"
-                    # out_img.save(SAVE_DIR / fname)
                     save_dir = SAVE_DIR / attack_type / split / pat["pattern_id"]
                     save_dir.mkdir(parents=True, exist_ok=True)
                     fname = f"{image_id}__{split}__{meta['pattern_id']}__seed{meta['seed']}.jpg"

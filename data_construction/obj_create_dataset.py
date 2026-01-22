@@ -1,4 +1,5 @@
 # Create Obj-Clean and Obj-Attack datasets by combining multiple-choice questions and adversarial examples
+import argparse
 import os
 import glob
 import json
@@ -14,6 +15,12 @@ import io
 from PIL import Image as PILImage
 
 from obj_create_multi_choice_data import prune_gt_to_pseudo_leaves
+
+
+parser = argparse.ArgumentParser(description="Create RIO-Bench obj datasets.")
+parser.add_argument("--overwrite", action="store_true", help="Overwrite existing datasets.")
+args = parser.parse_args()
+OVERWRITE = args.overwrite
 
 
 def convert_img(img: Image.Image, quality=95) -> Image.Image:
@@ -99,9 +106,11 @@ for split in ["validation", "train"]:
                     f"{DATASET_SAVE_DIR}/mc_{config_name_map[config_name]}_{level}"
                 )
 
-            if os.path.exists(out_path):
+            if os.path.exists(out_path) and not OVERWRITE:
                 print(f"Dataset {out_path} already exists, skipping...")
                 continue
+            if os.path.exists(out_path) and OVERWRITE:
+                print(f"Overwriting existing dataset at {out_path}...")
 
             IMAGE_DIR = f"{DATA_ROOT_DIR}/{split_short}/{mode}/{split_short}_{config_name}"
 
@@ -273,9 +282,11 @@ for split in ["validation", "train"]:
                 out_path = (
                     f"{DATASET_SAVE_DIR}/oe_{config_name_map[config_name]}_{level}"
                 )
-            if os.path.exists(out_path):
+            if os.path.exists(out_path) and not OVERWRITE:
                 print(f"Dataset {out_path} already exists, skipping...")
                 continue
+            if os.path.exists(out_path) and OVERWRITE:
+                print(f"Overwriting existing dataset at {out_path}...")
 
             IMAGE_DIR = f"{DATA_ROOT_DIR}/{split_short}/{mode}/{split_short}_{config_name}"
 
@@ -380,11 +391,14 @@ for split in ["validation", "train"]:
                 if level in ["hard", "medium", "easy"]:
                     meta = meta_dict.get(question_id)
 
+                answer2score_list = [
+                    {"answer": k, "score": v} for k, v in info_pruned_sorted.items()
+                ]
                 entry = {
                     "image": image,
                     "question": QUESTION_OE,
                     "answers": list(info_pruned_sorted.keys()),
-                    "answer2score": info_pruned_sorted,
+                    "answer2score": answer2score_list,
                     "question_id": question_id,
                     "image_id": image_id,
                     "attack_word": ""

@@ -248,7 +248,6 @@ def sample_negatives_hme(
         return out
 
     # ---------- (0) conceptually require y_true to be a leaf ----------
-    # assert is_leaf(y_true), f"y_true must be a leaf, but '{y_true}' has children: {children_of(y_true)}"
 
     # ---------- (1) prune GT to leaves ----------
     pruned_gt = {g for g in gt_labels if is_leaf(g)}
@@ -466,7 +465,6 @@ if __name__ == "__main__":
     # -------------------------------------------------------------------------
     # Full TextVQA dataset example
     # -------------------------------------------------------------------------
-    # SPLIT = "train"  # or "validation"
     for SPLIT in ["train", "validation"]:
         SPLIT_SHORT = "val" if SPLIT == "validation" else "train"
 

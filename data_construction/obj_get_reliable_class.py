@@ -220,7 +220,6 @@ if __name__ == "__main__":
     print("Loaded abs_ancestors, all_ancestors, parent2children")
 
     for split in ["train", "validation"]:
-        # split = "train"  # or "validation"
         out_path = os.path.join(OUT_DIR, f"textvqa_{split}_question_id2best_label.json")
         if os.path.exists(out_path):
             print(f"Output for {split} split already exists at {out_path}, skipping...")

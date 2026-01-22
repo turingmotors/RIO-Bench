@@ -8,10 +8,10 @@ from tqdm import tqdm
 import torch
 from transformers import set_seed
 
-from utils import disable_torch_init, load_model_and_processor
+from src.utils import disable_torch_init, load_model_and_processor
 from PIL import Image
 
-from datasets import load_from_disk
+from datasets import load_dataset, load_from_disk
 
 from src.eval_utils.obj_multiple_choices import evaluate_multiple_choice
 from src.eval_utils.obj_clip_match import clip_match
@@ -86,10 +86,6 @@ def get_dataset_for_multiturn(ds, task_type="", prompt_strategy=None):
             "image_id": image_ids,
             "choices": choices_list,
         }
-        # print(dataset["question"][:2])
-        # print(dataset["answer"][:2])
-        # print(dataset["choices"][:2])
-        # exit()
     elif task_type == "obj_oe":
         images, questions, answers, question_ids, image_ids, answer2score, attack_word = [], [], [], [], [], [], []
         for item in tqdm(ds, desc="Loading dataset"):
@@ -138,11 +134,31 @@ def get_dataset_for_multiturn(ds, task_type="", prompt_strategy=None):
     return dataset
 
 
+def _answer2score_to_dict(answer2score):
+    if isinstance(answer2score, dict):
+        return answer2score
+    if isinstance(answer2score, list):
+        out = {}
+        for item in answer2score:
+            if isinstance(item, dict):
+                ans = item.get("answer")
+                score = item.get("score")
+            elif isinstance(item, (list, tuple)) and len(item) == 2:
+                ans, score = item
+            else:
+                continue
+            if ans is not None:
+                out[ans] = score
+        return out
+    return {}
+
+
 def filter_gt_labels(answer2score, threshold=0.2):
     """
     Filter ground-truth labels based on the answer2score dictionary.
     Only keep labels with score >= threshold, but always keep at least one label.
     """
+    answer2score = _answer2score_to_dict(answer2score)
     answer2score = {k: v for k, v in answer2score.items() if v is not None}
     filtered = [ans for ans, score in answer2score.items() if score >= threshold]
     if len(filtered) == 0:
@@ -150,6 +166,22 @@ def filter_gt_labels(answer2score, threshold=0.2):
         filtered = [max_label]
     return filtered
 
+
+def _load_dataset_any(args):
+    # Prefer local dataset if it exists.
+    if os.path.exists(args.dataset_name):
+        return load_from_disk(args.dataset_name)
+    if args.data_root:
+        local_path = os.path.join(args.data_root, args.dataset_name)
+        if os.path.exists(local_path):
+            return load_from_disk(local_path)
+
+    # Fallback to Hugging Face Hub.
+    if "/" not in args.dataset_name:
+        raise ValueError("Expected dataset_name like 'val/obj_attack/mc_easy' for Hub loading.")
+    split, config_name = args.dataset_name.split("/", 1)
+    token = args.hf_token if args.hf_token else None
+    return load_dataset(args.repo_id, config_name, split=split, token=token)
 
 class RIOBenchEvaluator:
     """
@@ -266,7 +298,6 @@ class RIOBenchEvaluator:
                     print(f"Error in filtering gt_labels for item {i}: {e}")
                     exit()
                 examples.append({
-                    # "image": item.get("image", None),
                     "question": data["question"][i],
                     "gt_labels": gt_labels,
                     "conversation": conversations[i],
@@ -345,8 +376,10 @@ class RIOBenchEvaluator:
 def parse_args():
     parser = argparse.ArgumentParser(description="Evaluate VLMs with guardrail.")
     parser.add_argument("--model_name", type=str, required=True, help="Path to the target VLM model.")
-    parser.add_argument("--data_root", type=str, required=True, help="Path to the dataset root directory.")
+    parser.add_argument("--data_root", type=str, default="", help="Path to the dataset root directory (optional).")
     parser.add_argument("--dataset_name", type=str, required=True, help="Name of the dataset to evaluate.")
+    parser.add_argument("--repo_id", type=str, default="turing-motors/RIO-Bench", help="HF dataset repo id.")
+    parser.add_argument("--hf_token", type=str, default=os.environ.get("HF_TOKEN", ""), help="HF token for private repos.")
     parser.add_argument("--task_type", type=str, default=None, choices=["obj_mc", "obj_oe", "txt_oe"], help="Type of task: obj_mc (object multiple choice), obj_oe (object open-ended), txt_oe (text open-ended).")
     parser.add_argument("--prompt_strategy", type=str, required=True, help="Prompt strategy used in inference.")
     parser.add_argument("--batch_size", type=int, default=4, help="Batch size for evaluation.")
@@ -390,24 +423,25 @@ def main():
     print(f"Loaded model: {args.model_name}")
     print(f"Model device: {device}")
 
-    # Load dataset
-    dataset_path = os.path.join(args.data_root, args.dataset_name)
-    dataset = load_from_disk(dataset_path)
-    print(f"Loaded dataset from {dataset_path} with {len(dataset)} samples.")
+    # Load dataset (local if available, else from Hub)
+    dataset = _load_dataset_any(args)
+    print(f"Loaded dataset with {len(dataset)} samples.")
 
     # Infer task type if not provided
     if args.task_type is None:
-        if "mc_" in args.dataset_name:
-             args.task_type = "obj_mc"
-        elif "oe_" in args.dataset_name or "open_ended" in args.dataset_name:
-            if "obj" in args.dataset_name:
+        dataset_name = args.dataset_name
+        base_name = os.path.basename(dataset_name)
+        if "obj_" in dataset_name:
+            if "mc_" in base_name or "mcq" in base_name:
+                args.task_type = "obj_mc"
+            elif "oe_" in base_name or "open_ended" in base_name:
                 args.task_type = "obj_oe"
-            elif "text" in args.dataset_name or "txt" in args.dataset_name:
-                args.task_type = "txt_oe"
-        elif "txt_clean" in args.dataset_name or "txt_attack" in args.dataset_name:
+        elif "txt_" in dataset_name:
+            args.task_type = "txt_oe"
+        elif "open_ended" in dataset_name:
             args.task_type = "txt_oe"
         else:
-            raise ValueError("Cannot infer task type from dataset. Please specify --task_type.")
+            raise ValueError(f"Cannot infer task type from dataset {base_name}. Please specify --task_type.")
     print(f"Task type: {args.task_type}")
 
     # Prepare dataset for multi-turn conversations

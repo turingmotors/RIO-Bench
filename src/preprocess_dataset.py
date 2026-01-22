@@ -86,7 +86,7 @@ def generate_messages(example, dataset_type, model_name, text_only=False, peft_v
             msg["images"] = [example.get("image")]
         messages_list.append(msg)
     else:
-        # 複数のanswersから1つだけ選ぶ
+        # Pick a single answer from the candidate list.
         answer = example.get("answers", [""])[0]
         resp_text = (answer if isinstance(answer, str) else options[answer]) + eos
         msg = {"messages": [{"role": "user", "content": user_content}, {"role": "assistant", "content": [{"type": "text", "text": resp_text}]}]}
@@ -119,7 +119,7 @@ def generate_messages_instruct(example, model_name, peft_ver=False):
 
         if conv["from"] == "human":
             user_content = []
-            # 最初のhuman発話には画像を追加
+            # Include the image only in the first user turn.
             if i == 0:
                 user_content.append({"type": "image", "image": image})
             user_content.append({"type": "text", "text": conv["value"].replace("<image>", "").strip()})
@@ -203,21 +203,3 @@ if __name__ == "__main__":
     print(f"EOS token: {eos}")
     eos = processor.batch_decode([processor.tokenizer.pad_token_id], skip_special_tokens=False)[0]
     print(f"PAD token: {eos}")
-
-    # Example: limit for debug
-    # dataset_ids = [
-    #     "datasets/VizWiz_train_50words",
-    #     "datasets/VizWiz_train_200words",
-    #     "datasets/ScienceQAimg_train_50words",
-    #     "datasets/ScienceQAimg_train_200words",
-    #     "datasets/OK-VQA_train_50words",
-    #     "datasets/OK-VQA_train_200words",
-    # ]
-
-    # for dataset_id in dataset_ids:
-    #     dataset = load_from_disk(dataset_id)
-    #     print(f"######### Processing dataset: {dataset_id} #########")
-
-    #     print(dataset[1]["image_caption"])
-
-    #     print("\n\n\n")

@@ -61,7 +61,7 @@ Open Images V3 assigns multiple labels per image without explicit priority.
   
 ## A.2. Multiple-choice generation
 ```bash
-python3 obj_create_multiple_choices_data.py
+python3 obj_create_multi_choices_data.py
 ```
 This script performs:
 - **1. Ground-truth label selection**
@@ -71,7 +71,7 @@ This script performs:
 
 ## A.3. Typographic attack generation
 ```bash
-python3 obj_typographic_attack.py
+python3 obj_typo_attack.py
 ```
 - Generates adversarial examples by inserting misleading text into images.
 - Text placement respects OCR bounding boxes to avoid collisions with existing text.
@@ -82,7 +82,7 @@ python3 obj_typographic_attack.py
 - Outputs are saved in structured directories for each configuration.
 
 ## A.4. Create datasets: generate Q&A (MC/OE) and combine with attacked images
-```python3 obj_create_datasets.py```
+```python3 obj_create_dataset.py```
 This script:
 - Combines the generated multiple-choice questions and typographic attacks with:
   - clean images,

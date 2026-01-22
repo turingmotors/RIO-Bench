@@ -174,7 +174,6 @@ def run_batch_textvqa(chat, items, save_path=None, batch_size=4):
     all_outputs = []
     for i in tqdm(range(0, len(items), batch_size), desc="Generating TextVQA triplet attacks"):
         batch = items[i:i+batch_size]
-        # prompts = []
         messages_list = []
         for it in batch:
             question = it.get("question", "")
@@ -203,7 +202,6 @@ def run_batch_textvqa(chat, items, save_path=None, batch_size=4):
         
         outputs = run_chat(chat, messages_list, max_new_tokens=40, batch_size=batch_size)
         for j, (it, out) in enumerate(zip(batch, outputs)):
-            # print(f"Raw output: {raw}")
             raw_text = out[-1]["content"]
             extracted_d = extract_json_simple(raw_text)
             meta = {"valid": extracted_d is not None, "raw": raw_text}
