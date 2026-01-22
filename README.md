@@ -3,7 +3,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2401.12345-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2512.11899)
 [![Project](https://img.shields.io/badge/Project-Website-111111?style=flat-square)](https://turingmotors.github.io/rio-vqa/)
-<!-- [![HF](https://img.shields.io/badge/Hugging%20Face-Datasets-FFD21E?style=flat-square&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/xxx/yyy) -->
+[![HF](https://img.shields.io/badge/Hugging%20Face-Datasets-FFD21E?style=flat-square&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/turing-motors/RIO-Bench)
 
 
 Real-world VLMs must decide when to **read** text and when to **ignore** it, e.g., reading traffic signs but not being fooled by text-based attacks on objects.
@@ -39,7 +39,7 @@ bash ./scripts/train_peft_template.sh
 ```
 
 # RIO-Bench Construction Reproduction / Customization
-Details are provided in: ```data_construction/README.md```[./data_construction/README.md]
+Details are provided in: [`data_construction/README.md`](./data_construction/README.md)
 
 # Cite
 ```
