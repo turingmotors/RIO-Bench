@@ -3,6 +3,7 @@ set -euo pipefail
 
 REPO_ID="${REPO_ID:-turing-motors/RIO-Bench}"
 HF_TOKEN="${HF_TOKEN:-}"
+DATA_ROOT="${DATA_ROOT:-}"
 
 model_name_list=(
     llava-hf/llava-1.5-7b-hf
@@ -49,6 +50,7 @@ for model_name in "${model_name_list[@]}"; do
             python3 -m src.evaluate_rio_bench \
                 --model_name "${model_name}" \
                 --dataset_name "${dataset}" \
+                --data_root "${DATA_ROOT}" \
                 --repo_id "${REPO_ID}" \
                 --hf_token "${HF_TOKEN}" \
                 --output_dir "${output_dir}" \

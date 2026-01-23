@@ -1,10 +1,16 @@
+#!/bin/bash
+
 model=llava-hf/llava-1.5-13b-hf
 model_name=llava-1.5-13b-hf
 
-base_dir="./data/RIO-Bench/hf_dataset_unique_img/train"
-dataset1="${base_dir}/obj_attack/mc_random_hard"
-dataset2="${base_dir}/obj_attack/oe_random_hard"
-dataset3="${base_dir}/txt_attack/open_ended_mid"
+REPO_ID="${REPO_ID:-turing-motors/RIO-Bench}"
+HF_TOKEN="${HF_TOKEN:-}"
+
+dataset1="train/obj_attack__mc_hard"
+dataset2="train/obj_attack__oe_hard"
+dataset3="train/txt_attack__oe_hard"
+dataset_source="hf:${REPO_ID}"
+
 
 ds_num1=4000
 ds_num2=4000
@@ -383,6 +389,7 @@ echo "  - ${dataset1} (${ds_num1})"
 echo "  - ${dataset2} (${ds_num2})"
 echo "  - ${dataset3} (${ds_num3})"
 echo "Output dir:   ${output_dir}"
+echo "Data source:  ${dataset_source}"
 echo "Target layers:${target_layers}"
 echo "Seed:         ${seed}"
 echo "==============================="
@@ -392,6 +399,9 @@ python3 -m src.train_sft_peft \
     --model_name_or_path "${model}" \
     --dataset_name "${dataset1}" "${dataset2}" "${dataset3}" \
     --dataset_sample_num ${ds_num1} ${ds_num2} ${ds_num3} \
+    --repo_id "${REPO_ID}" \
+    --hf_token "${HF_TOKEN}" \
+    --data_root "${DATA_ROOT}" \
     --output_dir "${output_dir}" \
     --num_train_epochs 1 \
     --learning_rate 1e-4 \

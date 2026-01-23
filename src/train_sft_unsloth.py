@@ -69,6 +69,18 @@ class DataArguments:
         default_factory=list,
         metadata={"help": "One or more datasets."}
     )
+    repo_id: str = field(
+        default="",
+        metadata={"help": "HF dataset repo id for hub loading (optional)."}
+    )
+    hf_token: str = field(
+        default=os.environ.get("HF_TOKEN", ""),
+        metadata={"help": "HF token for private repos (optional)."}
+    )
+    data_root: str = field(
+        default="",
+        metadata={"help": "Local dataset root to resolve relative dataset_name (optional)."}
+    )
     # Optional parallel list of sample counts (same length as dataset_name)
     dataset_sample_num: Optional[List[int]] = field(
         default=None,
@@ -259,8 +271,26 @@ def main():
         print(f"Loading dataset: {dataset_name}")
         if os.path.isdir(dataset_name):
             ds = load_from_disk(dataset_name)
+        elif data_args.data_root:
+            local_path = os.path.join(data_args.data_root, dataset_name)
+            if os.path.isdir(local_path):
+                ds = load_from_disk(local_path)
+            else:
+                ds = None
         else:
-            ds = load_dataset(dataset_name, split=split, trust_remote_code=True)
+            ds = None
+
+        if ds is None:
+            token = data_args.hf_token if data_args.hf_token else None
+            if data_args.repo_id:
+                if "/" in dataset_name:
+                    split_name, config_name = dataset_name.split("/", 1)
+                    split = split_name
+                else:
+                    config_name = dataset_name
+                ds = load_dataset(data_args.repo_id, config_name, split=split, token=token, trust_remote_code=True)
+            else:
+                ds = load_dataset(dataset_name, split=split, token=token, trust_remote_code=True)
 
         if max_train_samples is not None and max_train_samples > 0:
             if indices is not None:
@@ -288,9 +318,20 @@ def main():
         return ds
 
     # Preprocess dataset
+    def _infer_split_subset(ds_name: str):
+        parts = ds_name.strip("/").split("/")
+        if len(parts) >= 2 and parts[-2] in ("train", "val", "test", "validation"):
+            candidate = parts[-1]
+        else:
+            candidate = parts[-1]
+        if "__" in candidate:
+            return candidate.split("__", 1)
+        if len(parts) >= 2:
+            return parts[-2], parts[-1]
+        raise ValueError(f"Cannot infer split/subset from dataset_name: {ds_name}")
+
     def preprocess_one_dataset(ds_name: str, ds, model_args):
-        split_name = ds_name.split("/")[-2]
-        subset_name = ds_name.split("/")[-1]
+        split_name, subset_name = _infer_split_subset(ds_name)
         return preprocess_dataset_train(
             ds,
             split_name=split_name,
