@@ -160,18 +160,26 @@ def prepare_data_text_open(example: Dict, model_name: str, peft_ver: bool = Fals
 def prepare_data_dispatch(split_name: str, subset_name: str, example: Dict, model_name: str, peft_ver: bool = False):
     """
     split_name: one of {"obj_attack","obj_clean","txt_attack","text_attack","text_clean", ...}
-    subset_name: one of {"mcq_*","open_ended_*", ...} — your directory granularity
+    subset_name: one of {"mcq_*","mc_*","mc","open_ended_*","oe_*", ...} — your directory granularity
 
     Returns messages_list: [{"messages": [...]}] or [{"images":[...], "messages":[...]}] if peft_ver=True
     """
     s = split_name.lower()
     t = subset_name.lower()
 
-    if s.startswith("obj") and t.startswith("mcq"):
+    def _is_mc_subset(name: str) -> bool:
+        return name.startswith("mcq") or name.startswith("mc_") or name == "mc"
+
+    def _is_oe_subset(name: str) -> bool:
+        if "open" in name:
+            return True
+        return re.search(r"(?:^|[_-])oe(?:$|[_-])", name) is not None
+
+    if s.startswith("obj") and _is_mc_subset(t):
         return prepare_data_obj_mcq(example, model_name, peft_ver)
-    elif s.startswith("obj") and "open" in t:
+    elif s.startswith("obj") and _is_oe_subset(t):
         return prepare_data_obj_open(example, model_name, peft_ver)
-    elif s.startswith(("txt", "text")) and "open" in t:
+    elif s.startswith(("txt", "text")) and _is_oe_subset(t):
         return prepare_data_text_open(example, model_name, peft_ver)
     else:
         # Fallback to open-ended style for unknown subsets
@@ -188,7 +196,7 @@ def preprocess_dataset_train(
     """
     dataset: a HuggingFace Dataset object
     split_name: one of {"obj_attack","obj_clean","txt_attack","text_attack","text_clean", ...}
-    subset_name: one of {"mcq_*","open_ended_*", ...} — your directory granularity
+    subset_name: one of {"mcq_*","mc_*","mc","open_ended_*","oe_*", ...} — your directory granularity
     model_name: e.g., "LLaVA-1.5-7B", "mistral-7b-instruct-v0.1", etc.
     peft_ver: if True, include images in the output dicts
 
