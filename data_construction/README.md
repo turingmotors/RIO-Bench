@@ -61,7 +61,7 @@ Open Images V3 assigns multiple labels per image without explicit priority.
   
 ## A.2. Multiple-choice generation
 ```bash
-python3 obj_create_multi_choices_data.py
+python3 obj_create_multi_choice_data.py
 ```
 This script performs:
 - **1. Ground-truth label selection**
