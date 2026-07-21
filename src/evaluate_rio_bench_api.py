@@ -28,8 +28,6 @@ def _infer_task_type(dataset_name: str) -> str:
     group_name = parts[1] if len(parts) >= 2 else ""
 
     if group_name.startswith("txt_"):
-        if "read_code_mc" in base_name:
-            return "obj_mc"
         return "txt_oe"
     if group_name.startswith("obj_"):
         if base_name.startswith("mc_") or "mcq" in base_name:
@@ -37,8 +35,6 @@ def _infer_task_type(dataset_name: str) -> str:
         if base_name.startswith("oe_") or "open_ended" in base_name:
             return "obj_oe"
     if "/txt_" in f"/{dataset_name}/" or "open_ended" in dataset_name:
-        if "read_code_mc" in base_name:
-            return "obj_mc"
         return "txt_oe"
     if "/obj_" in f"/{dataset_name}/":
         if "mc_" in base_name or "mcq" in base_name:

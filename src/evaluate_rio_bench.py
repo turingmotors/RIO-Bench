@@ -26,16 +26,6 @@ from src.eval_utils.text_vqa import evaluate_textvqa
 from src.eval_utils.open_images_classes import open_images_classes
 
 
-def _is_read_code_mc_dataset(dataset_names: List[Any]) -> bool:
-    """
-    Return True only when all non-empty dataset names correspond to read_code_mc.
-    """
-    names = [str(n).lower() for n in dataset_names if n is not None and str(n).strip()]
-    if not names:
-        return False
-    return all("read_code_mc" in n for n in names)
-
-
 def format_multiturn_prompt(task_type, question, prompt_strategy):
     """
     Convert a single-turn question to a multi-turn conversation format based on the prompt strategy.
@@ -483,15 +473,6 @@ class RIOBenchEvaluator:
             )
         elif self.task_type == "txt_oe":
             dataset_names = data.get("dataset_name", [None] * len(responses))
-            if _is_read_code_mc_dataset(dataset_names):
-                records = evaluate_multiple_choice(
-                    conversations,
-                    responses,
-                    data,
-                    allow_text_match=True,
-                    gt_key="answer",
-                )
-                return records
 
             doc = []
             for i in range(len(responses)):
@@ -649,11 +630,7 @@ def main():
 
         # Prefer explicit dataset group (e.g., val/txt_clean/*, val/obj_attack/*)
         if group_name.startswith("txt_"):
-            # read_code_mc is a text-clean dataset but should be evaluated as MC.
-            if "read_code_mc" in base_name:
-                args.task_type = "obj_mc"
-            else:
-                args.task_type = "txt_oe"
+            args.task_type = "txt_oe"
         elif group_name.startswith("obj_"):
             if base_name.startswith("mc_") or "mcq" in base_name:
                 args.task_type = "obj_mc"
@@ -661,10 +638,7 @@ def main():
                 args.task_type = "obj_oe"
         # Fallback heuristics for non-standard paths
         elif "/txt_" in f"/{dataset_name}/" or "open_ended" in dataset_name:
-            if "read_code_mc" in base_name or "read_code_mc" in dataset_name:
-                args.task_type = "obj_mc"
-            else:
-                args.task_type = "txt_oe"
+            args.task_type = "txt_oe"
         elif "/obj_" in f"/{dataset_name}/":
             if "mc_" in base_name or "mcq" in base_name:
                 args.task_type = "obj_mc"
