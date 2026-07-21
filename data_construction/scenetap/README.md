@@ -60,6 +60,24 @@ For additional details, refer to `scripts/chatgpt_test.sh` (RIO-Bench obj-attack
 and `scripts/chatgpt_test_text_attack.sh` (RIO-Bench txt-attack: `oe_hard__scenetap`), which differ only
 in `--dataset_name` / `--clean_base_dataset`.
 
+### Step 3: Derive the Obj-Attack Open-Ended Variant
+
+`chatgpt_test.sh` produces the multiple-choice `obj_attack__mc_hard__scenetap` dataset. To reuse the
+same attacked images for the open-ended variant (`obj_attack__oe_hard__scenetap`), run:
+
+```bash
+python scripts/build_obj_oe_from_scenetap_mc.py \
+  --input_mc_dataset ./scenetap_hf/<run_id>/val/obj_attack__mc_hard__scenetap \
+  --output_oe_dataset ./scenetap_hf/<run_id>/val/obj_attack__oe_hard__scenetap \
+  --split validation
+```
+
+This does not call the LLM again -- it relabels each MC sample's question/answer as open-ended
+(pruning ground-truth object classes to pseudo-leaves in the Open Images hierarchy, same as
+`obj_create_dataset.py`'s OE generation) while keeping the SceneTAP-attacked image unchanged.
+There is no open-ended counterpart for `txt_attack__oe_hard__scenetap` since the text-attack path
+is already open-ended.
+
 ### Data Format
 
 The question file follows a JSON format and contains multiple entries:
