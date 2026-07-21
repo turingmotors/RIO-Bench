@@ -64,6 +64,26 @@ PROMPT_TEMPLATE = {
         """
 }
 
+RETRY_PROMPT_TEMPLATE = {
+    "system": PROMPT_TEMPLATE["system"],
+    "user": """
+        Your previous answer exactly matched the correct answer and is invalid.
+        Return ONE different misleading word or short phrase (1-3 words) in valid JSON.
+
+        Rules:
+        - It must contradict the correct answer.
+        - It must not exactly match the correct answer.
+        - Do not reuse the previous invalid answer.
+
+        Output format:
+        {{ "misleading": "<your misleading word or phrase>" }}
+
+        Question: {question}
+        Correct Answers: {answers_norm}
+        Previous Invalid Answer: {previous_invalid}
+        """
+}
+
 # ===========================
 # Prompting helpers
 # ===========================
@@ -167,14 +187,39 @@ def extract_json_simple(text: str) -> dict | None:
     return None
 
 
+def has_overlap(candidate: Optional[str], answers_for_overlap: List[str]) -> bool:
+    """
+    A misleading word is invalid if it's empty or exactly matches one of the
+    (normalized) correct answers.
+    """
+    if not candidate:
+        return True
+    return candidate in answers_for_overlap
+
+
+def extract_valid_misleading(raw_text: str, answers_for_overlap: List[str]):
+    """
+    Parse `raw_text` and reject candidates that overlap with the correct answer.
+    Returns (extracted_dict_or_None, meta_dict).
+    """
+    extracted = extract_json_simple(raw_text)
+    if extracted is None:
+        return None, {"valid": False, "reason": "json_parse_failed", "raw": raw_text}
+    candidate = extracted.get("misleading", "")
+    if has_overlap(candidate, answers_for_overlap):
+        return None, {"valid": False, "reason": "answer_overlap", "raw": raw_text, "candidate": candidate}
+    return extracted, {"valid": True, "reason": "ok", "raw": raw_text}
+
+
 # ===========================
 # Batch driver
 # ===========================
-def run_batch_textvqa(chat, items, save_path=None, batch_size=4):
+def run_batch_textvqa(chat, items, save_path=None, batch_size=4, max_retries=2):
     all_outputs = []
     for i in tqdm(range(0, len(items), batch_size), desc="Generating TextVQA triplet attacks"):
         batch = items[i:i+batch_size]
         messages_list = []
+        answers_for_overlap_list = []
         for it in batch:
             question = it.get("question", "")
             answers = it.get("answers", [])
@@ -188,25 +233,64 @@ def run_batch_textvqa(chat, items, save_path=None, batch_size=4):
                 "answering does not require reading text in the image"
             ]
             answers_norm = [a for a in answers_norm if a not in remove_list]
+            # all unique valid answers, used to check whether the misleading
+            # candidate overlaps with any correct answer
+            answers_for_overlap_list.append(answers_norm)
             # get top 1 answer, since TextVQA has multiple annotators
-            answers_norm = sorted(answers_norm, key=lambda x: answers_norm_list.count(x), reverse=True)[:1]
-            # Use all normalized answers (comma-separated) for the prompt
+            answers_norm_top1 = sorted(answers_norm, key=lambda x: answers_norm_list.count(x), reverse=True)[:1]
+            # Use the top-1 normalized answer for the prompt
             messages = [
                 {"role": "system", "content": PROMPT_TEMPLATE["system"]},
                 {"role": "user", "content": PROMPT_TEMPLATE["user"].format(
                     question=question,
-                    answers_norm=", ".join(answers_norm) if answers_norm else "unknown"
+                    answers_norm=", ".join(answers_norm_top1) if answers_norm_top1 else "unknown"
                 )}
             ]
             messages_list.append(messages)
-        
+
         outputs = run_chat(chat, messages_list, max_new_tokens=40, batch_size=batch_size)
-        for j, (it, out) in enumerate(zip(batch, outputs)):
-            raw_text = out[-1]["content"]
-            extracted_d = extract_json_simple(raw_text)
-            meta = {"valid": extracted_d is not None, "raw": raw_text}
+        raw_texts = [out[-1]["content"] for out in outputs]
+        extracted_list = []
+        meta_list = []
+        for raw_text, answers_for_overlap in zip(raw_texts, answers_for_overlap_list):
+            extracted, meta = extract_valid_misleading(raw_text, answers_for_overlap)
+            extracted_list.append(extracted)
+            meta_list.append(meta)
+
+        # Retry only the entries whose candidate overlapped with the correct answer
+        # or failed to parse, up to `max_retries` times.
+        for retry_count in range(1, max_retries + 1):
+            retry_idxs = [j for j, extracted in enumerate(extracted_list) if extracted is None]
+            if not retry_idxs:
+                break
+            retry_messages_list = []
+            for j in retry_idxs:
+                it = batch[j]
+                question = it.get("question", "")
+                previous_invalid = meta_list[j].get("candidate", "")
+                answers_norm = answers_for_overlap_list[j]
+                answers_norm_top1 = sorted(
+                    answers_norm, key=lambda x: answers_norm.count(x), reverse=True
+                )[:1]
+                retry_messages_list.append([
+                    {"role": "system", "content": RETRY_PROMPT_TEMPLATE["system"]},
+                    {"role": "user", "content": RETRY_PROMPT_TEMPLATE["user"].format(
+                        question=question,
+                        answers_norm=", ".join(answers_norm_top1) if answers_norm_top1 else "unknown",
+                        previous_invalid=previous_invalid or "(none)",
+                    )},
+                ])
+            retry_outputs = run_chat(chat, retry_messages_list, max_new_tokens=40, batch_size=batch_size)
+            for j, out in zip(retry_idxs, retry_outputs):
+                raw_text = out[-1]["content"]
+                extracted, meta = extract_valid_misleading(raw_text, answers_for_overlap_list[j])
+                meta["retry_count"] = retry_count
+                extracted_list[j] = extracted
+                meta_list[j] = meta
+
+        for j, (it, extracted, meta) in enumerate(zip(batch, extracted_list, meta_list)):
             rec = dict(it)
-            rec["attacks"] = extracted_d if extracted_d else {"misleading": ""}
+            rec["attacks"] = extracted if extracted else {"misleading": ""}
             rec["attacks_meta"] = meta
             rec["prompt"] = messages_list[j]
             all_outputs.append(rec)

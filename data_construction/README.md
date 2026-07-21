@@ -61,7 +61,7 @@ Open Images V3 assigns multiple labels per image without explicit priority.
   
 ## A.2. Multiple-choice generation
 ```bash
-python3 obj_create_multi_choices_data.py
+python3 obj_create_multi_choice_data.py
 ```
 This script performs:
 - **1. Ground-truth label selection**
@@ -119,4 +119,10 @@ This script:
   - TextVQA has multiple questions per image,
   - whereas Obj-VQA is defined with a single object-centric question per image.
 - When mapping TextVQA images into the Obj-VQA format, this mismatch leads to multiple Obj-VQA-style samples for the same image.
+
+# D. Scene-Coherent Attacks (`*__scenetap` variants)
+The `mc_hard__scenetap` / `oe_hard__scenetap` dataset variants are generated with a modified copy of
+[SceneTAP](https://github.com/tsingqguo/scenetap) (Cao et al., CVPR 2025) under [`scenetap/`](./scenetap).
+See [`scenetap/README.md`](./scenetap/README.md) for setup (including the external SoM and
+TextDiffuser-2 dependencies) and usage.
 - The script deduplicates these samples, enforcing the one-question-per-image structure expected in Obj-VQA.

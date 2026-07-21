@@ -9,9 +9,27 @@ from tqdm import tqdm
 DEFAULT_GRID_ORDER = ("C","TL","TR","BL","BR","TC","BC","CL","CR")
 
 if __name__ == "__main__":
+    import argparse
     from datasets import load_dataset
     import json
     import random
+
+    parser = argparse.ArgumentParser(description="Generate txt typo-attack images.")
+    parser.add_argument(
+        "--splits",
+        nargs="+",
+        choices=["validation", "train"],
+        default=["validation", "train"],
+        help="TextVQA splits to process.",
+    )
+    parser.add_argument(
+        "--choice-levels",
+        nargs="+",
+        choices=["misleading", "correct"],
+        default=["misleading", "correct"],
+        help="Attack word level(s) to generate.",
+    )
+    args = parser.parse_args()
 
     # -----------------------------
     # Common debug settings
@@ -29,7 +47,7 @@ if __name__ == "__main__":
     # -----------------------------
     # Process both validation and train
     # -----------------------------
-    for split, split_short, cfg_paths in [
+    split_configs = [
         (
             "validation",
             "val",
@@ -46,7 +64,10 @@ if __name__ == "__main__":
                 os.path.join(CONFIG_DIR, "txt_attack", "train_config_mid.json"),
             ],
         ),
-    ]:
+    ]
+    for split, split_short, cfg_paths in split_configs:
+        if split not in set(args.splits):
+            continue
         print(f"Generating text-attack images for TextVQA {split} set")
 
         # ---- load TextVQA split ----
@@ -85,95 +106,110 @@ if __name__ == "__main__":
             os.makedirs(OUT_DIR, exist_ok=True)
 
             random.seed(42)  # for reproducibility
-            key = "misleading"
-            THIS_OUT_DIR = os.path.join(OUT_DIR, pat["pattern_id"])
-            os.makedirs(THIS_OUT_DIR, exist_ok=True)
+            choice_levels = list(args.choice_levels)
+            for choice_level in choice_levels:
+                print(f"Generating text-attack images for choice level: {choice_level}")
 
-            THIS_IMAGE_DIR = os.path.join(THIS_OUT_DIR, "images")
-            os.makedirs(THIS_IMAGE_DIR, exist_ok=True)
+                # Keep original path/layout for "misleading" to avoid changing existing behavior.
+                if choice_level == "misleading":
+                    THIS_OUT_DIR = os.path.join(OUT_DIR, pat["pattern_id"])
+                elif choice_level == "correct":
+                    THIS_OUT_DIR = os.path.join(OUT_DIR, pat["pattern_id"], "correct")
+                else:
+                    raise ValueError(f"Unknown choice level: {choice_level}")
 
-            meta_info = {}
-            for i, item in tqdm(enumerate(ds), total=len(ds)):
-                if i % 100 == 0:
-                    print(f"Processing {i}/{len(ds)}")
+                os.makedirs(THIS_OUT_DIR, exist_ok=True)
+                THIS_IMAGE_DIR = os.path.join(THIS_OUT_DIR, "images")
+                os.makedirs(THIS_IMAGE_DIR, exist_ok=True)
 
-                image = item["image"]
-                image_id = item["image_id"]
-                question = item["question"]
-                question_id = item["question_id"]
-                ocr_info = image_id2ocr[image_id].get("ocr_info", [])
-                answers = item["answers"]
-                # most frequent answer
-                answer = max(set(answers), key=answers.count)
-
-                mt_item = misleading_txt_data[question_id]
-                attack_word = mt_item["attacks"]["misleading"]
-
-                # text-attack (non-debug)
-                if not IS_ONLY_DEBUG:
-                    res = apply_pattern_for_image(
-                        image=image,
-                        ocr_info=ocr_info,
-                        text_to_place=attack_word,
-                        pattern=pat,
-                        config=config,
-                        image_id=image_id,
-                        question_id=question_id,
-                        question_text=question,
-                        subset_name=split,
-                        answer_text=answer,
-                    )
-
-                    out_img = res["image"]
-                    meta = res["metadata"]
-
-                    fname = (
-                        f"{image_id}_{question_id}_{split}"
-                        f"__{meta['pattern_id']}__seed{meta['seed']}.jpg"
-                    )
-                    out_path = os.path.join(THIS_IMAGE_DIR, fname)
-                    out_img.save(out_path)
-                    # save meta info
-                    meta["attack_word"] = attack_word
-                    meta["answer"] = answer
-                    meta_info[question_id] = meta
-
+                meta_info = {}
+                for i, item in tqdm(enumerate(ds), total=len(ds)):
                     if i % 100 == 0:
-                        print(meta_info[question_id])
+                        print(f"Processing {i}/{len(ds)}")
 
-                if i < N_DEBUG_IMAGES:
-                    res = apply_pattern_for_image(
-                        image=image,
-                        ocr_info=ocr_info,
-                        text_to_place=attack_word,
-                        pattern=pat,
-                        config=config,
-                        image_id=image_id,
-                        question_id=question_id,
-                        question_text=question,
-                        subset_name=split,
-                        answer_text=answer,
-                        is_debug=True,
+                    image = item["image"]
+                    image_id = item["image_id"]
+                    question = item["question"]
+                    question_id = item["question_id"]
+                    ocr_info = image_id2ocr[image_id].get("ocr_info", [])
+                    answers = item["answers"]
+                    # most frequent answer
+                    answer = max(set(answers), key=answers.count)
+
+                    mt_item = misleading_txt_data[question_id]
+                    if choice_level == "misleading":
+                        attack_word = mt_item["attacks"]["misleading"]
+                    elif choice_level == "correct":
+                        attack_word = answer
+                    else:
+                        raise ValueError(f"Unknown choice level: {choice_level}")
+
+                    # text-attack (non-debug)
+                    if not IS_ONLY_DEBUG:
+                        res = apply_pattern_for_image(
+                            image=image,
+                            ocr_info=ocr_info,
+                            text_to_place=attack_word,
+                            pattern=pat,
+                            config=config,
+                            image_id=image_id,
+                            question_id=question_id,
+                            question_text=question,
+                            subset_name=split,
+                            answer_text=answer,
+                        )
+
+                        out_img = res["image"]
+                        meta = res["metadata"]
+
+                        fname = (
+                            f"{image_id}_{question_id}_{split}"
+                            f"__{meta['pattern_id']}__seed{meta['seed']}.jpg"
+                        )
+                        out_path = os.path.join(THIS_IMAGE_DIR, fname)
+                        out_img.save(out_path)
+                        # save meta info
+                        meta["attack_word"] = attack_word
+                        meta["answer"] = answer
+                        meta_info[question_id] = meta
+
+                        if i % 100 == 0:
+                            print(meta_info[question_id])
+
+                    if i < N_DEBUG_IMAGES:
+                        res = apply_pattern_for_image(
+                            image=image,
+                            ocr_info=ocr_info,
+                            text_to_place=attack_word,
+                            pattern=pat,
+                            config=config,
+                            image_id=image_id,
+                            question_id=question_id,
+                            question_text=question,
+                            subset_name=split,
+                            answer_text=answer,
+                            is_debug=True,
+                        )
+                        debug_img = res["image"]
+                        debug_meta = res["metadata"]
+                        debug_fname = f"{image_id}_{question_id}_{split}__debug.jpg"
+                        DEBUG_IMAGE_DIR = os.path.join(THIS_OUT_DIR, "debug_images")
+                        os.makedirs(DEBUG_IMAGE_DIR, exist_ok=True)
+                        debug_out_path = os.path.join(DEBUG_IMAGE_DIR, debug_fname)
+                        debug_img.save(debug_out_path)
+                        print(f"Saved debug image to {debug_out_path}")
+
+                # Keep original metadata filename for "misleading"
+                if not IS_ONLY_DEBUG:
+                    if choice_level == "misleading":
+                        meta_json_name = f"text_attack_{pat['pattern_id']}_meta.json"
+                    else:
+                        meta_json_name = f"text_attack_{pat['pattern_id']}_{choice_level}_meta.json"
+
+                    meta_json_path = os.path.join(THIS_OUT_DIR, meta_json_name)
+                    with open(meta_json_path, "w") as f:
+                        json.dump(meta_info, f, indent=2)
+                    print(
+                        f"Saved metadata for {pat['pattern_id']} ({choice_level}) "
+                        f"text-attack to {meta_json_path}"
                     )
-                    debug_img = res["image"]
-                    debug_meta = res["metadata"]
-                    debug_fname = f"{image_id}_{question_id}_{split}__debug.jpg"
-                    DEBUG_IMAGE_DIR = os.path.join(THIS_OUT_DIR, "debug_images")
-                    os.makedirs(DEBUG_IMAGE_DIR, exist_ok=True)
-                    debug_out_path = os.path.join(DEBUG_IMAGE_DIR, debug_fname)
-                    debug_img.save(debug_out_path)
-                    print(f"Saved debug image to {debug_out_path}")
-
-
-            # save meta info (same as original)
-            if not IS_ONLY_DEBUG:
-                meta_json_path = os.path.join(
-                    THIS_OUT_DIR,
-                    f"text_attack_{pat['pattern_id']}_meta.json",
-                )
-                with open(meta_json_path, "w") as f:
-                    json.dump(meta_info, f, indent=2)
-                print(
-                    f"Saved metadata for {pat['pattern_id']} "
-                    f"text-attack to {meta_json_path}"
-                )

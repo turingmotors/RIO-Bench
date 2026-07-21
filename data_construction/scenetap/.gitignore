@@ -1,0 +1,32 @@
+# This directory vendors a modified copy of the third-party SceneTAP repo
+# (https://github.com/tsingqguo/scenetap). Only the RIO-Bench-specific glue
+# code is tracked here; generated outputs, logs, and further vendored
+# third-party dependencies (SoM, unilm/TextDiffuser-2, incl. checkpoints)
+# are intentionally excluded -- see README.md for how to obtain them.
+
+# Ignore everything by default; only the curated files below are tracked.
+*
+!.gitignore
+!README.md
+!chatgpt_test.py
+!save_som_images.py
+
+!prompt/
+!prompt/**
+
+!fonts/
+!fonts/**
+
+!figs/
+!figs/**
+
+!utils/
+!utils/**
+utils/__pycache__/
+utils/sam_utils/__pycache__/
+
+!scripts/
+!scripts/chatgpt_test.sh
+!scripts/chatgpt_test_text_attack.sh
+!scripts/save_som_images.sh
+!scripts/build_obj_oe_from_scenetap_mc.py

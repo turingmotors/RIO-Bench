@@ -81,7 +81,6 @@ output_dir="./outputs/ckpts/${dataname}/${model_name}/SFT_example"
 #   )
 # )
 
-
 target_layers="vision,multi_modal_projector,language"
 seed=42
 

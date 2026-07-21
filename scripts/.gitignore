@@ -1,1 +1,8 @@
 test/**
+
+# Ignore everything else by default; only the public templates below are tracked.
+*
+!.gitignore
+!eval_template.sh
+!train_peft_template.sh
+!train_unsloth_template.sh

@@ -78,7 +78,7 @@ def visualize_attention(model, processor, image, text, normalize=False, attn_typ
         image_attn_list = compute_pure_attention(model, processor, image, text)
     elif attn_type == "relative":
         if general_text is None:
-            general_text = "Write a general description of the image. Answer the question using a single word or phrase."
+            general_text = "Write a general description of the image."
         image_attn_list = compute_relative_attention(model, processor, image, text, general_text)
     elif attn_type == "gradient":
         image_attn_list = compute_gradient_attention(model, processor, image, text)

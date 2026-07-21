@@ -224,6 +224,25 @@ def generate_obj_attack_for_split(
 
 
 if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Generate obj typo-attack images.")
+    parser.add_argument(
+        "--splits",
+        nargs="+",
+        choices=["val", "train"],
+        default=["val", "train"],
+        help="Splits to process.",
+    )
+    parser.add_argument(
+        "--choice-levels",
+        nargs="+",
+        choices=["correct", "easy", "medium", "hard"],
+        default=["correct", "easy", "medium", "hard"],
+        help="Choice levels to generate.",
+    )
+    args = parser.parse_args()
+
     BASE_DIR = "../data"
 
     # Global debug config (for val split; train keeps the original "i < 5" behavior)
@@ -232,7 +251,7 @@ if __name__ == "__main__":
     DEBUG_IMAGE_ID = "85cbb7667b273c8d"
 
     # Settings for each split
-    split_settings = [
+    split_settings_all = [
         {
             "split": "val",
             "hf_split": "validation",
@@ -257,14 +276,16 @@ if __name__ == "__main__":
         },
     ]
 
+    split_settings = [cfg for cfg in split_settings_all if cfg["split"] in set(args.splits)]
     for cfg in split_settings:
+        cfg_choice_levels = [x for x in args.choice_levels]
         generate_obj_attack_for_split(
             split=cfg["split"],
             hf_split=cfg["hf_split"],
             config_path=cfg["config_path"],
             ocr_json_path=cfg["ocr_json_path"],
             mc_json_path=cfg["mc_json_path"],
-            choice_levels=cfg["choice_levels"],
+            choice_levels=cfg_choice_levels,
             base_dir=BASE_DIR,
             is_only_debug=cfg["is_only_debug"],
             n_debug_images=cfg["n_debug_images"],

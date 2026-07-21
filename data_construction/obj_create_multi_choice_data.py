@@ -173,6 +173,37 @@ def select_y_true_batch(
     return out
 
 
+GT_LABELS_FILTERED_SCORE_THRESHOLD = 0.20
+
+
+def build_gt_labels_filtered(
+    gt_labels: Set[str],
+    all_scores: Dict[str, float],
+    threshold: float = GT_LABELS_FILTERED_SCORE_THRESHOLD,
+) -> List[str]:
+    """
+    Narrow `gt_labels` down to the CLIP top-1 GT label plus any GT label whose
+    CLIP score is >= `threshold`. Used to decide which GT-adjacent labels must
+    be excluded (together with their ancestors/descendants) from the negative
+    candidate pool, so that a distractor can't be a broader/narrower category
+    of a label that actually applies to the image.
+    """
+    gt_scored = [
+        (label, float(all_scores[label]))
+        for label in gt_labels
+        if label in all_scores
+    ]
+    gt_scored.sort(key=lambda x: (-x[1], x[0]))
+    if not gt_scored:
+        return []
+
+    filtered = {gt_scored[0][0]}
+    for label, score in gt_scored:
+        if score >= threshold:
+            filtered.add(label)
+    return sorted(filtered)
+
+
 # --- Sample negatives (hard/medium/easy) ------------------------------------
 def sample_negatives_hme(
     y_true: str,
@@ -180,6 +211,7 @@ def sample_negatives_hme(
     label_vocab: List[str],
     abs_ancestors: Dict[str, Dict[int, Set[str]]],   # depth:1 = root, increasing downward
     parent2children: Dict[str, Set[str]],            # direct edges parent -> children
+    all_scores: Optional[Dict[str, float]] = None,   # CLIP scores, used to build gt_labels_filtered
     target_root: str = "Entity",
     seed: int = 42,
     seed_salt: Optional[str] = None,                 # e.g., image_id or question_id
@@ -188,11 +220,13 @@ def sample_negatives_hme(
     Sample hard/medium/easy negatives purely based on the hierarchy.
 
     Steps:
-      - Assert (conceptually) that y_true is a leaf.
-      - Prune GT to leaves (under the hierarchy).
-      - Exclude:
-          (pruned GT leaves) and ALL of their descendants.
-        (Do NOT exclude GT ancestors.)
+      - Build `gt_labels_filtered`: the CLIP top-1 GT label plus any GT label
+        with CLIP score >= GT_LABELS_FILTERED_SCORE_THRESHOLD (falls back to
+        {y_true} if `all_scores` doesn't cover any GT label).
+      - Exclude each label in `gt_labels_filtered`, together with ALL of its
+        ancestors and descendants, from the negative candidate pool. This
+        prevents picking a distractor that is a broader/narrower category of
+        a label that genuinely applies to the image.
 
     Band definitions (same as the original design):
       hard   = siblings at the deepest parent level of y_true (share ancestors at depth L)
@@ -231,9 +265,6 @@ def sample_negatives_hme(
     def children_of(lbl: str) -> Set[str]:
         return set(parent2children.get(lbl, set()))
 
-    def is_leaf(lbl: str) -> bool:
-        return len(children_of(lbl)) == 0
-
     def descendants_of(lbl: str) -> Set[str]:
         """Collect all descendants via BFS over parent2children."""
         out: Set[str] = set()
@@ -247,21 +278,24 @@ def sample_negatives_hme(
                 q.append(v)
         return out
 
-    # ---------- (0) conceptually require y_true to be a leaf ----------
+    def ancestors_of(lbl: str) -> Set[str]:
+        out: Set[str] = set()
+        for depth_labels in anc_map(lbl).values():
+            out |= set(depth_labels)
+        return out
 
-    # ---------- (1) prune GT to leaves ----------
-    pruned_gt = {g for g in gt_labels if is_leaf(g)}
-    # ensure y_true is included (it should be a leaf conceptually)
-    if y_true in gt_labels:
-        pruned_gt.add(y_true)
+    # ---------- (1) build gt_labels_filtered and exclusion set ----------
+    gt_labels_filtered = set(build_gt_labels_filtered(gt_labels, all_scores or {}))
+    if not gt_labels_filtered:
+        gt_labels_filtered = {y_true}
 
-    # ---------- (2) build exclusion set: pruned GT leaves and their descendants ----------
-    exclude_set: Set[str] = set(pruned_gt)
-    for g in pruned_gt:
-        # leaves typically add none; non-leaf GT would add its subtree
-        exclude_set |= descendants_of(g)
+    exclude_set: Set[str] = set()
+    for label in gt_labels_filtered:
+        exclude_set.add(label)
+        exclude_set |= ancestors_of(label)
+        exclude_set |= descendants_of(label)
 
-    # ---------- (3) compute deepest parent level L for y_true ----------
+    # ---------- (2) compute deepest parent level L for y_true ----------
     depths = sorted([d for d in anc_map(y_true).keys() if d > 1])
     # If no depth > 1 exists (edge case), treat as shallow taxonomy
     if not depths:
@@ -272,13 +306,12 @@ def sample_negatives_hme(
     Lm = max(2, L - 1)
     Le = max(2, L - 2)
 
-    # ---------- (4) base candidate pool
-    # Apply exclusion; do NOT remove ancestors of non-y_true GT labels ----------
+    # ---------- (3) base candidate pool ----------
     base_pool = [
         c
         for c in label_vocab
         if c != y_true
-        and c not in exclude_set            # exclude pruned GT leaves and their descendants only
+        and c not in exclude_set            # exclude gt_labels_filtered, their ancestors, and their descendants
         and has_root(c)                     # stay under target root
     ]
 
@@ -497,10 +530,9 @@ if __name__ == "__main__":
         for i, sample in tqdm(enumerate(ds), desc="Generating MCQ samples"):
             image_classes = sample.get("image_classes") or []
             question_id = sample.get("question_id")
+            sample_gt_labels = set(image_classes)
 
-            # NOTE: This uses the original condition on `gt_labels` (left as-is for
-            # behavioral compatibility; gt_labels here is the example set above).
-            if not gt_labels:
+            if not sample_gt_labels:
                 print(f"Warning: no GT labels for image {i}, skipping.")
                 continue
 
@@ -519,10 +551,11 @@ if __name__ == "__main__":
 
             negs = sample_negatives_hme(
                 y_true=y_true,
-                gt_labels=gt_labels,
+                gt_labels=sample_gt_labels,
                 label_vocab=vocab,
                 abs_ancestors=abs_ancestors,
                 parent2children=parent2children,
+                all_scores=(qid2info.get(str(question_id)) or {}).get("all_scores"),
                 seed=42,
                 seed_salt=sample.get("question_id"),  # vary negatives per question
             )

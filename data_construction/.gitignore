@@ -1,1 +1,9 @@
-scenetap
+scripts
+vis
+patches
+output
+outputs
+*.out
+obj_create_text_bbox_dataset.py
+obj_create_text_clean_mc_dataset.py
+visualize_dataset_samples.py

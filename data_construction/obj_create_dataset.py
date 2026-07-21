@@ -19,6 +19,20 @@ from obj_create_multi_choice_data import prune_gt_to_pseudo_leaves
 
 parser = argparse.ArgumentParser(description="Create RIO-Bench obj datasets.")
 parser.add_argument("--overwrite", action="store_true", help="Overwrite existing datasets.")
+parser.add_argument(
+    "--splits",
+    nargs="+",
+    choices=["validation", "train"],
+    default=["validation", "train"],
+    help="TextVQA splits to process.",
+)
+parser.add_argument(
+    "--levels",
+    nargs="+",
+    choices=["clean", "correct", "hard", "medium", "easy"],
+    default=["clean", "hard", "medium", "easy"],
+    help="Dataset levels to build.",
+)
 args = parser.parse_args()
 OVERWRITE = args.overwrite
 
@@ -60,7 +74,7 @@ META_DROP_KEYS = {
 # -------------------------------------------
 # Process both train and validation splits
 # -------------------------------------------
-for split in ["validation", "train"]:
+for split in args.splits:
     split_short = "val" if split == "validation" else "train"
 
     # Load original TextVQA split
@@ -90,7 +104,7 @@ for split in ["validation", "train"]:
             "Answer with only the option letter (A, B, C, or D)."
         )
 
-        for level in ["clean", "hard", "medium", "easy"]:
+        for level in args.levels:
             if level == "clean":
                 mode = "obj_clean"
             else:
@@ -117,9 +131,9 @@ for split in ["validation", "train"]:
             random.seed(42)  # same shuffling for all levels
             print(f"Creating MC: {level} dataset...")
 
-            # Load meta.json only for adversarial levels (hard/medium/easy)
+            # Load meta.json only for adversarial levels
             meta_dict: Dict[int, dict] = {}
-            if level in ["hard", "medium", "easy"]:
+            if level != "clean":
                 meta_json_path = os.path.join(
                     DATA_ROOT_DIR,
                     split_short,                     # "train" or "val"
@@ -210,7 +224,7 @@ for split in ["validation", "train"]:
 
                 # Attach meta (does not change any existing fields/behavior)
                 meta = None
-                if level in ["hard", "medium", "easy"]:
+                if level != "clean":
                     meta = meta_dict.get(question_id)
 
                 entry = {
@@ -225,10 +239,13 @@ for split in ["validation", "train"]:
                         "C": choices_shuffled[2],
                         "D": choices_shuffled[3],
                     },
-                    # attack_word logic kept exactly as in the original code
                     "attack_word": ""
                     if level == "clean"
-                    else mcq_item["choices"][level.split("-")[-1]],
+                    else (
+                        mcq_item["answer"]
+                        if level == "correct"
+                        else mcq_item["choices"][level.split("-")[-1]]
+                    ),
                     "meta": meta,  # new field
                 }
                 entries.append(entry)
@@ -267,7 +284,7 @@ for split in ["validation", "train"]:
             "What objects can be seen in the image? Answer only with object names."
         )
 
-        for level in ["clean", "hard", "medium", "easy"]:
+        for level in args.levels:
             if level == "clean":
                 mode = "obj_clean"
             else:
@@ -292,7 +309,7 @@ for split in ["validation", "train"]:
 
             # Load meta only for adversarial levels
             meta_dict: Dict[int, dict] = {}
-            if level in ["hard", "medium", "easy"]:
+            if level != "clean":
                 meta_json_path = os.path.join(
                     DATA_ROOT_DIR,
                     split_short,
@@ -388,7 +405,7 @@ for split in ["validation", "train"]:
 
                 # Lookup meta for adversarial levels
                 meta = None
-                if level in ["hard", "medium", "easy"]:
+                if level != "clean":
                     meta = meta_dict.get(question_id)
 
                 answer2score_list = [
@@ -403,7 +420,11 @@ for split in ["validation", "train"]:
                     "image_id": image_id,
                     "attack_word": ""
                     if level == "clean"
-                    else mcq_item["choices"][level],
+                    else (
+                        mcq_item["answer"]
+                        if level == "correct"
+                        else mcq_item["choices"][level]
+                    ),
                     "meta": meta,  # new field
                 }
                 if i == 0:

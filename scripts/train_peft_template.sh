@@ -16,11 +16,6 @@ ds_num1=4000
 ds_num2=4000
 ds_num3=8000
 
-ds_num1=200
-ds_num2=100
-ds_num3=100
-
-
 dataname="oa-mch${ds_num1}-oeh${ds_num2}-ta-oem${ds_num3}"
 output_dir="./outputs/ckpts/${dataname}/${model_name}/SFT_example"
 
