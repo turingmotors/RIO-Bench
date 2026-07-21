@@ -32,11 +32,4 @@ utils/sam_utils/__pycache__/
 !scripts/save_som_images_train.sh
 !scripts/save_som_images_val.sh
 !scripts/save_som_images_txt_val.sh
-!scripts/rebuild_dataset.sh
-!scripts/rebuild_dataset_obj_txt.sh
-!scripts/rebuild_dataset_merged_obj.sh
-!scripts/rebuild_dataset_merged_txt.sh
-!scripts/rebuild_dataset_from_images.py
 !scripts/build_obj_oe_from_scenetap_mc.py
-!scripts/vis_dataset_samples.py
-!scripts/vis_samples.sh
