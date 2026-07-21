@@ -20,6 +20,360 @@ dataname="oa-mch${ds_num1}-oeh${ds_num2}-ta-oem${ds_num3}"
 output_dir="./outputs/ckpts/${dataname}/${model_name}/SFT_example"
 
 
+# MllamaForConditionalGeneration(
+#   (model): MllamaModel(
+#     (vision_model): MllamaVisionModel(
+#       (patch_embedding): Conv2d(3, 1280, kernel_size=(14, 14), stride=(14, 14), padding=valid, bias=False)
+#       (gated_positional_embedding): MllamaPrecomputedPositionEmbedding(
+#         (tile_embedding): Embedding(9, 8197120)
+#       )
+#       (pre_tile_positional_embedding): MllamaPrecomputedAspectRatioEmbedding(
+#         (embedding): Embedding(9, 5120)
+#       )
+#       (post_tile_positional_embedding): MllamaPrecomputedAspectRatioEmbedding(
+#         (embedding): Embedding(9, 5120)
+#       )
+#       (layernorm_pre): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+#       (layernorm_post): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+#       (transformer): MllamaVisionEncoder(
+#         (layers): ModuleList(
+#           (0-31): 32 x MllamaVisionEncoderLayer(
+#             (self_attn): MllamaVisionAttention(
+#               (q_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#               (k_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#               (v_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#               (o_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#             )
+#             (mlp): MllamaVisionMLP(
+#               (activation_fn): GELUActivation()
+#               (fc1): Linear4bit(in_features=1280, out_features=5120, bias=True)
+#               (fc2): Linear4bit(in_features=5120, out_features=1280, bias=True)
+#             )
+#             (input_layernorm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+#             (post_attention_layernorm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+#           )
+#         )
+#       )
+#       (global_transformer): MllamaVisionEncoder(
+#         (layers): ModuleList(
+#           (0-7): 8 x MllamaVisionEncoderLayer(
+#             (self_attn): MllamaVisionAttention(
+#               (q_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#               (k_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#               (v_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#               (o_proj): Linear4bit(in_features=1280, out_features=1280, bias=False)
+#             )
+#             (mlp): MllamaVisionMLP(
+#               (activation_fn): GELUActivation()
+#               (fc1): Linear4bit(in_features=1280, out_features=5120, bias=True)
+#               (fc2): Linear4bit(in_features=5120, out_features=1280, bias=True)
+#             )
+#             (input_layernorm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+#             (post_attention_layernorm): LayerNorm((1280,), eps=1e-05, elementwise_affine=True)
+#           )
+#         )
+#       )
+#     )
+#     (language_model): MllamaTextModel(
+#       (embed_tokens): Embedding(128264, 4096, padding_idx=128004)
+#       (layers): ModuleList(
+#         (0-2): 3 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (3): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (4-7): 4 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (8): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (9-12): 4 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (13): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (14-17): 4 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (18): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (19-22): 4 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (23): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (24-27): 4 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (28): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (29-32): 4 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (33): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (34-37): 4 x MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (38): MllamaCrossAttentionDecoderLayer(
+#           (cross_attn): MllamaTextCrossAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (q_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#             (k_norm): MllamaTextRMSNorm((128,), eps=1e-05)
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#         (39): MllamaSelfAttentionDecoderLayer(
+#           (self_attn): MllamaTextSelfAttention(
+#             (q_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#             (k_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (v_proj): Linear4bit(in_features=4096, out_features=1024, bias=False)
+#             (o_proj): Linear4bit(in_features=4096, out_features=4096, bias=False)
+#           )
+#           (mlp): MllamaTextMLP(
+#             (gate_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (up_proj): Linear4bit(in_features=4096, out_features=14336, bias=False)
+#             (down_proj): Linear4bit(in_features=14336, out_features=4096, bias=False)
+#             (act_fn): SiLU()
+#           )
+#           (input_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#           (post_attention_layernorm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#         )
+#       )
+#       (norm): MllamaTextRMSNorm((4096,), eps=1e-05)
+#       (rotary_emb): MllamaRotaryEmbedding()
+#     )
+#     (multi_modal_projector): Linear4bit(in_features=7680, out_features=4096, bias=True)
+#   )
+#   (lm_head): Linear(in_features=4096, out_features=128256, bias=False)
+# )
+
 target_layers="vision_model,language_model,multi_modal_projector"
 seed=42
 
