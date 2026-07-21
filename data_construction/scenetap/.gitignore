@@ -29,7 +29,4 @@ utils/sam_utils/__pycache__/
 !scripts/chatgpt_test.sh
 !scripts/chatgpt_test_text_attack.sh
 !scripts/save_som_images.sh
-!scripts/save_som_images_train.sh
-!scripts/save_som_images_val.sh
-!scripts/save_som_images_txt_val.sh
 !scripts/build_obj_oe_from_scenetap_mc.py
