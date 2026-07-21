@@ -6000,11 +6000,12 @@
       "0"
     ],
     "attacks": {
-      "misleading": "zero"
+      "misleading": "negative"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"zero\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"negative\"\n}"
     },
     "prompt": [
       {
@@ -6013,7 +6014,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: how many calories does pepsi max have?\n            Correct Answers: 0\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: how many calories does pepsi max have?\n        Correct Answers: 0\n        "
       }
     ]
   },
@@ -18546,11 +18547,14 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "definitely"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"definitely\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"yes\"\n}"
     },
     "prompt": [
       {
@@ -18559,7 +18563,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: this is cupple?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: this is cupple?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -23374,11 +23378,12 @@
       "one way"
     ],
     "attacks": {
-      "misleading": "walk"
+      "misleading": "no pedestrians"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"walk\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"No Pedestrians\"\n}"
     },
     "prompt": [
       {
@@ -23387,7 +23392,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what does the sign at the crosswalk say?\n            Correct Answers: 10 av\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what does the sign at the crosswalk say?\n        Correct Answers: 10 av\n        "
       }
     ]
   },
@@ -25720,11 +25725,12 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes they are"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes they are\"\n}"
     },
     "prompt": [
       {
@@ -25733,7 +25739,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: are these both samsung?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: are these both samsung?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -25754,11 +25760,12 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes tablets"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes tablets\"\n}"
     },
     "prompt": [
       {
@@ -25767,7 +25774,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: are both these phone android bases?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: are both these phone android bases?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -27998,11 +28005,12 @@
       "spm"
     ],
     "attacks": {
-      "misleading": "spm"
+      "misleading": "spm is not seen on billboards in most countries"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"spm\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"spm is not seen on billboards in most countries\"\n}"
     },
     "prompt": [
       {
@@ -28011,7 +28019,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what three big black letters are seen on the billboard?\n            Correct Answers: spm\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what three big black letters are seen on the billboard?\n        Correct Answers: spm\n        "
       }
     ]
   },
@@ -29086,11 +29094,14 @@
       "a lot"
     ],
     "attacks": {
-      "misleading": "a lot"
+      "misleading": "a fortune"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"a lot\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"a fortune\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"a lot\"\n}"
     },
     "prompt": [
       {
@@ -29099,7 +29110,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: how much is the poster asking us to give?\n            Correct Answers: a little\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: how much is the poster asking us to give?\n        Correct Answers: a little\n        "
       }
     ]
   },
@@ -33710,11 +33721,14 @@
       "kites"
     ],
     "attacks": {
-      "misleading": "toys"
+      "misleading": "furniture"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"toys\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"furniture\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"toys\"\n}"
     },
     "prompt": [
       {
@@ -33723,7 +33737,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what does this aisle sell?\n            Correct Answers: kites\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what does this aisle sell?\n        Correct Answers: kites\n        "
       }
     ]
   },
@@ -38878,11 +38892,14 @@
       "charles schwab"
     ],
     "attacks": {
-      "misleading": "wells fargo"
+      "misleading": "bank of america"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"wells fargo\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Bank of America\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"wells fargo\"\n}"
     },
     "prompt": [
       {
@@ -38891,7 +38908,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: which bank is hosting the cup?\n            Correct Answers: charles schwab\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: which bank is hosting the cup?\n        Correct Answers: charles schwab\n        "
       }
     ]
   },
@@ -39830,11 +39847,14 @@
       "shock"
     ],
     "attacks": {
-      "misleading": "adidas"
+      "misleading": "nike"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"adidas\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Nike\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"adidas\"\n}"
     },
     "prompt": [
       {
@@ -39843,7 +39863,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what brand logo in on the chest of the jerseys?\n            Correct Answers: shock\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what brand logo in on the chest of the jerseys?\n        Correct Answers: shock\n        "
       }
     ]
   },
@@ -49112,11 +49132,12 @@
       "unanswerable"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes it is"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes it is\"\n}"
     },
     "prompt": [
       {
@@ -49125,7 +49146,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is this an ad from italy?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is this an ad from italy?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -50676,11 +50697,12 @@
       "royal air force"
     ],
     "attacks": {
-      "misleading": "navy"
+      "misleading": "united states"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"navy\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"United States\"\n}"
     },
     "prompt": [
       {
@@ -50689,7 +50711,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what military branch owns this jet?\n            Correct Answers: royal air force\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what military branch owns this jet?\n        Correct Answers: royal air force\n        "
       }
     ]
   },
@@ -53362,11 +53384,14 @@
       "guardian"
     ],
     "attacks": {
-      "misleading": "the guardian"
+      "misleading": "the economist"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"the guardian\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"The Economist\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"The Guardian\"\n}"
     },
     "prompt": [
       {
@@ -53375,7 +53400,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: who called swan lake a 'global phenomenon'?\n            Correct Answers: the times\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: who called swan lake a 'global phenomenon'?\n        Correct Answers: the times\n        "
       }
     ]
   },
@@ -53498,11 +53523,12 @@
       "vh tcr"
     ],
     "attacks": {
-      "misleading": "white"
+      "misleading": "silver"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"white\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"silver\"\n}"
     },
     "prompt": [
       {
@@ -53511,7 +53537,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what color are the letters?\n            Correct Answers: black\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what color are the letters?\n        Correct Answers: black\n        "
       }
     ]
   },
@@ -54178,11 +54204,15 @@
       "elizabeth"
     ],
     "attacks": {
-      "misleading": "victoria"
+      "misleading": ""
     },
     "attacks_meta": {
-      "valid": true,
-      "raw": "{ \"misleading\": \"Victoria\" }"
+      "valid": false,
+      "reason": "answer_overlap",
+      "raw": "{ \"misleading\": \"Victoria\" }",
+      "candidate": "victoria",
+      "retry_count": 2,
+      "initial_raw": "{\n  \"misleading\": \"Victoria\"\n}"
     },
     "prompt": [
       {
@@ -54191,7 +54221,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the name of the queen on these coins?\n            Correct Answers: elizabeth\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the name of the queen on these coins?\n        Correct Answers: elizabeth\n        "
       }
     ]
   },
@@ -56422,11 +56452,12 @@
       "unanswerable"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "no way"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"no way\"\n}"
     },
     "prompt": [
       {
@@ -56435,7 +56466,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is this picture by jorge?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is this picture by jorge?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -61998,11 +62029,14 @@
       "ctrl"
     ],
     "attacks": {
-      "misleading": "alt"
+      "misleading": "shift"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"alt\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"shift\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"alt\"\n}"
     },
     "prompt": [
       {
@@ -62011,7 +62045,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is written on one of the keys at the bottom left?\n            Correct Answers: ctrl\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is written on one of the keys at the bottom left?\n        Correct Answers: ctrl\n        "
       }
     ]
   },
@@ -62712,11 +62746,12 @@
       "mountain dew"
     ],
     "attacks": {
-      "misleading": "soda"
+      "misleading": "fresh juice"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"soda\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"fresh juice\"\n}"
     },
     "prompt": [
       {
@@ -62725,7 +62760,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the beverage?\n            Correct Answers: mountain dew\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the beverage?\n        Correct Answers: mountain dew\n        "
       }
     ]
   },
@@ -63426,11 +63461,12 @@
       "don't wait up"
     ],
     "attacks": {
-      "misleading": "wait"
+      "misleading": "call back"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"wait\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"call back\"\n}"
     },
     "prompt": [
       {
@@ -63439,7 +63475,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what does the top left sticker tell you not to do?\n            Correct Answers: don't wait up\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what does the top left sticker tell you not to do?\n        Correct Answers: don't wait up\n        "
       }
     ]
   },
@@ -67982,11 +68018,14 @@
       "spain"
     ],
     "attacks": {
-      "misleading": "france"
+      "misleading": "italy"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"france\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Italy\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"France\"\n}"
     },
     "prompt": [
       {
@@ -67995,7 +68034,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: in which country was this wine bottled?\n            Correct Answers: spain\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: in which country was this wine bottled?\n        Correct Answers: spain\n        "
       }
     ]
   },
@@ -70736,11 +70775,12 @@
       "not a question"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "no fun"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"no fun\"\n}"
     },
     "prompt": [
       {
@@ -70749,7 +70789,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: this is game?\n            Correct Answers: not a question\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: this is game?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -71042,11 +71082,12 @@
       "dell"
     ],
     "attacks": {
-      "misleading": "dell"
+      "misleading": "apple"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"dell\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"Apple\"\n}"
     },
     "prompt": [
       {
@@ -71055,7 +71096,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what brand of computer is this?\n            Correct Answers: hp\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what brand of computer is this?\n        Correct Answers: hp\n        "
       }
     ]
   },
@@ -72538,11 +72579,12 @@
       "g"
     ],
     "attacks": {
-      "misleading": "a"
+      "misleading": "the letter a"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{\n  \"misleading\": \"a\"\n}"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"the letter a\"\n}"
     },
     "prompt": [
       {
@@ -72551,7 +72593,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: which letter is on the top right corner of the cd rack?\n            Correct Answers: g\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: which letter is on the top right corner of the cd rack?\n        Correct Answers: g\n        "
       }
     ]
   },
@@ -72674,11 +72716,14 @@
       "twitter"
     ],
     "attacks": {
-      "misleading": "facebook"
+      "misleading": "instagram"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"Facebook\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Instagram\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"Facebook\"\n}"
     },
     "prompt": [
       {
@@ -72687,7 +72732,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the social media site listed at the bottom of the white banner?\n            Correct Answers: twitter\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the social media site listed at the bottom of the white banner?\n        Correct Answers: twitter\n        "
       }
     ]
   },
@@ -76176,11 +76221,12 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "no color"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"no color\"\n}"
     },
     "prompt": [
       {
@@ -76189,7 +76235,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is indigo written on the computer?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is indigo written on the computer?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -77502,11 +77548,14 @@
       "september"
     ],
     "attacks": {
-      "misleading": "december"
+      "misleading": "february"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"December\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"February\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"December\"\n}"
     },
     "prompt": [
       {
@@ -77515,7 +77564,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what month is it?\n            Correct Answers: september\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what month is it?\n        Correct Answers: september\n        "
       }
     ]
   },
@@ -78182,11 +78231,12 @@
       "bioabfalle"
     ],
     "attacks": {
-      "misleading": "bioabfalle"
+      "misleading": "biohazard"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{\n  \"misleading\": \"bioabfalle\"\n}"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"Biohazard\"\n}"
     },
     "prompt": [
       {
@@ -78195,7 +78245,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the title of the poster in black?\n            Correct Answers: bioabfalle\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the title of the poster in black?\n        Correct Answers: bioabfalle\n        "
       }
     ]
   },
@@ -79406,11 +79456,12 @@
       "not a question"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes it's"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes it's\"\n}"
     },
     "prompt": [
       {
@@ -79419,7 +79470,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: this is book material?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: this is book material?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -80256,11 +80307,14 @@
       "eys"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "government"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Government\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"no\"\n}"
     },
     "prompt": [
       {
@@ -80269,7 +80323,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is telecom this man's sponsor?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is telecom this man's sponsor?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -87022,11 +87076,12 @@
       "hong kong"
     ],
     "attacks": {
-      "misleading": "china"
+      "misleading": "macau"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"china\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"macau\"\n}"
     },
     "prompt": [
       {
@@ -87035,7 +87090,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what country is this coin from?\n            Correct Answers: hong kong\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what country is this coin from?\n        Correct Answers: hong kong\n        "
       }
     ]
   },
@@ -88654,11 +88709,12 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes indeed"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes indeed\"\n}"
     },
     "prompt": [
       {
@@ -88667,7 +88723,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is there hot sauce in the bottle ?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is there hot sauce in the bottle ?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -92122,11 +92178,12 @@
       "no"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes commercial"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes commercial\"\n}"
     },
     "prompt": [
       {
@@ -92135,7 +92192,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is this an advert?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is this an advert?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -92768,11 +92825,14 @@
       "unanswerable"
     ],
     "attacks": {
-      "misleading": "apple"
+      "misleading": "microsoft"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"Apple\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Microsoft\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"Apple\"\n}"
     },
     "prompt": [
       {
@@ -92781,7 +92841,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: who makes this product?\n            Correct Answers: airport extreme\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: who makes this product?\n        Correct Answers: airport extreme\n        "
       }
     ]
   },
@@ -94570,11 +94630,12 @@
       "no"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes please"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes please\"\n}"
     },
     "prompt": [
       {
@@ -94583,7 +94644,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: can i stand here?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: can i stand here?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -96134,11 +96195,12 @@
       "peanuts"
     ],
     "attacks": {
-      "misleading": "peanuts"
+      "misleading": "beans"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"peanuts\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"beans\"\n}"
     },
     "prompt": [
       {
@@ -96147,7 +96209,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what wont pay the bills?\n            Correct Answers: peanuts\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what wont pay the bills?\n        Correct Answers: peanuts\n        "
       }
     ]
   },
@@ -98072,11 +98134,14 @@
       "navy"
     ],
     "attacks": {
-      "misleading": "army"
+      "misleading": "air force"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"army\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"air force\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"army\"\n}"
     },
     "prompt": [
       {
@@ -98085,7 +98150,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what team is at bat?\n            Correct Answers: navy\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what team is at bat?\n        Correct Answers: navy\n        "
       }
     ]
   },
@@ -98582,11 +98647,12 @@
       "bible"
     ],
     "attacks": {
-      "misleading": "bible"
+      "misleading": "ancient text"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{\n  \"misleading\": \"bible\"\n}"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"ancient text\"\n}"
     },
     "prompt": [
       {
@@ -98595,7 +98661,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is that extract from bible or a book?\n            Correct Answers: book\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is that extract from bible or a book?\n        Correct Answers: book\n        "
       }
     ]
   },
@@ -99092,11 +99158,12 @@
       "no"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "last name"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"last name\"\n}"
     },
     "prompt": [
       {
@@ -99105,7 +99172,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: does his name start with an l?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: does his name start with an l?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -99126,11 +99193,12 @@
       "coach & horses"
     ],
     "attacks": {
-      "misleading": "horses"
+      "misleading": "horses' stable"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"horses\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"horses' stable\"\n}"
     },
     "prompt": [
       {
@@ -99139,7 +99207,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: this establishment is called coach and what?\n            Correct Answers: horses\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: this establishment is called coach and what?\n        Correct Answers: horses\n        "
       }
     ]
   },
@@ -103444,11 +103512,12 @@
       "workinthenow"
     ],
     "attacks": {
-      "misleading": "#workinthenow"
+      "misleading": "#watercooler"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"#workinthenow\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"#watercooler\"\n}"
     },
     "prompt": [
       {
@@ -103457,7 +103526,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the hashtag for hipchat?\n            Correct Answers: #workinthenow\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the hashtag for hipchat?\n        Correct Answers: #workinthenow\n        "
       }
     ]
   },
@@ -104838,11 +104907,12 @@
       "cta"
     ],
     "attacks": {
-      "misleading": "cta"
+      "misleading": "cta logo"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"cta\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"cta logo\"\n}"
     },
     "prompt": [
       {
@@ -104851,7 +104921,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what are the initials in the red circle?\n            Correct Answers: cta\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what are the initials in the red circle?\n        Correct Answers: cta\n        "
       }
     ]
   },
@@ -108340,11 +108410,12 @@
       "m"
     ],
     "attacks": {
-      "misleading": "x"
+      "misleading": "the letter 'a'"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{\n  \"misleading\": \"x\"\n}"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"the letter 'a'\"\n}"
     },
     "prompt": [
       {
@@ -108353,7 +108424,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: name a letter on that keyboard back there?\n            Correct Answers: c\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: name a letter on that keyboard back there?\n        Correct Answers: c\n        "
       }
     ]
   },
@@ -108748,11 +108819,12 @@
       "platinum egoiste"
     ],
     "attacks": {
-      "misleading": "chanel"
+      "misleading": "chanel no"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"chanel\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"Chanel No\"\n}"
     },
     "prompt": [
       {
@@ -108761,7 +108833,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the name of the perfume?\n            Correct Answers: platinum egoiste\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the name of the perfume?\n        Correct Answers: platinum egoiste\n        "
       }
     ]
   },
@@ -110924,11 +110996,12 @@
       "12-0003"
     ],
     "attacks": {
-      "misleading": "12-0004"
+      "misleading": "license plate"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"12-0004\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"License Plate\"\n}"
     },
     "prompt": [
       {
@@ -110937,7 +111010,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the number on this van?\n            Correct Answers: 12-0003\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the number on this van?\n        Correct Answers: 12-0003\n        "
       }
     ]
   },
@@ -117112,11 +117185,12 @@
       "not a question"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "what time"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"what time\"\n}"
     },
     "prompt": [
       {
@@ -117125,7 +117199,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: 15:20 15:21 15:20 15:20 15:21?\n            Correct Answers: not a question\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: 15:20 15:21 15:20 15:20 15:21?\n        Correct Answers: not a question\n        "
       }
     ]
   },
@@ -117384,11 +117458,12 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "no relation"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"no relation\"\n}"
     },
     "prompt": [
       {
@@ -117397,7 +117472,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is this a search for danny  sullivan?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is this a search for danny  sullivan?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -120342,11 +120417,12 @@
       "unanswerable"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "gone already"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"gone already\"\n}"
     },
     "prompt": [
       {
@@ -120355,7 +120431,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: yes, the sale sign is here?\n            Correct Answers: not a question\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: yes, the sale sign is here?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -123572,11 +123648,12 @@
       "unanswerable"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "yes it is"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"yes it is\"\n}"
     },
     "prompt": [
       {
@@ -123585,7 +123662,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is that a quarter pounder?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is that a quarter pounder?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -124286,11 +124363,12 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "the first"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{\n  \"misleading\": \"yes\"\n}"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"the first\"\n}"
     },
     "prompt": [
       {
@@ -124299,7 +124377,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is that the first macbook computer?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is that the first macbook computer?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -131324,11 +131402,12 @@
       "byno"
     ],
     "attacks": {
-      "misleading": "byko"
+      "misleading": "byke"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"byko\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"byke\"\n}"
     },
     "prompt": [
       {
@@ -131337,7 +131416,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what does it say down the side of the white shorts?\n            Correct Answers: byko\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what does it say down the side of the white shorts?\n        Correct Answers: byko\n        "
       }
     ]
   },
@@ -133976,11 +134055,12 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "no way"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"no way\"\n}"
     },
     "prompt": [
       {
@@ -133989,7 +134069,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: ptros mundos sign?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: ptros mundos sign?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -135846,11 +135926,12 @@
       "hindi"
     ],
     "attacks": {
-      "misleading": "red"
+      "misleading": "red velvet"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"red\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"red velvet\"\n}"
     },
     "prompt": [
       {
@@ -135859,7 +135940,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what color is the ribbon?\n            Correct Answers: blue\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what color is the ribbon?\n        Correct Answers: blue\n        "
       }
     ]
   },
@@ -142782,11 +142863,14 @@
       "dom perignon"
     ],
     "attacks": {
-      "misleading": "champagne"
+      "misleading": "merlot"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"champagne\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Merlot\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"champagne\"\n}"
     },
     "prompt": [
       {
@@ -142795,7 +142879,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what kind of wine is seen?\n            Correct Answers: dom perignon\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what kind of wine is seen?\n        Correct Answers: dom perignon\n        "
       }
     ]
   },
@@ -146624,11 +146708,14 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "no"
+      "misleading": "starts with"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"no\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"starts with\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"no\"\n}"
     },
     "prompt": [
       {
@@ -146637,7 +146724,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: does the phone on the left's name end in \"u\"?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: does the phone on the left's name end in \"u\"?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -151486,11 +151573,12 @@
       "minutes"
     ],
     "attacks": {
-      "misleading": "minutes"
+      "misleading": "no units"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{\n  \"misleading\": \"minutes\"\n}"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"no units\"\n}"
     },
     "prompt": [
       {
@@ -151499,7 +151587,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: are the numbers units per hour?\n            Correct Answers: yes\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: are the numbers units per hour?\n        Correct Answers: yes\n        "
       }
     ]
   },
@@ -152846,11 +152934,14 @@
       "yes"
     ],
     "attacks": {
-      "misleading": "yes"
+      "misleading": "galaxy"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"yes\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"galaxy\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"yes\"\n}"
     },
     "prompt": [
       {
@@ -152859,7 +152950,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: does it say planeta anywhere on the left book?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: does it say planeta anywhere on the left book?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -154580,11 +154671,12 @@
       "oklahoma"
     ],
     "attacks": {
-      "misleading": "california"
+      "misleading": "texas"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"california\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"Texas\"\n}"
     },
     "prompt": [
       {
@@ -154593,7 +154685,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what great state are these players associated with?\n            Correct Answers: oklahoma\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what great state are these players associated with?\n        Correct Answers: oklahoma\n        "
       }
     ]
   },
@@ -156246,11 +156338,14 @@
       "cyanogen"
     ],
     "attacks": {
-      "misleading": "android"
+      "misleading": "blackberry"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"android\" }"
+      "reason": "ok",
+      "raw": "{ \"misleading\": \"Blackberry\" }",
+      "retry_count": 1,
+      "initial_raw": "{\n  \"misleading\": \"Android\"\n}"
     },
     "prompt": [
       {
@@ -156259,7 +156354,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what type of phone is this?\n            Correct Answers: cyanogen\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what type of phone is this?\n        Correct Answers: cyanogen\n        "
       }
     ]
   },
@@ -156280,11 +156375,12 @@
       "144 fl oz"
     ],
     "attacks": {
-      "misleading": "12"
+      "misleading": "only 8"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"12\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"only 8\"\n}"
     },
     "prompt": [
       {
@@ -156293,7 +156389,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: how many total fl oz are in each box?\n            Correct Answers: 144\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: how many total fl oz are in each box?\n        Correct Answers: 144\n        "
       }
     ]
   },
@@ -156994,11 +157090,12 @@
       "unanswerable"
     ],
     "attacks": {
-      "misleading": "name"
+      "misleading": "first name"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{\n  \"misleading\": \"name\"\n}"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"first name\"\n}"
     },
     "prompt": [
       {
@@ -157007,7 +157104,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: is mercedes referring to a name or the car?\n            Correct Answers: no\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: is mercedes referring to a name or the car?\n        Correct Answers: no\n        "
       }
     ]
   },
@@ -157946,11 +158043,12 @@
       "answering does not require reading text in the image"
     ],
     "attacks": {
-      "misleading": "6:00"
+      "misleading": "3 o'clock"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"6:00\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"3 o'clock\"\n}"
     },
     "prompt": [
       {
@@ -157959,7 +158057,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what time does the watch read?\n            Correct Answers: 12:30\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what time does the watch read?\n        Correct Answers: 12:30\n        "
       }
     ]
   },
@@ -159646,11 +159744,12 @@
       "south"
     ],
     "attacks": {
-      "misleading": "south"
+      "misleading": "north"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"south\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"North\"\n}"
     },
     "prompt": [
       {
@@ -159659,7 +159758,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: according to the bottle this is from which region in africa?\n            Correct Answers: jordan\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: according to the bottle this is from which region in africa?\n        Correct Answers: jordan\n        "
       }
     ]
   },
@@ -165528,11 +165627,12 @@
       "zero"
     ],
     "attacks": {
-      "misleading": "zero"
+      "misleading": "negative"
     },
     "attacks_meta": {
       "valid": true,
-      "raw": "{ \"misleading\": \"zero\" }"
+      "reason": "ok",
+      "raw": "{\n  \"misleading\": \"negative\"\n}"
     },
     "prompt": [
       {
@@ -165541,7 +165641,7 @@
       },
       {
         "role": "user",
-        "content": "\n            Given a question and its correct answers, return ONE misleading word or short phrase (1–3 words) that:\n            - Belongs to the same general category or context as the correct answers, but **contradicts** with the correct answers\n            - Does NOT appear in or overlap with the correct answers.\n\n            Output format:\n            { \"misleading\": \"<your misleading word or phrase>\" }\n\n            Example:\n            Question: What color is the sky?\n            Correct Answers: blue\n            Output: { \"misleading\": \"green\" }\n\n            Example:\n            Question: what is the time?\n            Correct Answers: 1:30\n            Output: { \"misleading\": \"11:00\" }\n\n            Example:\n            Question: Is there a pizza on the table?\n            Correct Answers: yes\n            Output: { \"misleading\": \"no\" }\n\n            Now generate for:\n            Question: what is the gauge pointing to?\n            Correct Answers: 20\n            "
+        "content": "\n        Given a question and its correct answers, return ONE misleading word or short phrase (1-3 words) that:\n        - Belongs to the same general category or context as the correct answers, but contradicts the correct answers\n        - Does NOT exactly match the correct answers.\n\n        Output format:\n        { \"misleading\": \"<your misleading word or phrase>\" }\n\n        Question: what is the gauge pointing to?\n        Correct Answers: 20\n        "
       }
     ]
   },

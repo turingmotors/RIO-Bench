@@ -4,9 +4,9 @@
     "question_id": 34602,
     "answer": "Cassette deck",
     "choices": {
-      "hard": "Corded phone",
-      "medium": "Trombone",
-      "easy": "Dishwasher"
+      "hard": "Light switch",
+      "medium": "Rifle",
+      "easy": "Book"
     },
     "image_classes": [
       "Cassette deck",
@@ -313,9 +313,9 @@
     "question_id": 34621,
     "answer": "Convenience store",
     "choices": {
-      "hard": "House",
-      "medium": "Building",
-      "easy": "Fax"
+      "hard": "Skyscraper",
+      "medium": "Stop sign",
+      "easy": "Filing cabinet"
     },
     "image_classes": [
       "Food",
@@ -564,9 +564,9 @@
     "question_id": 34636,
     "answer": "Digital clock",
     "choices": {
-      "hard": "Alarm clock",
-      "medium": "Snowman",
-      "easy": "Whiteboard"
+      "hard": "Wall clock",
+      "medium": "Bathroom accessory",
+      "easy": "Calculator"
     },
     "image_classes": [
       "Scale",
@@ -743,9 +743,9 @@
     "question_id": 34647,
     "answer": "Food",
     "choices": {
-      "hard": "Tomato",
-      "medium": "Tiara",
-      "easy": "Beer"
+      "hard": "Blender",
+      "medium": "Briefcase",
+      "easy": "Horizontal bar"
     },
     "image_classes": [
       "Beer",
@@ -787,8 +787,8 @@
     "answer": "Vehicle registration plate",
     "choices": {
       "hard": "Seat belt",
-      "medium": "Auto part",
-      "easy": "Boat"
+      "medium": "Cart",
+      "easy": "Barge"
     },
     "image_classes": [
       "Car",
@@ -1427,9 +1427,9 @@
     "question_id": 34690,
     "answer": "Kitchen appliance",
     "choices": {
-      "hard": "Coffeemaker",
-      "medium": "Bed",
-      "easy": "Squid"
+      "hard": "Kitchen utensil",
+      "medium": "Fireplace",
+      "easy": "Elephant"
     },
     "image_classes": [
       "Sink",
@@ -1549,8 +1549,8 @@
     "answer": "Drum",
     "choices": {
       "hard": "Chime",
-      "medium": "Bench",
-      "easy": "Fruit"
+      "medium": "Chisel",
+      "easy": "Suit"
     },
     "image_classes": [
       "Person",
@@ -1867,9 +1867,9 @@
     "question_id": 34719,
     "answer": "Taxi",
     "choices": {
-      "hard": "Car",
-      "medium": "Rocket",
-      "easy": "Facial tissue holder"
+      "hard": "Truck",
+      "medium": "Airplane",
+      "easy": "Hamster"
     },
     "image_classes": [
       "Person",
@@ -1920,9 +1920,9 @@
     "question_id": 34722,
     "answer": "Mug",
     "choices": {
-      "hard": "Wine glass",
-      "medium": "Tableware",
-      "easy": "Furniture"
+      "hard": "Coffee cup",
+      "medium": "Blender",
+      "easy": "Pencil sharpener"
     },
     "image_classes": [
       "Mug"
@@ -2143,9 +2143,9 @@
     "question_id": 34737,
     "answer": "Land vehicle",
     "choices": {
-      "hard": "Train",
-      "medium": "Chair",
-      "easy": "Butterfly"
+      "hard": "Submarine",
+      "medium": "Sock",
+      "easy": "Pear"
     },
     "image_classes": [
       "Land vehicle",
@@ -2291,9 +2291,9 @@
     "question_id": 34747,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Paddle",
-      "medium": "Rifle",
-      "easy": "Watermelon"
+      "hard": "Flowerpot",
+      "medium": "Goldfish",
+      "easy": "Ring binder"
     },
     "image_classes": [
       "Person",
@@ -2397,9 +2397,9 @@
     "question_id": 34754,
     "answer": "Baseball glove",
     "choices": {
-      "hard": "Glove",
-      "medium": "Skateboard",
-      "easy": "Snowplow"
+      "hard": "Cricket ball",
+      "medium": "Necklace",
+      "easy": "Briefcase"
     },
     "image_classes": [
       "Boy",
@@ -2677,9 +2677,9 @@
     "question_id": 34772,
     "answer": "Vehicle registration plate",
     "choices": {
-      "hard": "Tire",
-      "medium": "Taxi",
-      "easy": "Land vehicle"
+      "hard": "Wheel",
+      "medium": "Bicycle",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Vehicle",
@@ -2692,8 +2692,8 @@
     "question_id": 34773,
     "answer": "Vehicle registration plate",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Auto part",
+      "hard": "Tire",
+      "medium": "Cart",
       "easy": "Watercraft"
     },
     "image_classes": [
@@ -2901,9 +2901,9 @@
     "question_id": 34787,
     "answer": "Wine",
     "choices": {
-      "hard": "Beer",
-      "medium": "Watch",
-      "easy": "Zucchini"
+      "hard": "Cocktail",
+      "medium": "Baseball bat",
+      "easy": "Door"
     },
     "image_classes": [
       "Beer",
@@ -3039,9 +3039,9 @@
     "question_id": 34795,
     "answer": "Book",
     "choices": {
-      "hard": "Bathroom accessory",
-      "medium": "Lantern",
-      "easy": "Glove"
+      "hard": "Coffee table",
+      "medium": "Rocket",
+      "easy": "Radish"
     },
     "image_classes": [
       "Person",
@@ -3115,9 +3115,9 @@
     "question_id": 34799,
     "answer": "Car",
     "choices": {
-      "hard": "Limousine",
-      "medium": "Jet ski",
-      "easy": "Squid"
+      "hard": "Bicycle wheel",
+      "medium": "Helicopter",
+      "easy": "Scorpion"
     },
     "image_classes": [
       "Vehicle",
@@ -3241,9 +3241,9 @@
     "question_id": 34807,
     "answer": "Poster",
     "choices": {
-      "hard": "Pen",
-      "medium": "Office supplies",
-      "easy": "Snail"
+      "hard": "Candle",
+      "medium": "Bowl",
+      "easy": "Fork"
     },
     "image_classes": [
       "Poster"
@@ -3425,9 +3425,9 @@
     "question_id": 34819,
     "answer": "Train",
     "choices": {
-      "hard": "Segway",
-      "medium": "Land vehicle",
-      "easy": "Computer monitor"
+      "hard": "Bicycle",
+      "medium": "Jet ski",
+      "easy": "Kitchen appliance"
     },
     "image_classes": [
       "Train",
@@ -3570,9 +3570,9 @@
     "question_id": 34828,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Porch",
-      "easy": "Ladder"
+      "hard": "Traffic light",
+      "medium": "Castle",
+      "easy": "Tripod"
     },
     "image_classes": [
       "Traffic sign"
@@ -3963,9 +3963,9 @@
     "question_id": 34853,
     "answer": "Beer",
     "choices": {
-      "hard": "Juice",
-      "medium": "Bear",
-      "easy": "Mixing bowl"
+      "hard": "Wine",
+      "medium": "Lamp",
+      "easy": "Horn"
     },
     "image_classes": [
       "Food",
@@ -3994,9 +3994,9 @@
     "question_id": 34855,
     "answer": "Bottle",
     "choices": {
-      "hard": "Mug",
-      "medium": "Container",
-      "easy": "Rifle"
+      "hard": "Serving tray",
+      "medium": "Blender",
+      "easy": "Cupboard"
     },
     "image_classes": [
       "Box",
@@ -4354,9 +4354,9 @@
     "question_id": 34879,
     "answer": "Food",
     "choices": {
-      "hard": "Wood-burning stove",
-      "medium": "Fish",
-      "easy": "Lobster"
+      "hard": "Shelf",
+      "medium": "Tiara",
+      "easy": "Glasses"
     },
     "image_classes": [
       "Person",
@@ -4952,9 +4952,9 @@
     "question_id": 34918,
     "answer": "Office supplies",
     "choices": {
-      "hard": "Calculator",
-      "medium": "Hammer",
-      "easy": "Toaster"
+      "hard": "Whisk",
+      "medium": "Missile",
+      "easy": "Wheel"
     },
     "image_classes": [
       "Office supplies"
@@ -5087,9 +5087,9 @@
     "question_id": 34927,
     "answer": "Hair spray",
     "choices": {
-      "hard": "Lipstick",
-      "medium": "Crutch",
-      "easy": "Duck"
+      "hard": "Perfume",
+      "medium": "Paper towel",
+      "easy": "Monkey"
     },
     "image_classes": [
       "Personal care",
@@ -5101,9 +5101,9 @@
     "question_id": 34928,
     "answer": "Hair spray",
     "choices": {
-      "hard": "Lipstick",
-      "medium": "Goggles",
-      "easy": "Invertebrate"
+      "hard": "Perfume",
+      "medium": "Torch",
+      "easy": "Taxi"
     },
     "image_classes": [
       "Personal care",
@@ -5654,9 +5654,9 @@
     "question_id": 34963,
     "answer": "Building",
     "choices": {
-      "hard": "Convenience store",
-      "medium": "Envelope",
-      "easy": "Snake"
+      "hard": "Tent",
+      "medium": "Butterfly",
+      "easy": "Screwdriver"
     },
     "image_classes": [
       "Person",
@@ -5682,9 +5682,9 @@
     "question_id": 34965,
     "answer": "Beaker",
     "choices": {
-      "hard": "Jug",
-      "medium": "Container",
-      "easy": "Harmonica"
+      "hard": "Barrel",
+      "medium": "Camera",
+      "easy": "Banjo"
     },
     "image_classes": [
       "Measuring cup",
@@ -5770,9 +5770,9 @@
     "question_id": 34971,
     "answer": "Convenience store",
     "choices": {
-      "hard": "Castle",
-      "medium": "Building",
-      "easy": "Ski"
+      "hard": "Lighthouse",
+      "medium": "Stop sign",
+      "easy": "Monkey"
     },
     "image_classes": [
       "Person",
@@ -5847,9 +5847,9 @@
     "question_id": 34976,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
-      "medium": "Auto part",
-      "easy": "Whiteboard"
+      "hard": "Jet ski",
+      "medium": "Land vehicle",
+      "easy": "Scorpion"
     },
     "image_classes": [
       "Boat",
@@ -6031,9 +6031,9 @@
     "question_id": 34988,
     "answer": "Scale",
     "choices": {
-      "hard": "Snowplow",
-      "medium": "Light switch",
-      "easy": "Eraser"
+      "hard": "Camera",
+      "medium": "Microphone",
+      "easy": "Cat"
     },
     "image_classes": [
       "Office supplies",
@@ -6373,9 +6373,9 @@
     "question_id": 35010,
     "answer": "Tree",
     "choices": {
-      "hard": "Tree house",
-      "medium": "Insect",
-      "easy": "Stethoscope"
+      "hard": "Rose",
+      "medium": "Bomb",
+      "easy": "Sandwich"
     },
     "image_classes": [
       "Flower",
@@ -6521,9 +6521,9 @@
     "question_id": 35020,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Fountain",
-      "medium": "Traffic sign",
-      "easy": "Window"
+      "hard": "Street light",
+      "medium": "Fire hydrant",
+      "easy": "Office building"
     },
     "image_classes": [
       "Traffic sign",
@@ -6580,9 +6580,9 @@
     "question_id": 35024,
     "answer": "House",
     "choices": {
-      "hard": "Convenience store",
-      "medium": "Building",
-      "easy": "Car"
+      "hard": "Office building",
+      "medium": "Stop sign",
+      "easy": "Sports uniform"
     },
     "image_classes": [
       "House",
@@ -6790,9 +6790,9 @@
     "question_id": 35037,
     "answer": "Bus",
     "choices": {
-      "hard": "Seat belt",
-      "medium": "Land vehicle",
-      "easy": "Baked goods"
+      "hard": "Motorcycle",
+      "medium": "Jet ski",
+      "easy": "Serving tray"
     },
     "image_classes": [
       "Vehicle",
@@ -6883,9 +6883,9 @@
     "question_id": 35043,
     "answer": "Bottle",
     "choices": {
-      "hard": "Platter",
-      "medium": "Container",
-      "easy": "Loveseat"
+      "hard": "Jug",
+      "medium": "Blender",
+      "easy": "Musical keyboard"
     },
     "image_classes": [
       "Bottle"
@@ -7044,9 +7044,9 @@
     "question_id": 35053,
     "answer": "Desk",
     "choices": {
-      "hard": "Chair",
-      "medium": "Pencil sharpener",
-      "easy": "Bat"
+      "hard": "Cupboard",
+      "medium": "Spatula",
+      "easy": "Sock"
     },
     "image_classes": [
       "Laptop",
@@ -7101,9 +7101,9 @@
     "question_id": 35056,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Marine invertebrates",
-      "easy": "Lipstick"
+      "hard": "Tea",
+      "medium": "Animal",
+      "easy": "Calculator"
     },
     "image_classes": [
       "Beer",
@@ -7166,9 +7166,9 @@
     "question_id": 35060,
     "answer": "Kitchen appliance",
     "choices": {
-      "hard": "Microwave oven",
-      "medium": "Wood-burning stove",
-      "easy": "Stool"
+      "hard": "Plate",
+      "medium": "Doll",
+      "easy": "Chair"
     },
     "image_classes": [
       "Bottle",
@@ -7926,9 +7926,9 @@
     "question_id": 35109,
     "answer": "Taxi",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Barge",
-      "easy": "Worm"
+      "hard": "Ambulance",
+      "medium": "Boat",
+      "easy": "Can opener"
     },
     "image_classes": [
       "Bicycle",
@@ -8082,9 +8082,9 @@
     "question_id": 35118,
     "answer": "Kitchen appliance",
     "choices": {
-      "hard": "Spoon",
-      "medium": "Bathroom accessory",
-      "easy": "Kitchenware"
+      "hard": "Chopsticks",
+      "medium": "Washing machine",
+      "easy": "Tower"
     },
     "image_classes": [
       "Person",
@@ -8120,9 +8120,9 @@
     "question_id": 35120,
     "answer": "Building",
     "choices": {
-      "hard": "Convenience store",
-      "medium": "Door handle",
-      "easy": "Plant"
+      "hard": "Tent",
+      "medium": "Helicopter",
+      "easy": "Diaper"
     },
     "image_classes": [
       "Person",
@@ -8362,9 +8362,9 @@
     "question_id": 35137,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Cupboard",
-      "easy": "Trousers"
+      "hard": "Tea",
+      "medium": "Carnivore",
+      "easy": "Perfume"
     },
     "image_classes": [
       "Bottle",
@@ -8500,9 +8500,9 @@
     "question_id": 35146,
     "answer": "Boat",
     "choices": {
-      "hard": "Barge",
-      "medium": "Limousine",
-      "easy": "Truck"
+      "hard": "Submarine",
+      "medium": "Vehicle registration plate",
+      "easy": "Alarm clock"
     },
     "image_classes": [
       "Boat",
@@ -8677,9 +8677,9 @@
     "question_id": 35158,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Street light",
-      "medium": "Traffic sign",
-      "easy": "Jacuzzi"
+      "hard": "Fire hydrant",
+      "medium": "Fountain",
+      "easy": "Snowman"
     },
     "image_classes": [
       "Traffic sign",
@@ -8722,9 +8722,9 @@
     "question_id": 35161,
     "answer": "Convenience store",
     "choices": {
-      "hard": "Window",
-      "medium": "Building",
-      "easy": "Sandal"
+      "hard": "Office building",
+      "medium": "Stop sign",
+      "easy": "Coffee"
     },
     "image_classes": [
       "Person",
@@ -8739,9 +8739,9 @@
     "question_id": 35162,
     "answer": "Building",
     "choices": {
-      "hard": "Skyscraper",
-      "medium": "Watermelon",
-      "easy": "Car"
+      "hard": "Fountain",
+      "medium": "Baseball glove",
+      "easy": "Watch"
     },
     "image_classes": [
       "Boy",
@@ -9180,9 +9180,9 @@
     "question_id": 35191,
     "answer": "Bottle",
     "choices": {
-      "hard": "Kitchen knife",
-      "medium": "Tableware",
-      "easy": "Harpsichord"
+      "hard": "Barrel",
+      "medium": "Whisk",
+      "easy": "Wine rack"
     },
     "image_classes": [
       "Drink",
@@ -9448,8 +9448,8 @@
     "answer": "Bottle",
     "choices": {
       "hard": "Coffee cup",
-      "medium": "Container",
-      "easy": "Medical equipment"
+      "medium": "Blender",
+      "easy": "Sewing machine"
     },
     "image_classes": [
       "Bottle",
@@ -9523,8 +9523,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Scoreboard"
+      "medium": "Computer monitor",
+      "easy": "Volleyball"
     },
     "image_classes": [
       "Laptop",
@@ -9759,9 +9759,9 @@
     "question_id": 35227,
     "answer": "Man",
     "choices": {
-      "hard": "Girl",
-      "medium": "Plumbing fixture",
-      "easy": "Person"
+      "hard": "Skull",
+      "medium": "Volleyball",
+      "easy": "Bronze sculpture"
     },
     "image_classes": [
       "Person",
@@ -10451,9 +10451,9 @@
     "question_id": 35272,
     "answer": "Wall clock",
     "choices": {
-      "hard": "Alarm clock",
-      "medium": "Soap dispenser",
-      "easy": "Furniture"
+      "hard": "Digital clock",
+      "medium": "Cupboard",
+      "easy": "Pitcher"
     },
     "image_classes": [
       "Clock",
@@ -10688,9 +10688,9 @@
     "question_id": 35288,
     "answer": "Building",
     "choices": {
-      "hard": "Convenience store",
-      "medium": "Sombrero",
-      "easy": "Shorts"
+      "hard": "Tent",
+      "medium": "Fish",
+      "easy": "Stapler"
     },
     "image_classes": [
       "Land vehicle",
@@ -10706,9 +10706,9 @@
     "question_id": 35289,
     "answer": "Building",
     "choices": {
-      "hard": "House",
-      "medium": "Humidifier",
-      "easy": "Bicycle wheel"
+      "hard": "Street light",
+      "medium": "Barge",
+      "easy": "Drum"
     },
     "image_classes": [
       "Land vehicle",
@@ -11042,9 +11042,9 @@
     "question_id": 35311,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Bicycle",
-      "medium": "Wall clock",
-      "easy": "Computer keyboard"
+      "hard": "Cello",
+      "medium": "Vase",
+      "easy": "Swim cap"
     },
     "image_classes": [
       "Person",
@@ -11151,9 +11151,9 @@
     "question_id": 35318,
     "answer": "Food",
     "choices": {
-      "hard": "Ski",
-      "medium": "Pumpkin",
-      "easy": "Cabinetry"
+      "hard": "Tin can",
+      "medium": "Christmas tree",
+      "easy": "Bowl"
     },
     "image_classes": [
       "Beer",
@@ -11289,9 +11289,9 @@
     "question_id": 35327,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
-      "medium": "Bus",
-      "easy": "Jet ski"
+      "hard": "Jet ski",
+      "medium": "Auto part",
+      "easy": "Ladder"
     },
     "image_classes": [
       "Boat",
@@ -11304,8 +11304,8 @@
     "answer": "Van",
     "choices": {
       "hard": "Limousine",
-      "medium": "Bus",
-      "easy": "Gondola"
+      "medium": "Wheel",
+      "easy": "Submarine"
     },
     "image_classes": [
       "Vehicle",
@@ -11381,9 +11381,9 @@
     "question_id": 35333,
     "answer": "Taxi",
     "choices": {
-      "hard": "Cart",
-      "medium": "Land vehicle",
-      "easy": "Carrot"
+      "hard": "Bus",
+      "medium": "Jet ski",
+      "easy": "Submarine sandwich"
     },
     "image_classes": [
       "Land vehicle",
@@ -11571,9 +11571,9 @@
     "question_id": 35346,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Wheel",
-      "easy": "Waste container"
+      "hard": "Tea",
+      "medium": "Cupboard",
+      "easy": "Antelope"
     },
     "image_classes": [
       "Beer",
@@ -11602,9 +11602,9 @@
     "question_id": 35348,
     "answer": "Computer monitor",
     "choices": {
-      "hard": "Laptop",
-      "medium": "Football",
-      "easy": "Axe"
+      "hard": "Computer keyboard",
+      "medium": "Bicycle helmet",
+      "easy": "Strawberry"
     },
     "image_classes": [
       "Laptop",
@@ -12021,9 +12021,9 @@
     "question_id": 35374,
     "answer": "Toy",
     "choices": {
-      "hard": "Balloon",
-      "medium": "Tap",
-      "easy": "Invertebrate"
+      "hard": "Bronze sculpture",
+      "medium": "Handgun",
+      "easy": "Snack"
     },
     "image_classes": [
       "Toy",
@@ -12126,9 +12126,9 @@
     "question_id": 35381,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Skyscraper",
-      "easy": "Golf cart"
+      "hard": "Traffic light",
+      "medium": "Snowman",
+      "easy": "Organ"
     },
     "image_classes": [
       "House",
@@ -12141,9 +12141,9 @@
     "question_id": 35382,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Door",
-      "easy": "Owl"
+      "hard": "Traffic light",
+      "medium": "Tower",
+      "easy": "Container"
     },
     "image_classes": [
       "House",
@@ -12349,9 +12349,9 @@
     "question_id": 35395,
     "answer": "Beer",
     "choices": {
-      "hard": "Cocktail",
-      "medium": "Sandwich",
-      "easy": "Doll"
+      "hard": "Juice",
+      "medium": "Gondola",
+      "easy": "Hiking equipment"
     },
     "image_classes": [
       "Beer",
@@ -12624,9 +12624,9 @@
     "question_id": 35413,
     "answer": "Personal care",
     "choices": {
-      "hard": "Goggles",
-      "medium": "Cooking spray",
-      "easy": "Monkey"
+      "hard": "Face powder",
+      "medium": "Office building",
+      "easy": "Tomato"
     },
     "image_classes": [
       "Personal care",
@@ -12638,9 +12638,9 @@
     "question_id": 35414,
     "answer": "Personal care",
     "choices": {
-      "hard": "Sunglasses",
-      "medium": "Countertop",
-      "easy": "Tank"
+      "hard": "Lipstick",
+      "medium": "Tower",
+      "easy": "Poster"
     },
     "image_classes": [
       "Personal care",
@@ -12691,8 +12691,8 @@
     "answer": "Perfume",
     "choices": {
       "hard": "Face powder",
-      "medium": "Cosmetics",
-      "easy": "Winter melon"
+      "medium": "Glasses",
+      "easy": "Orange"
     },
     "image_classes": [
       "Cosmetics",
@@ -13285,9 +13285,9 @@
     "question_id": 35455,
     "answer": "Watch",
     "choices": {
-      "hard": "Sunglasses",
-      "medium": "Fashion accessory",
-      "easy": "Balloon"
+      "hard": "Tiara",
+      "medium": "Sports uniform",
+      "easy": "Sewing machine"
     },
     "image_classes": [
       "Fashion accessory",
@@ -13327,9 +13327,9 @@
     "question_id": 35458,
     "answer": "Taxi",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Land vehicle",
-      "easy": "Sea turtle"
+      "hard": "Train",
+      "medium": "Jet ski",
+      "easy": "Can opener"
     },
     "image_classes": [
       "Bus",
@@ -13651,9 +13651,9 @@
     "question_id": 35480,
     "answer": "Train",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Land vehicle",
-      "easy": "Banana"
+      "hard": "Truck",
+      "medium": "Jet ski",
+      "easy": "Tea"
     },
     "image_classes": [
       "House",
@@ -14133,9 +14133,9 @@
     "question_id": 35512,
     "answer": "Laptop",
     "choices": {
-      "hard": "Computer monitor",
-      "medium": "Container",
-      "easy": "Tank"
+      "hard": "Ipod",
+      "medium": "Harpsichord",
+      "easy": "Cat furniture"
     },
     "image_classes": [
       "Laptop",
@@ -14342,9 +14342,9 @@
     "question_id": 35525,
     "answer": "Vehicle registration plate",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Van",
-      "easy": "Boat"
+      "hard": "Tire",
+      "medium": "Motorcycle",
+      "easy": "Barge"
     },
     "image_classes": [
       "Car",
@@ -14861,9 +14861,9 @@
     "question_id": 35559,
     "answer": "Land vehicle",
     "choices": {
-      "hard": "Van",
-      "medium": "Hand dryer",
-      "easy": "Refrigerator"
+      "hard": "Rocket",
+      "medium": "Camel",
+      "easy": "Fast food"
     },
     "image_classes": [
       "Person",
@@ -15247,9 +15247,9 @@
     "question_id": 35584,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Camera",
-      "medium": "Indoor rower",
-      "easy": "Toilet"
+      "hard": "Tin can",
+      "medium": "Pig",
+      "easy": "Popcorn"
     },
     "image_classes": [
       "Boy",
@@ -15283,9 +15283,9 @@
     "question_id": 35586,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Coffeemaker",
-      "easy": "Potato"
+      "hard": "Tea",
+      "medium": "Boot",
+      "easy": "Golf ball"
     },
     "image_classes": [
       "Bottle",
@@ -15748,9 +15748,9 @@
     "question_id": 35615,
     "answer": "Kitchen appliance",
     "choices": {
-      "hard": "Blender",
-      "medium": "Vase",
-      "easy": "Bench"
+      "hard": "Tableware",
+      "medium": "Eraser",
+      "easy": "Stethoscope"
     },
     "image_classes": [
       "Building",
@@ -16146,9 +16146,9 @@
     "question_id": 35639,
     "answer": "Glove",
     "choices": {
-      "hard": "Baseball glove",
-      "medium": "Sports uniform",
-      "easy": "Barrel"
+      "hard": "Sombrero",
+      "medium": "Skirt",
+      "easy": "Laptop"
     },
     "image_classes": [
       "Glove",
@@ -16862,9 +16862,9 @@
     "question_id": 35686,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
-      "medium": "Train",
-      "easy": "Houseplant"
+      "hard": "Jet ski",
+      "medium": "Rocket",
+      "easy": "Ski"
     },
     "image_classes": [
       "Boat",
@@ -16881,8 +16881,8 @@
     "answer": "Boat",
     "choices": {
       "hard": "Jet ski",
-      "medium": "Land vehicle",
-      "easy": "Drink"
+      "medium": "Helicopter",
+      "easy": "Necklace"
     },
     "image_classes": [
       "Boat",
@@ -17337,9 +17337,9 @@
     "question_id": 35715,
     "answer": "Traffic light",
     "choices": {
-      "hard": "Parking meter",
-      "medium": "Skyscraper",
-      "easy": "Indoor rower"
+      "hard": "Fountain",
+      "medium": "Lighthouse",
+      "easy": "Spatula"
     },
     "image_classes": [
       "Human eye",
@@ -17353,9 +17353,9 @@
     "question_id": 35716,
     "answer": "Traffic light",
     "choices": {
-      "hard": "Traffic sign",
-      "medium": "Tower",
-      "easy": "Fashion accessory"
+      "hard": "Fire hydrant",
+      "medium": "Castle",
+      "easy": "Skirt"
     },
     "image_classes": [
       "Human eye",
@@ -17473,9 +17473,9 @@
     "question_id": 35724,
     "answer": "Television",
     "choices": {
-      "hard": "Computer monitor",
-      "medium": "Baseball bat",
-      "easy": "Punching bag"
+      "hard": "Tablet computer",
+      "medium": "Cello",
+      "easy": "Adhesive tape"
     },
     "image_classes": [
       "Laptop",
@@ -17758,9 +17758,9 @@
     "question_id": 35743,
     "answer": "Bottle",
     "choices": {
-      "hard": "Flowerpot",
-      "medium": "Container",
-      "easy": "Chair"
+      "hard": "Beaker",
+      "medium": "Blender",
+      "easy": "Pen"
     },
     "image_classes": [
       "Drink",
@@ -19305,9 +19305,9 @@
     "question_id": 35839,
     "answer": "Blender",
     "choices": {
-      "hard": "Food processor",
-      "medium": "Cocktail shaker",
-      "easy": "Whiteboard"
+      "hard": "Refrigerator",
+      "medium": "Spoon",
+      "easy": "Toy"
     },
     "image_classes": [
       "Ball",
@@ -19547,9 +19547,9 @@
     "question_id": 35854,
     "answer": "Alarm clock",
     "choices": {
-      "hard": "Wall clock",
-      "medium": "Bronze sculpture",
-      "easy": "Slow cooker"
+      "hard": "Digital clock",
+      "medium": "Flowerpot",
+      "easy": "Gas stove"
     },
     "image_classes": [
       "Clock",
@@ -20060,9 +20060,9 @@
     "question_id": 35887,
     "answer": "Food",
     "choices": {
-      "hard": "Snowboard",
-      "medium": "Mango",
-      "easy": "Apple"
+      "hard": "Mixing bowl",
+      "medium": "Computer monitor",
+      "easy": "Dumbbell"
     },
     "image_classes": [
       "Food",
@@ -20401,9 +20401,9 @@
     "question_id": 35909,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Window",
-      "easy": "Auto part"
+      "hard": "Traffic light",
+      "medium": "Office building",
+      "easy": "Bidet"
     },
     "image_classes": [
       "Traffic sign"
@@ -20582,9 +20582,9 @@
     "question_id": 35921,
     "answer": "Bottle",
     "choices": {
-      "hard": "Wine glass",
-      "medium": "Container",
-      "easy": "Computer keyboard"
+      "hard": "Pitcher",
+      "medium": "Blender",
+      "easy": "Stethoscope"
     },
     "image_classes": [
       "Drink",
@@ -20665,9 +20665,9 @@
     "question_id": 35927,
     "answer": "Beer",
     "choices": {
-      "hard": "Cocktail",
-      "medium": "Crutch",
-      "easy": "Wall clock"
+      "hard": "Tea",
+      "medium": "Marine mammal",
+      "easy": "Digital clock"
     },
     "image_classes": [
       "Beer",
@@ -20700,9 +20700,9 @@
     "question_id": 35929,
     "answer": "Juice",
     "choices": {
-      "hard": "Beer",
-      "medium": "Toy",
-      "easy": "Paper cutter"
+      "hard": "Wine",
+      "medium": "Ladder",
+      "easy": "Segway"
     },
     "image_classes": [
       "Beer",
@@ -20894,9 +20894,9 @@
     "question_id": 35941,
     "answer": "Desk",
     "choices": {
-      "hard": "Bench",
-      "medium": "Adhesive tape",
-      "easy": "Furniture"
+      "hard": "Coffee table",
+      "medium": "Balloon",
+      "easy": "Crown"
     },
     "image_classes": [
       "Desk",
@@ -21082,8 +21082,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Screwdriver"
+      "medium": "Computer monitor",
+      "easy": "Baseball bat"
     },
     "image_classes": [
       "Mobile phone"
@@ -21501,9 +21501,9 @@
     "question_id": 35979,
     "answer": "Ambulance",
     "choices": {
-      "hard": "Van",
-      "medium": "Jet ski",
-      "easy": "Ice cream"
+      "hard": "Train",
+      "medium": "Helicopter",
+      "easy": "Screwdriver"
     },
     "image_classes": [
       "Bus",
@@ -22311,9 +22311,9 @@
     "question_id": 36032,
     "answer": "Wine",
     "choices": {
-      "hard": "Beer",
-      "medium": "Trombone",
-      "easy": "Calculator"
+      "hard": "Juice",
+      "medium": "Plant",
+      "easy": "Bat"
     },
     "image_classes": [
       "Bottle",
@@ -22375,9 +22375,9 @@
     "question_id": 36036,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Jacuzzi",
-      "easy": "Washing machine"
+      "hard": "Traffic light",
+      "medium": "Building",
+      "easy": "Cart"
     },
     "image_classes": [
       "Traffic sign"
@@ -22388,9 +22388,9 @@
     "question_id": 36037,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Convenience store",
-      "easy": "Paper towel"
+      "hard": "Traffic light",
+      "medium": "Lighthouse",
+      "easy": "Tennis ball"
     },
     "image_classes": [
       "Traffic sign"
@@ -22597,9 +22597,9 @@
     "question_id": 36050,
     "answer": "Measuring cup",
     "choices": {
-      "hard": "Fork",
-      "medium": "Slow cooker",
-      "easy": "Indoor rower"
+      "hard": "Ladle",
+      "medium": "Wrench",
+      "easy": "Bathroom cabinet"
     },
     "image_classes": [
       "Food",
@@ -22614,9 +22614,9 @@
     "question_id": 36051,
     "answer": "Measuring cup",
     "choices": {
-      "hard": "Spoon",
-      "medium": "Kitchen knife",
-      "easy": "Toilet paper"
+      "hard": "Drinking straw",
+      "medium": "Toothbrush",
+      "easy": "Bicycle wheel"
     },
     "image_classes": [
       "Food",
@@ -22977,9 +22977,9 @@
     "question_id": 36072,
     "answer": "Boat",
     "choices": {
-      "hard": "Barge",
-      "medium": "Motorcycle",
-      "easy": "Light switch"
+      "hard": "Submarine",
+      "medium": "Segway",
+      "easy": "Cattle"
     },
     "image_classes": [
       "Boat",
@@ -23439,9 +23439,9 @@
     "question_id": 36103,
     "answer": "Convenience store",
     "choices": {
-      "hard": "Skyscraper",
-      "medium": "Building",
-      "easy": "Brown bear"
+      "hard": "House",
+      "medium": "Stop sign",
+      "easy": "Moths and butterflies"
     },
     "image_classes": [
       "Snack",
@@ -23684,9 +23684,9 @@
     "question_id": 36119,
     "answer": "Taxi",
     "choices": {
-      "hard": "Auto part",
-      "medium": "Land vehicle",
-      "easy": "Coffeemaker"
+      "hard": "Cart",
+      "medium": "Jet ski",
+      "easy": "Indoor rower"
     },
     "image_classes": [
       "Land vehicle",
@@ -24422,8 +24422,8 @@
     "answer": "Barge",
     "choices": {
       "hard": "Gondola",
-      "medium": "Boat",
-      "easy": "Train"
+      "medium": "Jet ski",
+      "easy": "Tank"
     },
     "image_classes": [
       "Paddle",
@@ -24609,8 +24609,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Remote control",
-      "easy": "Indoor rower"
+      "medium": "Musical keyboard",
+      "easy": "Accordion"
     },
     "image_classes": [
       "Laptop",
@@ -24634,8 +24634,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Skateboard"
+      "medium": "Computer monitor",
+      "easy": "Cannon"
     },
     "image_classes": [
       "Laptop",
@@ -24944,9 +24944,9 @@
     "question_id": 36197,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Porch",
-      "easy": "Gas stove"
+      "hard": "Traffic light",
+      "medium": "Castle",
+      "easy": "Heater"
     },
     "image_classes": [
       "Billboard",
@@ -24958,9 +24958,9 @@
     "question_id": 36198,
     "answer": "Building",
     "choices": {
-      "hard": "Skyscraper",
-      "medium": "Grinder",
-      "easy": "Chisel"
+      "hard": "Fountain",
+      "medium": "Lipstick",
+      "easy": "Chime"
     },
     "image_classes": [
       "Building"
@@ -25367,8 +25367,8 @@
     "answer": "Perfume",
     "choices": {
       "hard": "Lipstick",
-      "medium": "Cosmetics",
-      "easy": "French fries"
+      "medium": "Glasses",
+      "easy": "Traffic light"
     },
     "image_classes": [
       "Person",
@@ -25454,9 +25454,9 @@
     "question_id": 36231,
     "answer": "Beer",
     "choices": {
-      "hard": "Juice",
-      "medium": "Grape",
-      "easy": "Organ"
+      "hard": "Wine",
+      "medium": "Mechanical fan",
+      "easy": "Elephant"
     },
     "image_classes": [
       "Beer",
@@ -25581,9 +25581,9 @@
     "question_id": 36239,
     "answer": "Bookcase",
     "choices": {
-      "hard": "Cabinetry",
-      "medium": "Vase",
-      "easy": "Table tennis racket"
+      "hard": "Table",
+      "medium": "Can opener",
+      "easy": "Bottle"
     },
     "image_classes": [
       "Cabinetry",
@@ -25616,9 +25616,9 @@
     "question_id": 36241,
     "answer": "Billboard",
     "choices": {
-      "hard": "Street light",
-      "medium": "Tower",
-      "easy": "Jeans"
+      "hard": "Stop sign",
+      "medium": "Beehive",
+      "easy": "Billiard table"
     },
     "image_classes": [
       "Building",
@@ -25660,9 +25660,9 @@
     "question_id": 36244,
     "answer": "Train",
     "choices": {
-      "hard": "Cart",
-      "medium": "Land vehicle",
-      "easy": "Waffle"
+      "hard": "Bus",
+      "medium": "Jet ski",
+      "easy": "Palm tree"
     },
     "image_classes": [
       "Land vehicle",
@@ -25722,8 +25722,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Football"
+      "medium": "Computer monitor",
+      "easy": "Bicycle helmet"
     },
     "image_classes": [
       "Computer keyboard",
@@ -25909,9 +25909,9 @@
     "question_id": 36261,
     "answer": "Bottle",
     "choices": {
-      "hard": "Barrel",
-      "medium": "Container",
-      "easy": "Cupboard"
+      "hard": "Spoon",
+      "medium": "Blender",
+      "easy": "Saxophone"
     },
     "image_classes": [
       "Drink",
@@ -26073,9 +26073,9 @@
     "question_id": 36271,
     "answer": "Door",
     "choices": {
-      "hard": "Door handle",
-      "medium": "Castle",
-      "easy": "Swimming pool"
+      "hard": "Porch",
+      "medium": "Lighthouse",
+      "easy": "Tent"
     },
     "image_classes": [
       "Person",
@@ -26348,8 +26348,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Binoculars"
+      "medium": "Computer monitor",
+      "easy": "Organ"
     },
     "image_classes": [
       "Human hair",
@@ -26455,9 +26455,9 @@
     "question_id": 36295,
     "answer": "Watch",
     "choices": {
-      "hard": "Goggles",
-      "medium": "Fashion accessory",
-      "easy": "Boat"
+      "hard": "Necklace",
+      "medium": "Sports uniform",
+      "easy": "Drinking straw"
     },
     "image_classes": [
       "Clock",
@@ -27158,9 +27158,9 @@
     "question_id": 36338,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Fountain",
-      "medium": "Traffic sign",
-      "easy": "Stairs"
+      "hard": "Street light",
+      "medium": "Fire hydrant",
+      "easy": "Window"
     },
     "image_classes": [
       "Balloon",
@@ -27268,9 +27268,9 @@
     "question_id": 36346,
     "answer": "Bottle",
     "choices": {
-      "hard": "Kitchen knife",
-      "medium": "Container",
-      "easy": "Accordion"
+      "hard": "Barrel",
+      "medium": "Blender",
+      "easy": "Heater"
     },
     "image_classes": [
       "Snack",
@@ -27564,9 +27564,9 @@
     "question_id": 36365,
     "answer": "Man",
     "choices": {
-      "hard": "Boy",
-      "medium": "Stapler",
-      "easy": "Refrigerator"
+      "hard": "Woman",
+      "medium": "Frying pan",
+      "easy": "Shorts"
     },
     "image_classes": [
       "Shorts",
@@ -27659,9 +27659,9 @@
     "question_id": 36371,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Traffic sign",
-      "medium": "Street light",
-      "easy": "Tower"
+      "hard": "Fire hydrant",
+      "medium": "Billboard",
+      "easy": "Window"
     },
     "image_classes": [
       "Vehicle registration plate",
@@ -28414,9 +28414,9 @@
     "question_id": 36419,
     "answer": "Snack",
     "choices": {
-      "hard": "Lemon",
-      "medium": "Briefcase",
-      "easy": "Popcorn"
+      "hard": "Hamburger",
+      "medium": "Barrel",
+      "easy": "Fax"
     },
     "image_classes": [
       "Food",
@@ -28444,9 +28444,9 @@
     "question_id": 36421,
     "answer": "Building",
     "choices": {
-      "hard": "Skyscraper",
-      "medium": "Wrench",
-      "easy": "Trousers"
+      "hard": "Fountain",
+      "medium": "Cabinetry",
+      "easy": "Watermelon"
     },
     "image_classes": [
       "Clock",
@@ -28532,9 +28532,9 @@
     "question_id": 36427,
     "answer": "Building",
     "choices": {
-      "hard": "Skyscraper",
-      "medium": "Surfboard",
-      "easy": "Deer"
+      "hard": "Fountain",
+      "medium": "Fork",
+      "easy": "Tie"
     },
     "image_classes": [
       "Building"
@@ -28563,9 +28563,9 @@
     "question_id": 36429,
     "answer": "Toy",
     "choices": {
-      "hard": "Desk",
-      "medium": "Rose",
-      "easy": "Kite"
+      "hard": "Wall clock",
+      "medium": "Tin can",
+      "easy": "Nightstand"
     },
     "image_classes": [
       "Train",
@@ -29174,9 +29174,9 @@
     "question_id": 36468,
     "answer": "Poster",
     "choices": {
-      "hard": "Wall clock",
-      "medium": "Office supplies",
-      "easy": "Drinking straw"
+      "hard": "Adhesive tape",
+      "medium": "Bowl",
+      "easy": "Sword"
     },
     "image_classes": [
       "Poster"
@@ -29404,8 +29404,8 @@
     "answer": "Van",
     "choices": {
       "hard": "Limousine",
-      "medium": "Unicycle",
-      "easy": "Land vehicle"
+      "medium": "Wheel",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Vehicle",
@@ -29496,9 +29496,9 @@
     "question_id": 36490,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Beaker",
-      "easy": "Whiteboard"
+      "hard": "Tea",
+      "medium": "Pear",
+      "easy": "Cutting board"
     },
     "image_classes": [
       "Food",
@@ -29513,9 +29513,9 @@
     "question_id": 36491,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Goggles",
-      "easy": "Whale"
+      "hard": "Tea",
+      "medium": "Door handle",
+      "easy": "Wall clock"
     },
     "image_classes": [
       "Food",
@@ -29634,9 +29634,9 @@
     "question_id": 36498,
     "answer": "Book",
     "choices": {
-      "hard": "Bookcase",
-      "medium": "Teapot",
-      "easy": "Stairs"
+      "hard": "Nightstand",
+      "medium": "Tool",
+      "easy": "Wine"
     },
     "image_classes": [
       "Bookcase",
@@ -29648,9 +29648,9 @@
     "question_id": 36499,
     "answer": "Beer",
     "choices": {
-      "hard": "Coffee",
-      "medium": "Duck",
-      "easy": "Submarine sandwich"
+      "hard": "Cocktail",
+      "medium": "Cabinetry",
+      "easy": "Picnic basket"
     },
     "image_classes": [
       "Food",
@@ -29879,9 +29879,9 @@
     "question_id": 36513,
     "answer": "Wine",
     "choices": {
-      "hard": "Juice",
-      "medium": "Bottle",
-      "easy": "Closet"
+      "hard": "Cocktail",
+      "medium": "Platter",
+      "easy": "Stapler"
     },
     "image_classes": [
       "Drink",
@@ -29894,9 +29894,9 @@
     "question_id": 36514,
     "answer": "Wine",
     "choices": {
-      "hard": "Beer",
-      "medium": "Banjo",
-      "easy": "Bottle"
+      "hard": "Coffee",
+      "medium": "Remote control",
+      "easy": "Medical equipment"
     },
     "image_classes": [
       "Drink",
@@ -29955,8 +29955,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Bomb"
+      "medium": "Computer monitor",
+      "easy": "Drinking straw"
     },
     "image_classes": [
       "Mobile phone"
@@ -29967,9 +29967,9 @@
     "question_id": 36519,
     "answer": "Ambulance",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Land vehicle",
-      "easy": "Guitar"
+      "hard": "Limousine",
+      "medium": "Submarine",
+      "easy": "Spice rack"
     },
     "image_classes": [
       "Vehicle",
@@ -30201,9 +30201,9 @@
     "question_id": 36533,
     "answer": "Building",
     "choices": {
-      "hard": "Door handle",
-      "medium": "Moths and butterflies",
-      "easy": "Horizontal bar"
+      "hard": "Billboard",
+      "medium": "Ipod",
+      "easy": "Grape"
     },
     "image_classes": [
       "Building"
@@ -30319,9 +30319,9 @@
     "question_id": 36541,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Fire hydrant",
-      "medium": "Traffic sign",
-      "easy": "Skyscraper"
+      "hard": "Billboard",
+      "medium": "Fire hydrant",
+      "easy": "Snowman"
     },
     "image_classes": [
       "Bicycle",
@@ -31269,9 +31269,9 @@
     "question_id": 36603,
     "answer": "Office supplies",
     "choices": {
-      "hard": "Ring binder",
-      "medium": "Tree",
-      "easy": "Train"
+      "hard": "Mug",
+      "medium": "Goggles",
+      "easy": "Home appliance"
     },
     "image_classes": [
       "Door",
@@ -31393,9 +31393,9 @@
     "question_id": 36611,
     "answer": "Bottle",
     "choices": {
-      "hard": "Kitchen knife",
-      "medium": "Container",
-      "easy": "Organ"
+      "hard": "Barrel",
+      "medium": "Blender",
+      "easy": "Baseball glove"
     },
     "image_classes": [
       "Beer",
@@ -31408,9 +31408,9 @@
     "question_id": 36612,
     "answer": "Bottle",
     "choices": {
-      "hard": "Picnic basket",
-      "medium": "Tableware",
-      "easy": "Volleyball"
+      "hard": "Kitchen knife",
+      "medium": "Chainsaw",
+      "easy": "Bathtub"
     },
     "image_classes": [
       "Beer",
@@ -31752,8 +31752,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Pizza cutter"
+      "medium": "Computer monitor",
+      "easy": "Skateboard"
     },
     "image_classes": [
       "Clock",
@@ -32500,9 +32500,9 @@
     "question_id": 36685,
     "answer": "Laptop",
     "choices": {
-      "hard": "Computer keyboard",
-      "medium": "Chime",
-      "easy": "Saucer"
+      "hard": "Computer monitor",
+      "medium": "Flute",
+      "easy": "Bowling equipment"
     },
     "image_classes": [
       "Laptop",
@@ -32615,9 +32615,9 @@
     "question_id": 36693,
     "answer": "Building",
     "choices": {
-      "hard": "Office building",
-      "medium": "Stapler",
-      "easy": "Personal care"
+      "hard": "Beehive",
+      "medium": "Sock",
+      "easy": "Coffeemaker"
     },
     "image_classes": [
       "Clothing",
@@ -32942,9 +32942,9 @@
     "question_id": 36714,
     "answer": "Home appliance",
     "choices": {
-      "hard": "Hand dryer",
-      "medium": "Glove",
-      "easy": "Glasses"
+      "hard": "Closet",
+      "medium": "Milk",
+      "easy": "Kitchen appliance"
     },
     "image_classes": [
       "Home appliance",
@@ -33223,8 +33223,8 @@
     "answer": "Vehicle registration plate",
     "choices": {
       "hard": "Seat belt",
-      "medium": "Van",
-      "easy": "Land vehicle"
+      "medium": "Bicycle",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Bus",
@@ -33336,9 +33336,9 @@
     "question_id": 36737,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Table tennis racket",
-      "medium": "Furniture",
-      "easy": "Bus"
+      "hard": "Rifle",
+      "medium": "Tableware",
+      "easy": "Closet"
     },
     "image_classes": [
       "Person",
@@ -33533,8 +33533,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Cutting board"
+      "medium": "Computer monitor",
+      "easy": "Grinder"
     },
     "image_classes": [
       "Mobile phone"
@@ -33886,9 +33886,9 @@
     "question_id": 36772,
     "answer": "Beer",
     "choices": {
-      "hard": "Cocktail",
-      "medium": "Shrimp",
-      "easy": "Bottle"
+      "hard": "Juice",
+      "medium": "Indoor rower",
+      "easy": "Glove"
     },
     "image_classes": [
       "Food",
@@ -34829,9 +34829,9 @@
     "question_id": 36832,
     "answer": "Beer",
     "choices": {
-      "hard": "Tea",
-      "medium": "Drink",
-      "easy": "Bathroom accessory"
+      "hard": "Coffee",
+      "medium": "Tiara",
+      "easy": "Chime"
     },
     "image_classes": [
       "Beer",
@@ -34947,9 +34947,9 @@
     "question_id": 36840,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Snowman",
-      "easy": "Calculator"
+      "hard": "Traffic light",
+      "medium": "House",
+      "easy": "Stretcher"
     },
     "image_classes": [
       "Traffic sign"
@@ -34960,9 +34960,9 @@
     "question_id": 36841,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Tree house",
-      "easy": "Cream"
+      "hard": "Traffic light",
+      "medium": "Swimming pool",
+      "easy": "Giraffe"
     },
     "image_classes": [
       "Traffic sign"
@@ -34973,9 +34973,9 @@
     "question_id": 36842,
     "answer": "Computer monitor",
     "choices": {
-      "hard": "Laptop",
-      "medium": "Parachute",
-      "easy": "Building"
+      "hard": "Computer keyboard",
+      "medium": "Violin",
+      "easy": "Taxi"
     },
     "image_classes": [
       "Laptop",
@@ -35002,9 +35002,9 @@
     "question_id": 36844,
     "answer": "Bird",
     "choices": {
-      "hard": "Sea turtle",
-      "medium": "Penguin",
-      "easy": "Billboard"
+      "hard": "Jaguar",
+      "medium": "Cookie",
+      "easy": "Harmonica"
     },
     "image_classes": [
       "Bird",
@@ -35232,9 +35232,9 @@
     "question_id": 36859,
     "answer": "Car",
     "choices": {
-      "hard": "Tire",
-      "medium": "Land vehicle",
-      "easy": "House"
+      "hard": "Ambulance",
+      "medium": "Jet ski",
+      "easy": "Roller skates"
     },
     "image_classes": [
       "Land vehicle",
@@ -35266,9 +35266,9 @@
     "question_id": 36861,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Bicycle wheel",
-      "medium": "Orange",
-      "easy": "Mixing bowl"
+      "hard": "Saxophone",
+      "medium": "Flashlight",
+      "easy": "Shirt"
     },
     "image_classes": [
       "Shorts",
@@ -35284,9 +35284,9 @@
     "question_id": 36862,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Treadmill",
-      "medium": "Towel",
-      "easy": "Dessert"
+      "hard": "Axe",
+      "medium": "Mechanical fan",
+      "easy": "Harpsichord"
     },
     "image_classes": [
       "Shorts",
@@ -35302,9 +35302,9 @@
     "question_id": 36863,
     "answer": "Land vehicle",
     "choices": {
-      "hard": "Tire",
-      "medium": "Woman",
-      "easy": "Bathroom accessory"
+      "hard": "Airplane",
+      "medium": "Stop sign",
+      "easy": "Tripod"
     },
     "image_classes": [
       "Land vehicle",
@@ -35441,9 +35441,9 @@
     "question_id": 36872,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Door handle",
-      "easy": "Boy"
+      "hard": "Traffic light",
+      "medium": "Stairs",
+      "easy": "Baseball glove"
     },
     "image_classes": [
       "Person",
@@ -35543,9 +35543,9 @@
     "question_id": 36879,
     "answer": "Apple",
     "choices": {
-      "hard": "Grapefruit",
-      "medium": "Hot dog",
-      "easy": "Spatula"
+      "hard": "Banana",
+      "medium": "Guacamole",
+      "easy": "Honeycomb"
     },
     "image_classes": [
       "Fast food",
@@ -35652,9 +35652,9 @@
     "question_id": 36886,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
+      "hard": "Jet ski",
       "medium": "Taxi",
-      "easy": "Lemon"
+      "easy": "Tire"
     },
     "image_classes": [
       "Boat",
@@ -36457,9 +36457,9 @@
     "question_id": 36935,
     "answer": "Taxi",
     "choices": {
-      "hard": "Tire",
-      "medium": "Land vehicle",
-      "easy": "Squash"
+      "hard": "Bicycle",
+      "medium": "Jet ski",
+      "easy": "Pasta"
     },
     "image_classes": [
       "Person",
@@ -36603,9 +36603,9 @@
     "question_id": 36944,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Door",
-      "easy": "Limousine"
+      "hard": "Traffic light",
+      "medium": "Tower",
+      "easy": "Rose"
     },
     "image_classes": [
       "Billboard",
@@ -37619,9 +37619,9 @@
     "question_id": 37006,
     "answer": "Office supplies",
     "choices": {
-      "hard": "Whiteboard",
-      "medium": "Tin can",
-      "easy": "Cattle"
+      "hard": "Wardrobe",
+      "medium": "Pretzel",
+      "easy": "Oven"
     },
     "image_classes": [
       "Laptop",
@@ -37663,8 +37663,8 @@
     "answer": "Tin can",
     "choices": {
       "hard": "Barrel",
-      "medium": "Hammer",
-      "easy": "Tool"
+      "medium": "Binoculars",
+      "easy": "Indoor rower"
     },
     "image_classes": [
       "Food",
@@ -37709,8 +37709,8 @@
     "answer": "Van",
     "choices": {
       "hard": "Limousine",
-      "medium": "Auto part",
-      "easy": "Land vehicle"
+      "medium": "Vehicle registration plate",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Vehicle",
@@ -37965,9 +37965,9 @@
     "question_id": 37028,
     "answer": "Tin can",
     "choices": {
-      "hard": "Bottle",
-      "medium": "Container",
-      "easy": "Scoreboard"
+      "hard": "Waste container",
+      "medium": "Camera",
+      "easy": "Stationary bicycle"
     },
     "image_classes": [
       "Beer",
@@ -38153,9 +38153,9 @@
     "question_id": 37040,
     "answer": "Taxi",
     "choices": {
-      "hard": "Vehicle registration plate",
-      "medium": "Land vehicle",
-      "easy": "Lamp"
+      "hard": "Segway",
+      "medium": "Jet ski",
+      "easy": "Furniture"
     },
     "image_classes": [
       "Land vehicle",
@@ -38216,9 +38216,9 @@
     "question_id": 37044,
     "answer": "Building",
     "choices": {
-      "hard": "Convenience store",
-      "medium": "Train",
-      "easy": "Pizza"
+      "hard": "Tent",
+      "medium": "Monkey",
+      "easy": "Cucumber"
     },
     "image_classes": [
       "Clock",
@@ -38770,9 +38770,9 @@
     "question_id": 37080,
     "answer": "Boat",
     "choices": {
-      "hard": "Barge",
-      "medium": "Seat belt",
-      "easy": "Golf cart"
+      "hard": "Submarine",
+      "medium": "Van",
+      "easy": "Banana"
     },
     "image_classes": [
       "Bird",
@@ -39463,9 +39463,9 @@
     "question_id": 37125,
     "answer": "Kettle",
     "choices": {
-      "hard": "Mixer",
-      "medium": "Flying disc",
-      "easy": "Mug"
+      "hard": "Gas stove",
+      "medium": "Poster",
+      "easy": "Lantern"
     },
     "image_classes": [
       "Home appliance",
@@ -40176,8 +40176,8 @@
     "answer": "Vehicle registration plate",
     "choices": {
       "hard": "Seat belt",
-      "medium": "Limousine",
-      "easy": "Land vehicle"
+      "medium": "Bicycle wheel",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Vehicle registration plate"
@@ -40188,9 +40188,9 @@
     "question_id": 37173,
     "answer": "Vehicle registration plate",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Truck",
-      "easy": "Land vehicle"
+      "hard": "Tire",
+      "medium": "Segway",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Vehicle registration plate"
@@ -40287,9 +40287,9 @@
     "question_id": 37180,
     "answer": "Building",
     "choices": {
-      "hard": "Lighthouse",
-      "medium": "Door",
-      "easy": "Clothing"
+      "hard": "Snowman",
+      "medium": "Alarm clock",
+      "easy": "Golf cart"
     },
     "image_classes": [
       "Bus",
@@ -40302,8 +40302,8 @@
     "answer": "Boat",
     "choices": {
       "hard": "Submarine",
-      "medium": "Watercraft",
-      "easy": "Butterfly"
+      "medium": "Bicycle",
+      "easy": "Ratchet"
     },
     "image_classes": [
       "Boat",
@@ -40323,9 +40323,9 @@
     "question_id": 37182,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
-      "medium": "Golf cart",
-      "easy": "Tool"
+      "hard": "Jet ski",
+      "medium": "Seat belt",
+      "easy": "Bust"
     },
     "image_classes": [
       "Boat",
@@ -40549,8 +40549,8 @@
     "answer": "Vehicle registration plate",
     "choices": {
       "hard": "Seat belt",
-      "medium": "Van",
-      "easy": "Barge"
+      "medium": "Motorcycle",
+      "easy": "Boat"
     },
     "image_classes": [
       "Vehicle",
@@ -40563,9 +40563,9 @@
     "question_id": 37197,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Traffic sign",
-      "medium": "Fire hydrant",
-      "easy": "Window"
+      "hard": "Fire hydrant",
+      "medium": "Billboard",
+      "easy": "Office building"
     },
     "image_classes": [
       "Tree",
@@ -40577,9 +40577,9 @@
     "question_id": 37198,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Street light",
-      "medium": "Traffic sign",
-      "easy": "Porch"
+      "hard": "Fire hydrant",
+      "medium": "Billboard",
+      "easy": "Swimming pool"
     },
     "image_classes": [
       "Tree",
@@ -41151,9 +41151,9 @@
     "question_id": 37236,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Convenience store",
-      "easy": "Dice"
+      "hard": "Traffic light",
+      "medium": "Lighthouse",
+      "easy": "Muffin"
     },
     "image_classes": [
       "Billboard",
@@ -41991,9 +41991,9 @@
     "question_id": 37289,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Traffic sign",
-      "medium": "Billboard",
-      "easy": "Beehive"
+      "hard": "Fountain",
+      "medium": "Street light",
+      "easy": "Window"
     },
     "image_classes": [
       "Traffic light",
@@ -42006,9 +42006,9 @@
     "question_id": 37290,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Traffic light",
-      "medium": "Fountain",
-      "easy": "Swimming pool"
+      "hard": "Billboard",
+      "medium": "Street light",
+      "easy": "Door"
     },
     "image_classes": [
       "Traffic light",
@@ -42021,9 +42021,9 @@
     "question_id": 37291,
     "answer": "Bottle",
     "choices": {
-      "hard": "Chopsticks",
-      "medium": "Nail",
-      "easy": "Tool"
+      "hard": "Salt and pepper shakers",
+      "medium": "Measuring cup",
+      "easy": "Racket"
     },
     "image_classes": [
       "Food",
@@ -42453,9 +42453,9 @@
     "question_id": 37318,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Horizontal bar",
-      "medium": "Brown bear",
-      "easy": "Apple"
+      "hard": "Computer keyboard",
+      "medium": "Diaper",
+      "easy": "Earrings"
     },
     "image_classes": [
       "Person",
@@ -43415,9 +43415,9 @@
     "question_id": 37383,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Building",
-      "easy": "Hat"
+      "hard": "Traffic light",
+      "medium": "Tree house",
+      "easy": "Snake"
     },
     "image_classes": [
       "Traffic sign"
@@ -43428,9 +43428,9 @@
     "question_id": 37384,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Door",
-      "easy": "Frog"
+      "hard": "Traffic light",
+      "medium": "Tower",
+      "easy": "Fountain"
     },
     "image_classes": [
       "Traffic sign"
@@ -43647,9 +43647,9 @@
     "question_id": 37399,
     "answer": "Bus",
     "choices": {
-      "hard": "Seat belt",
-      "medium": "Land vehicle",
-      "easy": "Sunflower"
+      "hard": "Motorcycle",
+      "medium": "Jet ski",
+      "easy": "Couch"
     },
     "image_classes": [
       "Vehicle",
@@ -43932,9 +43932,9 @@
     "question_id": 37419,
     "answer": "Poster",
     "choices": {
-      "hard": "Sculpture",
-      "medium": "Office supplies",
-      "easy": "Flashlight"
+      "hard": "Vase",
+      "medium": "Bowl",
+      "easy": "Scale"
     },
     "image_classes": [
       "Poster"
@@ -44124,8 +44124,8 @@
     "answer": "Van",
     "choices": {
       "hard": "Limousine",
-      "medium": "Car",
-      "easy": "Boat"
+      "medium": "Taxi",
+      "easy": "Barge"
     },
     "image_classes": [
       "Bus",
@@ -44721,8 +44721,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Bicycle helmet"
+      "medium": "Computer monitor",
+      "easy": "Spoon"
     },
     "image_classes": [
       "Home appliance",
@@ -44969,9 +44969,9 @@
     "question_id": 37485,
     "answer": "Office supplies",
     "choices": {
-      "hard": "Whiteboard",
-      "medium": "Ladle",
-      "easy": "Popcorn"
+      "hard": "Gas stove",
+      "medium": "Sunglasses",
+      "easy": "Jellyfish"
     },
     "image_classes": [
       "Printer",
@@ -45136,9 +45136,9 @@
     "question_id": 37496,
     "answer": "Building",
     "choices": {
-      "hard": "Castle",
-      "medium": "Flute",
-      "easy": "Dagger"
+      "hard": "Traffic light",
+      "medium": "Unicycle",
+      "easy": "Chisel"
     },
     "image_classes": [
       "Car",
@@ -45154,9 +45154,9 @@
     "question_id": 37497,
     "answer": "Building",
     "choices": {
-      "hard": "Door handle",
-      "medium": "Ice cream",
-      "easy": "Band-aid"
+      "hard": "Billboard",
+      "medium": "Wood-burning stove",
+      "easy": "Duck"
     },
     "image_classes": [
       "Car",
@@ -45410,9 +45410,9 @@
     "question_id": 37513,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Traffic light",
-      "medium": "Traffic sign",
-      "easy": "Tent"
+      "hard": "Fountain",
+      "medium": "Fire hydrant",
+      "easy": "Jacuzzi"
     },
     "image_classes": [
       "Stop sign"
@@ -45767,9 +45767,9 @@
     "question_id": 37536,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Stop sign",
-      "easy": "Whisk"
+      "hard": "Tea",
+      "medium": "Maple",
+      "easy": "Zucchini"
     },
     "image_classes": [
       "Beer",
@@ -45784,9 +45784,9 @@
     "question_id": 37537,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Strawberry",
-      "easy": "Light switch"
+      "hard": "Tea",
+      "medium": "Hand dryer",
+      "easy": "Dessert"
     },
     "image_classes": [
       "Beer",
@@ -45937,9 +45937,9 @@
     "question_id": 37546,
     "answer": "Train",
     "choices": {
-      "hard": "Car",
-      "medium": "Land vehicle",
-      "easy": "Chicken"
+      "hard": "Unicycle",
+      "medium": "Jet ski",
+      "easy": "Trumpet"
     },
     "image_classes": [
       "Vehicle",
@@ -46048,9 +46048,9 @@
     "question_id": 37553,
     "answer": "Boat",
     "choices": {
-      "hard": "Barge",
-      "medium": "Unicycle",
-      "easy": "Heater"
+      "hard": "Submarine",
+      "medium": "Golf cart",
+      "easy": "Paper cutter"
     },
     "image_classes": [
       "Boat",
@@ -46482,9 +46482,9 @@
     "question_id": 37581,
     "answer": "Bookcase",
     "choices": {
-      "hard": "Shelf",
-      "medium": "Lamp",
-      "easy": "Plastic bag"
+      "hard": "Filing cabinet",
+      "medium": "Serving tray",
+      "easy": "Digital clock"
     },
     "image_classes": [
       "Person",
@@ -46522,9 +46522,9 @@
     "question_id": 37583,
     "answer": "Football",
     "choices": {
-      "hard": "Tennis ball",
-      "medium": "Horizontal bar",
-      "easy": "Sports equipment"
+      "hard": "Volleyball",
+      "medium": "Golf ball",
+      "easy": "Can opener"
     },
     "image_classes": [
       "Football",
@@ -46652,9 +46652,9 @@
     "question_id": 37592,
     "answer": "Football",
     "choices": {
-      "hard": "Volleyball",
-      "medium": "Ball",
-      "easy": "Drinking straw"
+      "hard": "Cricket ball",
+      "medium": "Snowboard",
+      "easy": "Headphones"
     },
     "image_classes": [
       "Football",
@@ -46767,9 +46767,9 @@
     "question_id": 37598,
     "answer": "Bus",
     "choices": {
-      "hard": "Van",
-      "medium": "Land vehicle",
-      "easy": "Rabbit"
+      "hard": "Tire",
+      "medium": "Jet ski",
+      "easy": "Blender"
     },
     "image_classes": [
       "Vehicle",
@@ -47328,9 +47328,9 @@
     "question_id": 37634,
     "answer": "Person",
     "choices": {
-      "hard": "Skull",
-      "medium": "Door handle",
-      "easy": "Sword"
+      "hard": "Seat belt",
+      "medium": "Crutch",
+      "easy": "Pillow"
     },
     "image_classes": [
       "Person",
@@ -47448,9 +47448,9 @@
     "question_id": 37641,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
-      "medium": "Airplane",
-      "easy": "Drinking straw"
+      "hard": "Jet ski",
+      "medium": "Limousine",
+      "easy": "Unicycle"
     },
     "image_classes": [
       "Boat",
@@ -47630,9 +47630,9 @@
     "question_id": 37654,
     "answer": "Office supplies",
     "choices": {
-      "hard": "Serving tray",
-      "medium": "Box",
-      "easy": "Butterfly"
+      "hard": "Flying disc",
+      "medium": "Pig",
+      "easy": "Tree"
     },
     "image_classes": [
       "Office supplies"
@@ -47768,9 +47768,9 @@
     "question_id": 37663,
     "answer": "Fashion accessory",
     "choices": {
-      "hard": "Suit",
-      "medium": "Spoon",
-      "easy": "Sock"
+      "hard": "Trousers",
+      "medium": "Picture frame",
+      "easy": "Computer monitor"
     },
     "image_classes": [
       "Person",
@@ -47789,9 +47789,9 @@
     "question_id": 37664,
     "answer": "Fashion accessory",
     "choices": {
-      "hard": "Cowboy hat",
-      "medium": "Furniture",
-      "easy": "Chicken"
+      "hard": "Briefcase",
+      "medium": "Limousine",
+      "easy": "Elephant"
     },
     "image_classes": [
       "Person",
@@ -48563,9 +48563,9 @@
     "question_id": 37711,
     "answer": "Television",
     "choices": {
-      "hard": "Corded phone",
-      "medium": "Punching bag",
-      "easy": "Scoreboard"
+      "hard": "Ipod",
+      "medium": "Spoon",
+      "easy": "Pen"
     },
     "image_classes": [
       "Sports equipment",
@@ -48992,9 +48992,9 @@
     "question_id": 37737,
     "answer": "Tin can",
     "choices": {
-      "hard": "Flowerpot",
-      "medium": "Container",
-      "easy": "Baseball bat"
+      "hard": "Picnic basket",
+      "medium": "Camera",
+      "easy": "Musical instrument"
     },
     "image_classes": [
       "Tin can"
@@ -49159,9 +49159,9 @@
     "question_id": 37748,
     "answer": "Laptop",
     "choices": {
-      "hard": "Computer monitor",
-      "medium": "Tin can",
-      "easy": "Spatula"
+      "hard": "Ipod",
+      "medium": "Piano",
+      "easy": "Sculpture"
     },
     "image_classes": [
       "Laptop",
@@ -49327,9 +49327,9 @@
     "question_id": 37758,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Swimming pool",
-      "easy": "Bear"
+      "hard": "Traffic light",
+      "medium": "Door",
+      "easy": "Dishwasher"
     },
     "image_classes": [
       "Traffic sign"
@@ -49368,9 +49368,9 @@
     "question_id": 37761,
     "answer": "Baseball glove",
     "choices": {
-      "hard": "Watch",
-      "medium": "Tiara",
-      "easy": "Sports equipment"
+      "hard": "Cowboy hat",
+      "medium": "Ski",
+      "easy": "Harp"
     },
     "image_classes": [
       "Boy",
@@ -49586,9 +49586,9 @@
     "question_id": 37775,
     "answer": "Food",
     "choices": {
-      "hard": "Shorts",
-      "medium": "Hiking equipment",
-      "easy": "Waffle"
+      "hard": "Bidet",
+      "medium": "Dagger",
+      "easy": "Boat"
     },
     "image_classes": [
       "Food",
@@ -49715,9 +49715,9 @@
     "question_id": 37784,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Volleyball",
-      "medium": "Vegetable",
-      "easy": "Flag"
+      "hard": "Stethoscope",
+      "medium": "Squash",
+      "easy": "Ostrich"
     },
     "image_classes": [
       "Person",
@@ -49730,9 +49730,9 @@
     "question_id": 37785,
     "answer": "Perfume",
     "choices": {
-      "hard": "Face powder",
-      "medium": "Cosmetics",
-      "easy": "Sewing machine"
+      "hard": "Hair spray",
+      "medium": "Glasses",
+      "easy": "Sunflower"
     },
     "image_classes": [
       "Bottle",
@@ -49887,9 +49887,9 @@
     "question_id": 37795,
     "answer": "Taxi",
     "choices": {
-      "hard": "Bus",
-      "medium": "Land vehicle",
-      "easy": "Bicycle helmet"
+      "hard": "Golf cart",
+      "medium": "Jet ski",
+      "easy": "Trousers"
     },
     "image_classes": [
       "Land vehicle",
@@ -50263,9 +50263,9 @@
     "question_id": 37819,
     "answer": "Vehicle registration plate",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Car",
-      "easy": "Helicopter"
+      "hard": "Tire",
+      "medium": "Motorcycle",
+      "easy": "Rocket"
     },
     "image_classes": [
       "Vehicle",
@@ -50923,9 +50923,9 @@
     "question_id": 37863,
     "answer": "Window",
     "choices": {
-      "hard": "Door handle",
-      "medium": "Convenience store",
-      "easy": "Jacuzzi"
+      "hard": "Porch",
+      "medium": "Office building",
+      "easy": "Beehive"
     },
     "image_classes": [
       "Cabinetry",
@@ -50942,8 +50942,8 @@
     "answer": "Van",
     "choices": {
       "hard": "Limousine",
-      "medium": "Cart",
-      "easy": "Land vehicle"
+      "medium": "Tank",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Vehicle",
@@ -51078,9 +51078,9 @@
     "question_id": 37872,
     "answer": "Alarm clock",
     "choices": {
-      "hard": "Wall clock",
-      "medium": "Mirror",
-      "easy": "Doll"
+      "hard": "Digital clock",
+      "medium": "Vase",
+      "easy": "Toaster"
     },
     "image_classes": [
       "Bottle",
@@ -51245,9 +51245,9 @@
     "question_id": 37883,
     "answer": "Football",
     "choices": {
-      "hard": "Cricket ball",
-      "medium": "Billiard table",
-      "easy": "Sports equipment"
+      "hard": "Tennis ball",
+      "medium": "Bench",
+      "easy": "Can opener"
     },
     "image_classes": [
       "Football",
@@ -51335,9 +51335,9 @@
     "question_id": 37889,
     "answer": "Football",
     "choices": {
-      "hard": "Volleyball",
-      "medium": "Ball",
-      "easy": "Beaker"
+      "hard": "Cricket ball",
+      "medium": "Snowboard",
+      "easy": "Ruler"
     },
     "image_classes": [
       "Football",
@@ -51526,9 +51526,9 @@
     "question_id": 37901,
     "answer": "Vehicle registration plate",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Auto part",
-      "easy": "Barge"
+      "hard": "Tire",
+      "medium": "Cart",
+      "easy": "Boat"
     },
     "image_classes": [
       "Car",
@@ -51541,8 +51541,8 @@
     "answer": "Vehicle registration plate",
     "choices": {
       "hard": "Seat belt",
-      "medium": "Limousine",
-      "easy": "Barge"
+      "medium": "Golf cart",
+      "easy": "Boat"
     },
     "image_classes": [
       "Car",
@@ -51638,9 +51638,9 @@
     "question_id": 37909,
     "answer": "Bottle",
     "choices": {
-      "hard": "Jug",
-      "medium": "Tableware",
-      "easy": "Lamp"
+      "hard": "Wine glass",
+      "medium": "Scissors",
+      "easy": "Violin"
     },
     "image_classes": [
       "Bottle",
@@ -51738,9 +51738,9 @@
     "question_id": 37916,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Waffle iron",
-      "easy": "Bidet"
+      "hard": "Tea",
+      "medium": "Cowboy hat",
+      "easy": "Woman"
     },
     "image_classes": [
       "Beer",
@@ -52070,9 +52070,9 @@
     "question_id": 37938,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Snowplow",
-      "medium": "Cricket ball",
-      "easy": "Table tennis racket"
+      "hard": "Harmonica",
+      "medium": "Toilet",
+      "easy": "Crown"
     },
     "image_classes": [
       "Boy",
@@ -52088,9 +52088,9 @@
     "question_id": 37939,
     "answer": "Bottle",
     "choices": {
-      "hard": "Beaker",
-      "medium": "Spice rack",
-      "easy": "Kitchenware"
+      "hard": "Waste container",
+      "medium": "Whisk",
+      "easy": "Poster"
     },
     "image_classes": [
       "Drink",
@@ -52414,9 +52414,9 @@
     "question_id": 37960,
     "answer": "Car",
     "choices": {
-      "hard": "Limousine",
-      "medium": "Helicopter",
-      "easy": "Treadmill"
+      "hard": "Bicycle wheel",
+      "medium": "Rocket",
+      "easy": "Pencil sharpener"
     },
     "image_classes": [
       "Car",
@@ -52496,9 +52496,9 @@
     "question_id": 37965,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
-      "medium": "Seat belt",
-      "easy": "Table tennis racket"
+      "hard": "Jet ski",
+      "medium": "Van",
+      "easy": "Television"
     },
     "image_classes": [
       "Boat",
@@ -53321,9 +53321,9 @@
     "question_id": 38017,
     "answer": "Laptop",
     "choices": {
-      "hard": "Computer keyboard",
-      "medium": "Table tennis racket",
-      "easy": "Lobster"
+      "hard": "Cassette deck",
+      "medium": "Sports equipment",
+      "easy": "Wall clock"
     },
     "image_classes": [
       "Laptop",
@@ -53442,9 +53442,9 @@
     "question_id": 38023,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Fire hydrant",
-      "medium": "Traffic sign",
-      "easy": "Tent"
+      "hard": "Billboard",
+      "medium": "Fire hydrant",
+      "easy": "Jacuzzi"
     },
     "image_classes": [
       "House",
@@ -53611,9 +53611,9 @@
     "question_id": 38033,
     "answer": "Sports uniform",
     "choices": {
-      "hard": "Fashion accessory",
-      "medium": "Cupboard",
-      "easy": "Flower"
+      "hard": "Swimwear",
+      "medium": "Hippopotamus",
+      "easy": "Jug"
     },
     "image_classes": [
       "Glove",
@@ -53637,9 +53637,9 @@
     "question_id": 38034,
     "answer": "Sports uniform",
     "choices": {
-      "hard": "Glove",
-      "medium": "Alarm clock",
-      "easy": "Suitcase"
+      "hard": "Glasses",
+      "medium": "Girl",
+      "easy": "Lighthouse"
     },
     "image_classes": [
       "Glove",
@@ -53781,9 +53781,9 @@
     "question_id": 38043,
     "answer": "Building",
     "choices": {
-      "hard": "Door handle",
-      "medium": "Motorcycle",
-      "easy": "Lobster"
+      "hard": "Billboard",
+      "medium": "Maple",
+      "easy": "Bust"
     },
     "image_classes": [
       "Person",
@@ -54350,9 +54350,9 @@
     "question_id": 38080,
     "answer": "Bus",
     "choices": {
-      "hard": "Taxi",
-      "medium": "Watercraft",
-      "easy": "Accordion"
+      "hard": "Unicycle",
+      "medium": "Jet ski",
+      "easy": "Vegetable"
     },
     "image_classes": [
       "Bus",
@@ -54371,9 +54371,9 @@
     "question_id": 38081,
     "answer": "Desk",
     "choices": {
-      "hard": "Sofa bed",
-      "medium": "Furniture",
-      "easy": "Marine invertebrates"
+      "hard": "Shelf",
+      "medium": "Coffeemaker",
+      "easy": "Stationary bicycle"
     },
     "image_classes": [
       "Laptop",
@@ -54627,9 +54627,9 @@
     "question_id": 38097,
     "answer": "Perfume",
     "choices": {
-      "hard": "Face powder",
-      "medium": "Personal care",
-      "easy": "Watercraft"
+      "hard": "Hair spray",
+      "medium": "Diaper",
+      "easy": "Backpack"
     },
     "image_classes": [
       "Food",
@@ -54728,8 +54728,8 @@
     "answer": "Perfume",
     "choices": {
       "hard": "Lipstick",
-      "medium": "Cosmetics",
-      "easy": "Ring binder"
+      "medium": "Glasses",
+      "easy": "Stretcher"
     },
     "image_classes": [
       "Food",
@@ -55487,9 +55487,9 @@
     "question_id": 38150,
     "answer": "Alarm clock",
     "choices": {
-      "hard": "Digital clock",
-      "medium": "Bust",
-      "easy": "Desk"
+      "hard": "Wall clock",
+      "medium": "Facial tissue holder",
+      "easy": "Shelf"
     },
     "image_classes": [
       "Clock",
@@ -55567,9 +55567,9 @@
     "question_id": 38155,
     "answer": "Car",
     "choices": {
-      "hard": "Van",
-      "medium": "Boat",
-      "easy": "Chest of drawers"
+      "hard": "Taxi",
+      "medium": "Barge",
+      "easy": "Canary"
     },
     "image_classes": [
       "Car",
@@ -55881,8 +55881,8 @@
     "answer": "Vehicle registration plate",
     "choices": {
       "hard": "Seat belt",
-      "medium": "Auto part",
-      "easy": "Barge"
+      "medium": "Cart",
+      "easy": "Boat"
     },
     "image_classes": [
       "Car",
@@ -55945,8 +55945,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Computer keyboard",
-      "easy": "Organ"
+      "medium": "Cassette deck",
+      "easy": "Torch"
     },
     "image_classes": [
       "Computer keyboard",
@@ -56148,9 +56148,9 @@
     "question_id": 38194,
     "answer": "Building",
     "choices": {
-      "hard": "Castle",
-      "medium": "Earrings",
-      "easy": "Handgun"
+      "hard": "Traffic light",
+      "medium": "Treadmill",
+      "easy": "Croissant"
     },
     "image_classes": [
       "Horse",
@@ -56553,9 +56553,9 @@
     "question_id": 38218,
     "answer": "Billboard",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Door",
-      "easy": "Fast food"
+      "hard": "Traffic light",
+      "medium": "Tower",
+      "easy": "Fox"
     },
     "image_classes": [
       "Billboard",
@@ -57019,9 +57019,9 @@
     "question_id": 38248,
     "answer": "Tin can",
     "choices": {
-      "hard": "Beaker",
-      "medium": "Chisel",
-      "easy": "Tool"
+      "hard": "Jug",
+      "medium": "Drill",
+      "easy": "Indoor rower"
     },
     "image_classes": [
       "Food",
@@ -57232,9 +57232,9 @@
     "question_id": 38263,
     "answer": "Face powder",
     "choices": {
-      "hard": "Perfume",
-      "medium": "Cream",
-      "easy": "Platter"
+      "hard": "Hair spray",
+      "medium": "Glasses",
+      "easy": "Squid"
     },
     "image_classes": [
       "Cosmetics",
@@ -57574,9 +57574,9 @@
     "question_id": 38286,
     "answer": "Taxi",
     "choices": {
-      "hard": "Ambulance",
-      "medium": "Land vehicle",
-      "easy": "Plastic bag"
+      "hard": "Van",
+      "medium": "Jet ski",
+      "easy": "Footwear"
     },
     "image_classes": [
       "Skyscraper",
@@ -57683,9 +57683,9 @@
     "question_id": 38293,
     "answer": "Table",
     "choices": {
-      "hard": "Coffee table",
-      "medium": "Bronze sculpture",
-      "easy": "Drawer"
+      "hard": "Bathroom cabinet",
+      "medium": "Microwave oven",
+      "easy": "Camel"
     },
     "image_classes": [
       "Home appliance",
@@ -57700,9 +57700,9 @@
     "question_id": 38294,
     "answer": "Table",
     "choices": {
-      "hard": "Coffee table",
-      "medium": "Pen",
-      "easy": "Squid"
+      "hard": "Bathroom cabinet",
+      "medium": "Pillow",
+      "easy": "Coin"
     },
     "image_classes": [
       "Home appliance",
@@ -58122,9 +58122,9 @@
     "question_id": 38320,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Lighthouse",
-      "easy": "Van"
+      "hard": "Traffic light",
+      "medium": "Convenience store",
+      "easy": "Chopsticks"
     },
     "image_classes": [
       "Vehicle",
@@ -58183,9 +58183,9 @@
     "question_id": 38324,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Snowman",
-      "easy": "Personal care"
+      "hard": "Traffic light",
+      "medium": "House",
+      "easy": "Flute"
     },
     "image_classes": [
       "Traffic sign"
@@ -58225,9 +58225,9 @@
     "question_id": 38327,
     "answer": "Wine",
     "choices": {
-      "hard": "Cocktail",
-      "medium": "Drink",
-      "easy": "Scorpion"
+      "hard": "Tea",
+      "medium": "Apple",
+      "easy": "Swan"
     },
     "image_classes": [
       "Beer",
@@ -58404,8 +58404,8 @@
     "answer": "Stop sign",
     "choices": {
       "hard": "Parking meter",
-      "medium": "Traffic sign",
-      "easy": "Stairs"
+      "medium": "Fire hydrant",
+      "easy": "Window"
     },
     "image_classes": [
       "Stop sign"
@@ -58713,9 +58713,9 @@
     "question_id": 38358,
     "answer": "Corded phone",
     "choices": {
-      "hard": "Mobile phone",
-      "medium": "Light switch",
-      "easy": "Punching bag"
+      "hard": "Microphone",
+      "medium": "Cassette deck",
+      "easy": "Container"
     },
     "image_classes": [
       "Flashlight",
@@ -58734,9 +58734,9 @@
     "question_id": 38359,
     "answer": "Blender",
     "choices": {
-      "hard": "Mixer",
-      "medium": "Coffee cup",
-      "easy": "Flowerpot"
+      "hard": "Food processor",
+      "medium": "Washing machine",
+      "easy": "Wall clock"
     },
     "image_classes": [
       "Blender",
@@ -59250,9 +59250,9 @@
     "question_id": 38390,
     "answer": "Man",
     "choices": {
-      "hard": "Skull",
-      "medium": "Person",
-      "easy": "Apple"
+      "hard": "Woman",
+      "medium": "Bronze sculpture",
+      "easy": "Toy"
     },
     "image_classes": [
       "Person",
@@ -59297,9 +59297,9 @@
     "question_id": 38393,
     "answer": "Snack",
     "choices": {
-      "hard": "Pretzel",
-      "medium": "Harmonica",
-      "easy": "Miniskirt"
+      "hard": "Burrito",
+      "medium": "Tree house",
+      "easy": "Stop sign"
     },
     "image_classes": [
       "Snack",
@@ -59587,9 +59587,9 @@
     "question_id": 38411,
     "answer": "Kitchen appliance",
     "choices": {
-      "hard": "Bottle",
-      "medium": "Kitchenware",
-      "easy": "French fries"
+      "hard": "Kitchen knife",
+      "medium": "Book",
+      "easy": "Vase"
     },
     "image_classes": [
       "Candle",
@@ -59697,9 +59697,9 @@
     "question_id": 38418,
     "answer": "Beer",
     "choices": {
-      "hard": "Juice",
-      "medium": "Mango",
-      "easy": "Kitchenware"
+      "hard": "Wine",
+      "medium": "Treadmill",
+      "easy": "Land vehicle"
     },
     "image_classes": [
       "Beer",
@@ -59958,9 +59958,9 @@
     "question_id": 38435,
     "answer": "Watch",
     "choices": {
-      "hard": "Glove",
-      "medium": "Fashion accessory",
-      "easy": "House"
+      "hard": "Glasses",
+      "medium": "Sports uniform",
+      "easy": "Table"
     },
     "image_classes": [
       "Clock",
@@ -59974,8 +59974,8 @@
     "answer": "Van",
     "choices": {
       "hard": "Limousine",
-      "medium": "Vehicle registration plate",
-      "easy": "Land vehicle"
+      "medium": "Bicycle wheel",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Tree",
@@ -60847,9 +60847,9 @@
     "question_id": 38490,
     "answer": "Motorcycle",
     "choices": {
-      "hard": "Bus",
-      "medium": "Land vehicle",
-      "easy": "Musical keyboard"
+      "hard": "Vehicle registration plate",
+      "medium": "Jet ski",
+      "easy": "Spice rack"
     },
     "image_classes": [
       "Vehicle",
@@ -61027,9 +61027,9 @@
     "question_id": 38501,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Door handle",
-      "easy": "Bird"
+      "hard": "Traffic light",
+      "medium": "Stairs",
+      "easy": "Ratchet"
     },
     "image_classes": [
       "Traffic sign"
@@ -61613,9 +61613,9 @@
     "question_id": 38541,
     "answer": "Snack",
     "choices": {
-      "hard": "Pretzel",
-      "medium": "Girl",
-      "easy": "Tree"
+      "hard": "Burrito",
+      "medium": "Croissant",
+      "easy": "Food processor"
     },
     "image_classes": [
       "Person",
@@ -61980,9 +61980,9 @@
     "question_id": 38565,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Snowboard",
-      "medium": "Airplane",
-      "easy": "Filing cabinet"
+      "hard": "Syringe",
+      "medium": "Rabbit",
+      "easy": "Girl"
     },
     "image_classes": [
       "Person",
@@ -62120,9 +62120,9 @@
     "question_id": 38574,
     "answer": "Laptop",
     "choices": {
-      "hard": "Computer keyboard",
+      "hard": "Computer monitor",
       "medium": "Barrel",
-      "easy": "Tea"
+      "easy": "Baked goods"
     },
     "image_classes": [
       "Laptop",
@@ -62251,9 +62251,9 @@
     "question_id": 38582,
     "answer": "Watch",
     "choices": {
-      "hard": "Glasses",
-      "medium": "Fashion accessory",
-      "easy": "Microphone"
+      "hard": "Earrings",
+      "medium": "Sports uniform",
+      "easy": "Bomb"
     },
     "image_classes": [
       "Clock",
@@ -62622,9 +62622,9 @@
     "question_id": 38606,
     "answer": "Tower",
     "choices": {
-      "hard": "Porch",
-      "medium": "Building",
-      "easy": "Syringe"
+      "hard": "Window",
+      "medium": "Stop sign",
+      "easy": "Bottle opener"
     },
     "image_classes": [
       "Tower",
@@ -62654,9 +62654,9 @@
     "question_id": 38608,
     "answer": "Office supplies",
     "choices": {
-      "hard": "Lamp",
-      "medium": "Pencil case",
-      "easy": "Drinking straw"
+      "hard": "Window blind",
+      "medium": "Tree",
+      "easy": "Tableware"
     },
     "image_classes": [
       "Office supplies"
@@ -62974,9 +62974,9 @@
     "question_id": 38628,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Convenience store",
-      "easy": "Bat"
+      "hard": "Traffic light",
+      "medium": "Lighthouse",
+      "easy": "Milk"
     },
     "image_classes": [
       "Tree",
@@ -63085,8 +63085,8 @@
     "answer": "Bottle",
     "choices": {
       "hard": "Plate",
-      "medium": "Container",
-      "easy": "Soap dispenser"
+      "medium": "Blender",
+      "easy": "Filing cabinet"
     },
     "image_classes": [
       "Drink",
@@ -63483,9 +63483,9 @@
     "question_id": 38662,
     "answer": "Boat",
     "choices": {
-      "hard": "Barge",
-      "medium": "Truck",
-      "easy": "Deer"
+      "hard": "Submarine",
+      "medium": "Cart",
+      "easy": "Slow cooker"
     },
     "image_classes": [
       "Boat",
@@ -63567,9 +63567,9 @@
     "question_id": 38667,
     "answer": "Billboard",
     "choices": {
-      "hard": "Street light",
-      "medium": "Tree house",
-      "easy": "Sock"
+      "hard": "Stop sign",
+      "medium": "Swimming pool",
+      "easy": "Pancake"
     },
     "image_classes": [
       "Person",
@@ -63583,8 +63583,8 @@
     "answer": "Billboard",
     "choices": {
       "hard": "Traffic sign",
-      "medium": "Stairs",
-      "easy": "Bed"
+      "medium": "Jacuzzi",
+      "easy": "Light switch"
     },
     "image_classes": [
       "Person",
@@ -64166,9 +64166,9 @@
     "question_id": 38707,
     "answer": "Food",
     "choices": {
-      "hard": "Medical equipment",
-      "medium": "Spoon",
-      "easy": "French fries"
+      "hard": "Musical keyboard",
+      "medium": "Face powder",
+      "easy": "Houseplant"
     },
     "image_classes": [
       "Beer",
@@ -64410,9 +64410,9 @@
     "question_id": 38722,
     "answer": "Bottle",
     "choices": {
-      "hard": "Chopsticks",
-      "medium": "Tableware",
-      "easy": "Football helmet"
+      "hard": "Salt and pepper shakers",
+      "medium": "Spatula",
+      "easy": "Countertop"
     },
     "image_classes": [
       "Food",
@@ -64562,9 +64562,9 @@
     "question_id": 38732,
     "answer": "Taxi",
     "choices": {
-      "hard": "Golf cart",
-      "medium": "Land vehicle",
-      "easy": "Shotgun"
+      "hard": "Bus",
+      "medium": "Jet ski",
+      "easy": "Microwave oven"
     },
     "image_classes": [
       "Vehicle",
@@ -64851,9 +64851,9 @@
     "question_id": 38750,
     "answer": "Watch",
     "choices": {
-      "hard": "Crown",
-      "medium": "Fashion accessory",
-      "easy": "Chime"
+      "hard": "Umbrella",
+      "medium": "Sports uniform",
+      "easy": "Stethoscope"
     },
     "image_classes": [
       "Clock",
@@ -64933,8 +64933,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Cannon"
+      "medium": "Computer monitor",
+      "easy": "Musical instrument"
     },
     "image_classes": [
       "Mobile phone"
@@ -64977,9 +64977,9 @@
     "question_id": 38758,
     "answer": "Man",
     "choices": {
-      "hard": "Boy",
-      "medium": "Lighthouse",
-      "easy": "Shark"
+      "hard": "Girl",
+      "medium": "Fireplace",
+      "easy": "Wheel"
     },
     "image_classes": [
       "Boy",
@@ -65293,9 +65293,9 @@
     "question_id": 38777,
     "answer": "Car",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Land vehicle",
-      "easy": "Billboard"
+      "hard": "Vehicle registration plate",
+      "medium": "Airplane",
+      "easy": "Chisel"
     },
     "image_classes": [
       "Land vehicle",
@@ -65384,8 +65384,8 @@
     "answer": "Bottle",
     "choices": {
       "hard": "Plate",
-      "medium": "Microwave oven",
-      "easy": "Kitchenware"
+      "medium": "Axe",
+      "easy": "Poster"
     },
     "image_classes": [
       "Drink",
@@ -65477,9 +65477,9 @@
     "question_id": 38789,
     "answer": "Kitchen appliance",
     "choices": {
-      "hard": "Blender",
-      "medium": "Pen",
-      "easy": "Deer"
+      "hard": "Tableware",
+      "medium": "Pillow",
+      "easy": "Swimwear"
     },
     "image_classes": [
       "Train",
@@ -65492,9 +65492,9 @@
     "question_id": 38790,
     "answer": "Watch",
     "choices": {
-      "hard": "Tiara",
-      "medium": "Fashion accessory",
-      "easy": "Pencil sharpener"
+      "hard": "Baseball glove",
+      "medium": "Sports uniform",
+      "easy": "Deer"
     },
     "image_classes": [
       "Clock",
@@ -65781,9 +65781,9 @@
     "question_id": 38810,
     "answer": "Boat",
     "choices": {
-      "hard": "Gondola",
-      "medium": "Truck",
-      "easy": "Trumpet"
+      "hard": "Jet ski",
+      "medium": "Cart",
+      "easy": "Palm tree"
     },
     "image_classes": [
       "Boat",
@@ -65796,9 +65796,9 @@
     "question_id": 38811,
     "answer": "Boat",
     "choices": {
-      "hard": "Barge",
-      "medium": "Motorcycle",
-      "easy": "Football"
+      "hard": "Submarine",
+      "medium": "Segway",
+      "easy": "Parrot"
     },
     "image_classes": [
       "Boat",
@@ -65968,8 +65968,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Flowerpot"
+      "medium": "Computer monitor",
+      "easy": "Jug"
     },
     "image_classes": [
       "Starfish",
@@ -66519,9 +66519,9 @@
     "question_id": 38857,
     "answer": "Coffeemaker",
     "choices": {
-      "hard": "Waffle iron",
-      "medium": "Kitchen appliance",
-      "easy": "Drawer"
+      "hard": "Oven",
+      "medium": "Gas stove",
+      "easy": "Loveseat"
     },
     "image_classes": [
       "Home appliance",
@@ -66536,9 +66536,9 @@
     "question_id": 38858,
     "answer": "Bottle",
     "choices": {
-      "hard": "Platter",
-      "medium": "Tableware",
-      "easy": "Calculator"
+      "hard": "Jug",
+      "medium": "Tripod",
+      "easy": "Paper towel"
     },
     "image_classes": [
       "Bottle"
@@ -66961,9 +66961,9 @@
     "question_id": 38885,
     "answer": "Bottle",
     "choices": {
-      "hard": "Salt and pepper shakers",
-      "medium": "Knife",
-      "easy": "Kitchenware"
+      "hard": "Saucer",
+      "medium": "Kitchen utensil",
+      "easy": "Poster"
     },
     "image_classes": [
       "Muffin",
@@ -67097,9 +67097,9 @@
     "question_id": 38893,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Ski",
-      "medium": "Bed",
-      "easy": "Snake"
+      "hard": "Ipod",
+      "medium": "Dolphin",
+      "easy": "Motorcycle"
     },
     "image_classes": [
       "Person",
@@ -67329,9 +67329,9 @@
     "question_id": 38909,
     "answer": "Skateboard",
     "choices": {
-      "hard": "Lifejacket",
-      "medium": "Sports equipment",
-      "easy": "Ostrich"
+      "hard": "Dumbbell",
+      "medium": "Can opener",
+      "easy": "Cattle"
     },
     "image_classes": [
       "Boy",
@@ -67533,9 +67533,9 @@
     "question_id": 38922,
     "answer": "High heels",
     "choices": {
-      "hard": "Sandal",
-      "medium": "Crown",
-      "easy": "Pencil case"
+      "hard": "Boot",
+      "medium": "Tiara",
+      "easy": "Bookcase"
     },
     "image_classes": [
       "Box",
@@ -68660,9 +68660,9 @@
     "question_id": 38993,
     "answer": "Bookcase",
     "choices": {
-      "hard": "Bed",
-      "medium": "Book",
-      "easy": "Harpsichord"
+      "hard": "Sofa bed",
+      "medium": "Washing machine",
+      "easy": "Tank"
     },
     "image_classes": [
       "Bookcase",
@@ -68807,9 +68807,9 @@
     "question_id": 39003,
     "answer": "Land vehicle",
     "choices": {
-      "hard": "Seat belt",
-      "medium": "Earrings",
-      "easy": "Frog"
+      "hard": "Jet ski",
+      "medium": "Bust",
+      "easy": "Croissant"
     },
     "image_classes": [
       "Land vehicle",
@@ -68823,9 +68823,9 @@
     "question_id": 39004,
     "answer": "Land vehicle",
     "choices": {
-      "hard": "Bicycle",
-      "medium": "Book",
-      "easy": "Hiking equipment"
+      "hard": "Gondola",
+      "medium": "Submarine sandwich",
+      "easy": "Hot dog"
     },
     "image_classes": [
       "Land vehicle",
@@ -69052,9 +69052,9 @@
     "question_id": 39019,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Porch",
-      "easy": "Panda"
+      "hard": "Traffic light",
+      "medium": "Castle",
+      "easy": "Bathtub"
     },
     "image_classes": [
       "Car",
@@ -69115,9 +69115,9 @@
     "question_id": 39023,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Fountain",
-      "medium": "Traffic sign",
-      "easy": "Lighthouse"
+      "hard": "Street light",
+      "medium": "Fountain",
+      "easy": "Tent"
     },
     "image_classes": [
       "Fire hydrant",
@@ -69253,9 +69253,9 @@
     "question_id": 39032,
     "answer": "Table",
     "choices": {
-      "hard": "Desk",
-      "medium": "Bust",
-      "easy": "Scoreboard"
+      "hard": "Cabinetry",
+      "medium": "Dishwasher",
+      "easy": "Waffle"
     },
     "image_classes": [
       "Cabinetry",
@@ -69303,9 +69303,9 @@
     "question_id": 39035,
     "answer": "Airplane",
     "choices": {
-      "hard": "Rocket",
-      "medium": "Golf cart",
-      "easy": "Treadmill"
+      "hard": "Helicopter",
+      "medium": "Seat belt",
+      "easy": "Parachute"
     },
     "image_classes": [
       "Vehicle",
@@ -69319,9 +69319,9 @@
     "question_id": 39036,
     "answer": "Bus",
     "choices": {
-      "hard": "Wheel",
-      "medium": "Land vehicle",
-      "easy": "Chest of drawers"
+      "hard": "Limousine",
+      "medium": "Jet ski",
+      "easy": "Miniskirt"
     },
     "image_classes": [
       "Tree",
@@ -69403,9 +69403,9 @@
     "question_id": 39040,
     "answer": "Measuring cup",
     "choices": {
-      "hard": "Whisk",
-      "medium": "Spice rack",
-      "easy": "Pillow"
+      "hard": "Cutting board",
+      "medium": "Drill",
+      "easy": "Accordion"
     },
     "image_classes": [
       "Teapot",
@@ -69585,9 +69585,9 @@
     "question_id": 39050,
     "answer": "Kettle",
     "choices": {
-      "hard": "Blender",
-      "medium": "Snowman",
-      "easy": "Starfish"
+      "hard": "Hair dryer",
+      "medium": "Wall clock",
+      "easy": "Guitar"
     },
     "image_classes": [
       "Blender",
@@ -69709,9 +69709,9 @@
     "question_id": 39058,
     "answer": "Land vehicle",
     "choices": {
-      "hard": "Auto part",
-      "medium": "Harpsichord",
-      "easy": "Couch"
+      "hard": "Submarine",
+      "medium": "Dishwasher",
+      "easy": "Horizontal bar"
     },
     "image_classes": [
       "Land vehicle",
@@ -69723,9 +69723,9 @@
     "question_id": 39059,
     "answer": "Land vehicle",
     "choices": {
-      "hard": "Van",
-      "medium": "Hamster",
-      "easy": "Pencil sharpener"
+      "hard": "Helicopter",
+      "medium": "Doughnut",
+      "easy": "Teddy bear"
     },
     "image_classes": [
       "Land vehicle",
@@ -69863,9 +69863,9 @@
     "question_id": 39067,
     "answer": "Taxi",
     "choices": {
-      "hard": "Limousine",
-      "medium": "Land vehicle",
-      "easy": "Sofa bed"
+      "hard": "Golf cart",
+      "medium": "Jet ski",
+      "easy": "Scissors"
     },
     "image_classes": [
       "Vehicle",
@@ -69969,8 +69969,8 @@
     "answer": "Car",
     "choices": {
       "hard": "Auto part",
-      "medium": "Land vehicle",
-      "easy": "Wine rack"
+      "medium": "Jet ski",
+      "easy": "Bear"
     },
     "image_classes": [
       "Vehicle",
@@ -70030,9 +70030,9 @@
     "question_id": 39077,
     "answer": "Toaster",
     "choices": {
-      "hard": "Coffeemaker",
-      "medium": "Whiteboard",
-      "easy": "Vehicle"
+      "hard": "Heater",
+      "medium": "Stapler",
+      "easy": "Sombrero"
     },
     "image_classes": [
       "Fast food",
@@ -70070,9 +70070,9 @@
     "question_id": 39079,
     "answer": "Helicopter",
     "choices": {
-      "hard": "Airplane",
-      "medium": "Seat belt",
-      "easy": "Stairs"
+      "hard": "Rocket",
+      "medium": "Bicycle wheel",
+      "easy": "Wine"
     },
     "image_classes": [
       "Vehicle",
@@ -70086,9 +70086,9 @@
     "question_id": 39080,
     "answer": "Helicopter",
     "choices": {
-      "hard": "Airplane",
-      "medium": "Submarine",
-      "easy": "Crab"
+      "hard": "Rocket",
+      "medium": "Car",
+      "easy": "Kitchenware"
     },
     "image_classes": [
       "Vehicle",
@@ -70330,9 +70330,9 @@
     "question_id": 39095,
     "answer": "Computer keyboard",
     "choices": {
-      "hard": "Laptop",
-      "medium": "Roller skates",
-      "easy": "Perfume"
+      "hard": "Remote control",
+      "medium": "Chime",
+      "easy": "Lobster"
     },
     "image_classes": [
       "Laptop",
@@ -70380,9 +70380,9 @@
     "question_id": 39098,
     "answer": "Office supplies",
     "choices": {
-      "hard": "Wok",
-      "medium": "Poster",
-      "easy": "Snowman"
+      "hard": "Drawer",
+      "medium": "Harpsichord",
+      "easy": "Dessert"
     },
     "image_classes": [
       "Office supplies"
@@ -70534,9 +70534,9 @@
     "question_id": 39108,
     "answer": "Bicycle wheel",
     "choices": {
-      "hard": "Bicycle",
-      "medium": "Football helmet",
-      "easy": "Helicopter"
+      "hard": "Train",
+      "medium": "Car",
+      "easy": "Kitchen utensil"
     },
     "image_classes": [
       "Bicycle",
@@ -70994,9 +70994,9 @@
     "question_id": 39136,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Fountain",
-      "medium": "Traffic sign",
-      "easy": "Lighthouse"
+      "hard": "Street light",
+      "medium": "Fire hydrant",
+      "easy": "Convenience store"
     },
     "image_classes": [
       "Stop sign"
@@ -71120,8 +71120,8 @@
     "question_id": 39144,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Jacuzzi",
+      "hard": "Traffic light",
+      "medium": "Building",
       "easy": "Wood-burning stove"
     },
     "image_classes": [
@@ -71723,9 +71723,9 @@
     "question_id": 39183,
     "answer": "Poster",
     "choices": {
-      "hard": "Window blind",
-      "medium": "Office supplies",
-      "easy": "Fish"
+      "hard": "Sculpture",
+      "medium": "Bowl",
+      "easy": "Missile"
     },
     "image_classes": [
       "Poster"
@@ -72109,9 +72109,9 @@
     "question_id": 39207,
     "answer": "Beer",
     "choices": {
-      "hard": "Coffee",
-      "medium": "Marine invertebrates",
-      "easy": "Coffee table"
+      "hard": "Cocktail",
+      "medium": "Microwave oven",
+      "easy": "Poster"
     },
     "image_classes": [
       "Beer",
@@ -72421,9 +72421,9 @@
     "question_id": 39227,
     "answer": "Building",
     "choices": {
-      "hard": "Porch",
-      "medium": "Mango",
-      "easy": "Burrito"
+      "hard": "Traffic sign",
+      "medium": "Pear",
+      "easy": "Coffee cup"
     },
     "image_classes": [
       "Person",
@@ -72566,9 +72566,9 @@
     "question_id": 39237,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Skyscraper",
-      "easy": "Handbag"
+      "hard": "Traffic light",
+      "medium": "Snowman",
+      "easy": "Invertebrate"
     },
     "image_classes": [
       "Bus",
@@ -73385,9 +73385,9 @@
     "question_id": 39289,
     "answer": "Taxi",
     "choices": {
-      "hard": "Van",
-      "medium": "Jet ski",
-      "easy": "Fish"
+      "hard": "Train",
+      "medium": "Helicopter",
+      "easy": "Oboe"
     },
     "image_classes": [
       "Land vehicle",
@@ -73614,9 +73614,9 @@
     "question_id": 39303,
     "answer": "Girl",
     "choices": {
-      "hard": "Woman",
-      "medium": "Animal",
-      "easy": "Watermelon"
+      "hard": "Man",
+      "medium": "Stapler",
+      "easy": "Ring binder"
     },
     "image_classes": [
       "Person",
@@ -73667,9 +73667,9 @@
     "question_id": 39306,
     "answer": "Sports equipment",
     "choices": {
-      "hard": "Whisk",
-      "medium": "Tennis ball",
-      "easy": "Radish"
+      "hard": "Kitchen utensil",
+      "medium": "Syringe",
+      "easy": "Filing cabinet"
     },
     "image_classes": [
       "Person",
@@ -73898,9 +73898,9 @@
     "question_id": 39320,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Door",
-      "easy": "Ratchet"
+      "hard": "Traffic light",
+      "medium": "Tower",
+      "easy": "Ambulance"
     },
     "image_classes": [
       "Traffic sign"
@@ -74732,9 +74732,9 @@
     "question_id": 39372,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Stairs",
-      "easy": "Shirt"
+      "hard": "Traffic light",
+      "medium": "Window",
+      "easy": "Spatula"
     },
     "image_classes": [
       "Billboard",
@@ -74947,8 +74947,8 @@
     "answer": "Mobile phone",
     "choices": {
       "hard": "Corded phone",
-      "medium": "Telephone",
-      "easy": "Stethoscope"
+      "medium": "Computer monitor",
+      "easy": "Screwdriver"
     },
     "image_classes": [
       "Mobile phone",
@@ -75053,8 +75053,8 @@
     "answer": "Van",
     "choices": {
       "hard": "Limousine",
-      "medium": "Tire",
-      "easy": "Land vehicle"
+      "medium": "Unicycle",
+      "easy": "Jet ski"
     },
     "image_classes": [
       "Vehicle",
@@ -75156,9 +75156,9 @@
     "question_id": 39396,
     "answer": "Baseball glove",
     "choices": {
-      "hard": "Glove",
-      "medium": "Tie",
-      "easy": "Trombone"
+      "hard": "Cricket ball",
+      "medium": "Umbrella",
+      "easy": "Waste container"
     },
     "image_classes": [
       "Person",
@@ -75192,9 +75192,9 @@
     "question_id": 39398,
     "answer": "Computer keyboard",
     "choices": {
-      "hard": "Laptop",
-      "medium": "Bomb",
-      "easy": "Fashion accessory"
+      "hard": "Remote control",
+      "medium": "Drinking straw",
+      "easy": "Bull"
     },
     "image_classes": [
       "Laptop",
@@ -75488,9 +75488,9 @@
     "question_id": 39416,
     "answer": "Cat",
     "choices": {
-      "hard": "Jaguar",
-      "medium": "Carnivore",
-      "easy": "Worm"
+      "hard": "Bear",
+      "medium": "Koala",
+      "easy": "Marine invertebrates"
     },
     "image_classes": [
       "Laptop",
@@ -75644,9 +75644,9 @@
     "question_id": 39424,
     "answer": "Convenience store",
     "choices": {
-      "hard": "Tower",
-      "medium": "Building",
-      "easy": "Cake"
+      "hard": "Tree house",
+      "medium": "Stop sign",
+      "easy": "Perfume"
     },
     "image_classes": [
       "Person",
@@ -76319,9 +76319,9 @@
     "question_id": 39466,
     "answer": "Beaker",
     "choices": {
-      "hard": "Barrel",
-      "medium": "Kitchen utensil",
-      "easy": "Sports equipment"
+      "hard": "Jug",
+      "medium": "Flashlight",
+      "easy": "Bowling equipment"
     },
     "image_classes": [
       "Measuring cup",
@@ -76348,9 +76348,9 @@
     "question_id": 39468,
     "answer": "Wall clock",
     "choices": {
-      "hard": "Alarm clock",
-      "medium": "Clock",
-      "easy": "Waffle iron"
+      "hard": "Digital clock",
+      "medium": "Bed",
+      "easy": "Teapot"
     },
     "image_classes": [
       "Clock",
@@ -76441,9 +76441,9 @@
     "question_id": 39474,
     "answer": "Beer",
     "choices": {
-      "hard": "Wine",
-      "medium": "Nail",
-      "easy": "Taco"
+      "hard": "Tea",
+      "medium": "Tie",
+      "easy": "Pasta"
     },
     "image_classes": [
       "Beer",
@@ -76696,9 +76696,9 @@
     "question_id": 39490,
     "answer": "Convenience store",
     "choices": {
-      "hard": "Door handle",
-      "medium": "Building",
-      "easy": "Kitchen knife"
+      "hard": "Stairs",
+      "medium": "Stop sign",
+      "easy": "Coffeemaker"
     },
     "image_classes": [
       "Vehicle",
@@ -76753,9 +76753,9 @@
     "question_id": 39494,
     "answer": "Taxi",
     "choices": {
-      "hard": "Seat belt",
-      "medium": "Land vehicle",
-      "easy": "Ice cream"
+      "hard": "Unicycle",
+      "medium": "Jet ski",
+      "easy": "Screwdriver"
     },
     "image_classes": [
       "Person",
@@ -76862,9 +76862,9 @@
     "question_id": 39500,
     "answer": "Oven",
     "choices": {
-      "hard": "Refrigerator",
-      "medium": "Mixing bowl",
-      "easy": "Chest of drawers"
+      "hard": "Blender",
+      "medium": "Drinking straw",
+      "easy": "Mirror"
     },
     "image_classes": [
       "Bus",
@@ -77286,9 +77286,9 @@
     "question_id": 39527,
     "answer": "Poster",
     "choices": {
-      "hard": "Digital clock",
-      "medium": "Office supplies",
-      "easy": "Burrito"
+      "hard": "Cabinetry",
+      "medium": "Bowl",
+      "easy": "Harp"
     },
     "image_classes": [
       "Vehicle registration plate",
@@ -77344,9 +77344,9 @@
     "question_id": 39531,
     "answer": "Volleyball",
     "choices": {
-      "hard": "Football",
-      "medium": "Ball",
-      "easy": "Tablet computer"
+      "hard": "Cricket ball",
+      "medium": "Snowboard",
+      "easy": "Harpsichord"
     },
     "image_classes": [
       "Shorts",
@@ -77560,9 +77560,9 @@
     "question_id": 39545,
     "answer": "Table",
     "choices": {
-      "hard": "Coffee table",
-      "medium": "Ladle",
-      "easy": "Poster"
+      "hard": "Bathroom cabinet",
+      "medium": "Plate",
+      "easy": "Sunflower"
     },
     "image_classes": [
       "Person",
@@ -77815,9 +77815,9 @@
     "question_id": 39560,
     "answer": "Door",
     "choices": {
-      "hard": "Door handle",
-      "medium": "Skyscraper",
-      "easy": "Building"
+      "hard": "Porch",
+      "medium": "Convenience store",
+      "easy": "Stop sign"
     },
     "image_classes": [
       "Cabinetry",
@@ -77848,9 +77848,9 @@
     "question_id": 39562,
     "answer": "Tin can",
     "choices": {
-      "hard": "Picnic basket",
-      "medium": "Container",
-      "easy": "Harmonica"
+      "hard": "Flowerpot",
+      "medium": "Camera",
+      "easy": "Banjo"
     },
     "image_classes": [
       "Food",
@@ -77939,9 +77939,9 @@
     "question_id": 39568,
     "answer": "Stop sign",
     "choices": {
-      "hard": "Fountain",
-      "medium": "Traffic sign",
-      "easy": "Swimming pool"
+      "hard": "Street light",
+      "medium": "Fire hydrant",
+      "easy": "Door"
     },
     "image_classes": [
       "Vehicle",
@@ -78039,9 +78039,9 @@
     "question_id": 39575,
     "answer": "Scoreboard",
     "choices": {
-      "hard": "Snowboard",
-      "medium": "Chopsticks",
-      "easy": "Television"
+      "hard": "Ski",
+      "medium": "Rifle",
+      "easy": "Rays and skates"
     },
     "image_classes": [
       "Scoreboard",
@@ -78336,9 +78336,9 @@
     "question_id": 39594,
     "answer": "Traffic sign",
     "choices": {
-      "hard": "Stop sign",
-      "medium": "Building",
-      "easy": "Plastic bag"
+      "hard": "Traffic light",
+      "medium": "Tree house",
+      "easy": "Grapefruit"
     },
     "image_classes": [
       "Traffic sign"
@@ -78349,9 +78349,9 @@
     "question_id": 39595,
     "answer": "Taxi",
     "choices": {
-      "hard": "Van",
-      "medium": "Helicopter",
-      "easy": "Bowl"
+      "hard": "Train",
+      "medium": "Rocket",
+      "easy": "Binoculars"
     },
     "image_classes": [
       "Bus",
