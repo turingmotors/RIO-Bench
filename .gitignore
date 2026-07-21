@@ -1,7 +1,11 @@
 data/
+data_patches/
+data_validation/
 outputs/
+output/
 unsloth_compiled_cache/
 wandb/
+notebooks/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

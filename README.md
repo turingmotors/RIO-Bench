@@ -1,7 +1,7 @@
-# Read or Ignore? A Unified Benchmark for Typographic-Attack Robustness and Text Recognition in Vision-Language Models
+# [ECCV 2026] Read or Ignore? A Unified Benchmark for Typographic-Attack Robustness and Text Recognition in Vision-Language Models
 
 
-[![arXiv](https://img.shields.io/badge/arXiv-2401.12345-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2512.11899)
+[![arXiv](https://img.shields.io/badge/arXiv-2512.11899-b31b1b?style=flat-square&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2512.11899)
 [![Project](https://img.shields.io/badge/Project-Website-111111?style=flat-square)](https://turingmotors.github.io/rio-vqa/)
 [![HF](https://img.shields.io/badge/Hugging%20Face-Datasets-FFD21E?style=flat-square&logo=huggingface&logoColor=000)](https://huggingface.co/datasets/turing-motors/RIO-Bench)
 
