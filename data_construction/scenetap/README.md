@@ -56,7 +56,9 @@ python chatgpt_test.py \
   --log_dir logs
 ```
 
-For additional details, refer to `scripts/chatgpt_test.sh`.
+For additional details, refer to `scripts/chatgpt_test.sh` (RIO-Bench obj-attack: `mc_hard__scenetap`)
+and `scripts/chatgpt_test_text_attack.sh` (RIO-Bench txt-attack: `oe_hard__scenetap`), which differ only
+in `--dataset_name` / `--clean_base_dataset`.
 
 ### Data Format
 
